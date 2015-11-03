@@ -1,0 +1,5 @@
+state	resId	time	skillId1	level1	skillId2	level2	skillId3	level3	skillId4	level4	skillId5	level5	currHp	broadcast
+状态	外型Id	持续时间(秒)	技能1	等级1	技能2	等级2	技能3	等级3	技能4	等级4	技能5	等级5	变身当前血量	广播
+1	20106	1	16001	1	16002	1	16003	1					-1	
+2	20105	12	16004	1	16005	1							1000	小红帽出现了,快杀死她！\n
+3	20107	24	16006	1	16007	1	16008	1					-1	狼来了！\n

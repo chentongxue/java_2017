@@ -1,0 +1,5 @@
+multiple	attriType	moneyMultiple	btnName
+倍率	货币属性ID	消耗货币倍数	按钮名称
+100		0	免费领取
+200	5	1	金币领取
+300	4	1	元宝领取

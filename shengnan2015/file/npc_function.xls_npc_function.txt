@@ -1,0 +1,7 @@
+npcId	functionName	commandId	param	cdtFaction
+npc模板ID	功能名称	命令ID技术填写	参数\n技术填写	限制条件-公会
+01n117	进入拍卖行	858		
+01n159	参与封神榜	3859		
+01n029	查看封神榜	3857		
+				
+01n001	章节副本	270		

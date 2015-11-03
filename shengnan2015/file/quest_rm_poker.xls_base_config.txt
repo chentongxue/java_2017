@@ -1,0 +1,2 @@
+minLevel	maxTimes	refreshGold	describe
+开启等级	每日最大轮数	刷新消耗元宝	说明

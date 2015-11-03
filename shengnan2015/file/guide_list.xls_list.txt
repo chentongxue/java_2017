@@ -1,0 +1,2 @@
+id	conditionType	param
+引导id	触发条件	触发参数（触发条件对应的值）\n或关系用,号分割

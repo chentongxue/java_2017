@@ -1,0 +1,37 @@
+public abstract class B{  
+     public void execute(){   
+            getConnection();    
+            doCRUD();    
+            releaseConnection();    
+        }    
+  
+      public abstract void doCRUD();  
+  
+      public void getConnection(){    
+            System.out.println("获得连接...");    
+        }    
+            
+        public void releaseConnection(){    
+            System.out.println("释放连接...");    
+        }    
+}  
+  
+public class A extends B{  
+    public void doCRUD(){    
+          System.out.println("执行add操作...");    
+     }    
+  
+     public void add(){    
+             doCRUD();  
+        }    
+}  
+  
+public class C extends B{  
+    public void doCRUD(){    
+          System.out.println("执行delete操作...");    
+     }    
+  
+     public void delete(){    
+             doCRUD();  
+        }
+ }

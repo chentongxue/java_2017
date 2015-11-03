@@ -1,0 +1,2 @@
+id	bindMoney	gameMoneyMin	gameMoneyMax	goods1	num1	bindType1	goods2	num2	bindType2	goods3	num3	bindType3	goods4	num4	bindType4	broadcastInfo
+id	绑金	金钱下限	金钱上限	物品1	数量1	是否绑定	物品2	数量2	是否绑定	物品3	数量3	是否绑定	物品4	数量4	是否绑定	物品广播内容

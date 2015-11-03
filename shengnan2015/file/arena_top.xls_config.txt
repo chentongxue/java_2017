@@ -1,0 +1,3 @@
+mapId	buffId1	buffId2	interval	topRank	maxRoleNum
+地图ID	进入地图buff1	进入地图buff2	广播战况间隔\n单位:秒	广播战况名次	最大参赛人数\n1.当天1v1进入前10名者\n2.当前赛季积累总份前30名
+01_dss_dashisai	9107	9108	60	3	40

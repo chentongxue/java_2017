@@ -1,0 +1,2 @@
+questId	dramaId	mapId	type
+任务id	剧情id	地图id	触发时刻

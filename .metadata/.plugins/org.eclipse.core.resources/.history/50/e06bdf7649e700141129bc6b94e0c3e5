@@ -1,0 +1,51 @@
+package a_shengnan.a_mianshi.wm.excutor;
+
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.Executor;
+
+public class MyExcutor implements Executor{
+	private final Queue<Runnable> tasks = new ArrayDeque<Runnable>();
+	private final Executor executor;
+	private Runnable active;
+	public MyExcutor(Executor executor){
+		this.executor = executor;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public synchronized void execute(final Runnable command) {
+		tasks.offer(new Runnable() {
+			
+			@Override
+			public void run() {
+				try {
+					command.run();
+				} finally {
+					scheduleNext();
+				}
+				
+			}
+		});
+		
+	}
+	protected synchronized void scheduleNext() {
+		if((active = tasks.poll()) != null){
+			executor.execute(active);
+		}
+		
+	}
+	public void display(){
+		if(tasks.isEmpty()){
+			System.out.println("this is null");
+		}
+		for(Runnable r : tasks){
+			System.out.println(r.toString());
+		}
+	}
+
+}

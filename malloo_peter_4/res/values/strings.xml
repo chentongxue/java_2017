@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, MainActivity!</string>
+    <string name="app_name">Malloo</string>
+    <string name="main_activity_name">WELCOME</string>
+    <string name="splash_activity_text">Malloo</string>
+    <string name="splash_activity_mark">智慧摩尔</string>
+    <string name="version">Version 1.0</string>
+</resources>

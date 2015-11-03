@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="@drawable/background_a8"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+     <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:onClick="click"
+            android:text="@string/click" />
+          <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:onClick="click3"
+            android:text="@string/click3" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:onClick="click2"
+            android:text="HttpPost" />
+        
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:onClick="click4"
+            android:text="TEST" />
+    </LinearLayout>
+    <!--EditText
+        android:id="@+id/et_url"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="http://mracket.com/smap/cd2f.htm/"/-->
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/xiaomi_tost_background_100a" >
+
+        <TextView
+            android:id="@+id/tv_ap"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white" >
+        </TextView>
+    </ScrollView>
+   <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/xiaomi_tost_background_100a" >
+
+        <TextView
+            android:id="@+id/tv_re"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white" >
+        </TextView>
+    </ScrollView>
+
+
+</LinearLayout>

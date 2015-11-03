@@ -1,0 +1,4 @@
+id	minDay	maxDay	goodsId	goodsNum	bindType	startDateAbs	endDateAbs	startDateRel	endDateRel	mailSender	mailTitle	mailDesc
+奖励id	天数下限	天数上限	奖励物品id	奖励物品数量	绑定类型	开启日期	结束日期	相对开启日期(天)\n开服的第X天	相对结束日期(天)\n开服的第X天	发件人	邮件标题	邮件内容
+1	7	29	9287	1	1	2013-07-20	2013-08-30			系统	欢迎您的霸气归来	官方赠送价值1888元宝霸气回归大礼包
+2	30	1000	9288	1	1	2013-07-20	2013-08-30			系统	欢迎您的王者归来	官方赠送价值5000元宝王者回归大礼包

@@ -1,0 +1,8 @@
+level	goodsId1	goodsNum1	bindType1	goodsId2	goodsNum2	bindType2	goodsId3	goodsNum3	bindType3	goodsId4	goodsNum4	bindType4	goodsId5	goodsNum5	bindType5	goodsId6	goodsNum6	bindType6
+等级	物品ID	物品数目	绑定类型	物品ID	物品数目	绑定类型	物品ID	物品数目	绑定类型	物品ID	物品数目	绑定类型	物品ID	物品数目	绑定类型	物品ID	物品数目	绑定类型
+5	9004	1	1															
+10	9005	1	1															
+15	9006	1	1															
+20	9007	1	1															
+25	9008	1	1															
+30	9009	1	1															

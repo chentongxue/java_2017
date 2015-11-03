@@ -1,0 +1,3 @@
+count	roleNum	level
+每日加友次数	每次推送数量	相差等级
+99	8	20

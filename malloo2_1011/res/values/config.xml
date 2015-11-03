@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="serverurl">http://localhost:8080/person.json</string>
+    <string name="baidu_url">http://www.baidu.com</string>
+    <string name="wifi_url">http://10.172.40.89/LocationService.svc/</string>
+    <!-- string name="post_url">http://malloolocation.cloudapp.net/MallooLocationService.svc/GetMallooLocation</string-->
+    <string name="post_url">http://8916da0838bd4a849daa3c04ac92e6af.cloudapp.net/MallooLocationService.svc/GetMallooLocation</string>
+    <string name="url">http://www.mracket.com/smart/ms.php</string>
+    <!-- 进入的动画时间 -->
+    <string name="splash_time">2000</string>
+    <string name="scan_time">5000</string>
+    <!-- 扫描的间隔 -->
+    <string name="scan_inteval">5000</string>
+    <!-- 是否写日志到SD卡 -->
+    <string name="write_note">false</string>
+
+</resources>

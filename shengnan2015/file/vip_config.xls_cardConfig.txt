@@ -1,0 +1,6 @@
+vipLevel	desc	goodsId
+卡类型	描述	对应物品id
+1	[\C]FFFFFFFF[C]vip体验卡拥有此卡，尽显尊贵！尊享更多超凡特权！[\C]FFFFFFFF[C]	2100001
+2	[\C]FFFFFFFF[C]vip白银卡(周卡)拥有此卡，尽显尊贵！尊享[\C]FF00aeff[C]8项[\C]FFFFFFFF[C]超凡特权！	2100002
+3	[\C]FFFFFFFF[C]vip黄金卡(月卡)拥有此卡，尽显尊贵！尊享[\C]FFff0cce[C]13项[\C]FFFFFFFF[C]超凡特权！	2100003
+4	[\C]FFFFFFFF[C]vip钻石卡(年卡)拥有此卡，尽显尊贵！尊享[\C]FFffd200[C]14项[\C]FFFFFFFF[C]超凡特权！	2100004

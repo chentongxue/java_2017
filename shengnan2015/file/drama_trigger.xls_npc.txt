@@ -1,0 +1,2 @@
+npcId	mapId	dramaId	type
+npcid	地图id	剧情id	触发时刻

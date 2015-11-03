@@ -1,0 +1,3 @@
+npcId	npcName	imageId	resId	resType
+npcid	npc名	头像id	资源id	资源位置
+1	[\C]ffcc2fff[C]拉格纳罗斯[\C]ffffffff[C]	20	61008	0

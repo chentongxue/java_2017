@@ -1,0 +1,2 @@
+broadcastExMap
+不发广播地图id

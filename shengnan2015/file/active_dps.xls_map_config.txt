@@ -1,0 +1,2 @@
+activeId	mapId	broadcastText	broadcastChannel	buffId	showSize	npcIds
+活动ID	地图ID	活动结束广播内容	活动结束广播频道	避免重复发奖的buff	显示排名数	可能出现的BOSS集合

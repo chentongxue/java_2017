@@ -1,0 +1,22 @@
+priId	priType	priName	priParam0	priParam1	priParam2	priParam3	priParam4	priParam5	 priRuleDescription
+特权ID	特权类型	特权名称	参数	参数2	参数3	参数4	参数5	参数6	 特权规则说明
+1	0	priName1							 priRuleDescription1
+2	0	priName2							 priRuleDescription2
+3	0	priName3							 priRuleDescription3
+4	0	priName4							 priRuleDescription4
+5	0	priName5							 priRuleDescription5
+6	0	priName6							 priRuleDescription6
+7	0	priName7							 priRuleDescription7
+8	0	priName8							 priRuleDescription8
+9	0	priName9							 priRuleDescription9
+10	0	priName10							 priRuleDescription10
+11	0	priName11							 priRuleDescription11
+12	0	priName12							 priRuleDescription12
+13	0	priName13							 priRuleDescription13
+14	0	priName14							 priRuleDescription14
+15	0	priName15		unuse					 priRuleDescription15
+16	0	priName16							 priRuleDescription16
+17	0	priName17							 priRuleDescription17
+18	0	priName18							 priRuleDescription18
+19	0	priName19							 priRuleDescription19
+20	0	priName20							 priRuleDescription20

@@ -1,0 +1,258 @@
+mapId	mapName	smallMapResId	minTransLevel	maxTransLevel	weather	weatherTimes	showExit	npcPK	broadcastAllMax	roleCanPK
+地图ID	地图名称	小地图资源ID	传送需求最低等级\n闭区间	传送要求最高等级\n闭区间\n如果最高等级<最低等级则表示此地图不可传送\n\n最高等级，最低等级都为0标识不做限制	天气类型\n0 无\n1 雪	天气效果持续时间(单位s)\n-1 表示永久	是否显示出口\n0 否\n1 是	npc是否可PK\n0 否 \n1 是\n比较影响性能，少配置	同场景超过X人，开始按同屏转发	玩家可否PK
+01_KLS_xinshoucun	昆仑山	1000							15	
+04_KLS_xiqi	玲珑城	1001							15	
+03_KLS_jiuyouzhidi	九幽之地	1002							15	
+01_GBT_gebi	巨鹿	1004							15	
+02_GBT_xuanyuandong	轩辕洞	1005							15	
+01_CYGM_chiyoumu	蚩尤古墓	1006							15	
+02_CYGM_nanjiang	南疆	1007							15	
+03_CYGM_mengjin	孟津	1008							15	
+01_SSG_sanshanguan	三山关	1009							15	
+02_SSG_youhongguan	游魂关	1010							15	
+03_SSG_miaojiang	南极岛	1011							15	
+01_YGZC_yuanguzhanchang	远古战场	1012							15	1
+02_YGZC_zangxiangu	葬仙谷	1013							15	1
+03_YGZC_damo	大漠	1014							15	1
+01_FBSXD1_a	神霄殿一层	1015					1		15	
+02_FBSXD1_b	神霄殿二层	1015					1		15	
+03_FBSXD1_c	神霄殿三层	1015					1		15	
+04_FBSXD1_d	神霄殿四层	1015					1		15	
+05_FBSXD1_e	神霄殿五层	1015					1		15	
+06_FBSXD1_f	神霄殿六层	1015					1		15	
+07_FBSXD1_g	神霄殿七层	1015					1		15	
+08_FBSXD1_h	神霄殿八层	1015					1		15	
+09_FBSXD1_i	神霄殿九层	1015					1		15	
+01_FBQXD2_a	青宵殿一层	1016					1		15	
+02_FBQXD2_b	青宵殿二层	1016					1		15	
+03_FBQXD2_c	青宵殿三层	1016					1		15	
+04_FBQXD2_d	青宵殿四层	1016					1		15	
+05_FBQXD2_e	青宵殿五层	1016					1		15	
+06_FBQXD2_f	青宵殿六层	1016					1		15	
+07_FBQXD2_g	青宵殿七层	1016					1		15	
+08_FBQXD2_h	青宵殿八层	1016					1		15	
+09_FBQXD2_i	青宵殿九层	1016					1		15	
+01_FBBXD3_a	碧霄殿一层	1017					1		15	
+02_FBBXD3_b	碧霄殿二层	1017					1		15	
+03_FBBXD3_c	碧霄殿三层	1017					1		15	
+04_FBBXD3_d	碧霄殿四层	1017					1		15	
+05_FBBXD3_e	碧霄殿五层	1017					1		15	
+06_FBBXD3_f	碧霄殿六层	1017					1		15	
+07_FBBXD3_g	碧霄殿七层	1017					1		15	
+08_FBBXD3_h	碧霄殿八层	1017					1		15	
+09_FBBXD3_i	碧霄殿九层	1017					1		15	
+01_FBDXD4_a	丹宵殿一层	1018					1		15	
+02_FBDXD4_b	丹宵殿二层	1018					1		15	
+03_FBDXD4_c	丹宵殿三层	1018					1		15	
+04_FBDXD4_d	丹宵殿四层	1018					1		15	
+05_FBDXD4_e	丹宵殿五层	1018					1		15	
+06_FBDXD4_f	丹宵殿六层	1018					1		15	
+07_FBDXD4_g	丹宵殿七层	1018					1		15	
+08_FBDXD4_h	丹宵殿八层	1018					1		15	
+09_FBDXD4_i	丹宵殿九层	1018					1		15	
+pvp_01	封神榜	1019					1		15	
+01_FBYXD6_a	玉宵殿一层	1020					1		15	
+02_FBYXD6_b	玉宵殿二层	1020					1		15	
+03_FBYXD6_c	玉宵殿三层	1020					1		15	
+04_FBYXD6_d	玉宵殿四层	1020					1		15	
+05_FBYXD6_e	玉宵殿五层	1020					1		15	
+06_FBYXD6_f	玉宵殿六层	1020					1		15	
+07_FBYXD6_g	玉宵殿七层	1020					1		15	
+08_FBYXD6_h	玉宵殿八层	1020					1		15	
+09_FBYXD6_i	玉宵殿九层	1020					1		15	
+01_FBZXD7_a	振宵殿一层	1021					1		15	
+02_FBZXD7_b	振宵殿二层	1021					1		15	
+03_FBZXD7_c	振宵殿三层	1021					1		15	
+04_FBZXD7_d	振宵殿四层	1021					1		15	
+05_FBZXD7_e	振宵殿五层	1021					1		15	
+06_FBZXD7_f	振宵殿六层	1021					1		15	
+07_FBZXD7_g	振宵殿七层	1021					1		15	
+08_FBZXD7_h	振宵殿八层	1021					1		15	
+09_FBZXD7_i	振宵殿九层	1021					1		15	
+01_FBZXD8_a	紫宵殿一层	1022					1		15	
+02_FBZXD8_b	紫宵殿二层	1022					1		15	
+03_FBZXD8_c	紫宵殿三层	1022					1		15	
+04_FBZXD8_d	紫宵殿四层	1022					1		15	
+05_FBZXD8_e	紫宵殿五层	1022					1		15	
+06_FBZXD8_f	紫宵殿六层	1022					1		15	
+07_FBZXD8_g	紫宵殿七层	1022					1		15	
+08_FBZXD8_h	紫宵殿八层	1022					1		15	
+09_FBZXD8_i	紫宵殿九层	1022					1		15	
+pvp_02	封神殿	1018					1		15	
+pvp_03	战神殿	1018					1		15	
+01_FBTXD9_a	太宵殿一层	1023					1		15	
+02_FBTXD9_b	太宵殿二层	1023					1		15	
+03_FBTXD9_c	太宵殿三层	1023					1		15	
+04_FBTXD9_d	太宵殿四层	1023					1		15	
+05_FBTXD9_e	太宵殿五层	1023					1		15	
+06_FBTXD9_f	太宵殿六层	1023					1		15	
+07_FBTXD9_g	太宵殿七层	1023					1		15	
+08_FBTXD9_h	太宵殿八层	1023					1		15	
+09_FBTXD9_i	太宵殿九层	1023					1		15	
+03_FBSYT_01	锁妖塔第十三层	1025					1		15	
+03_FBSYT_02	锁妖塔第十四层	1025					1		15	
+03_FBSYT_03	锁妖塔第十五层	1025					1		15	
+03_FBSYT_04	锁妖塔第十六层	1025					1		15	
+03_FBSYT_05	锁妖塔第十七层	1025					1		15	
+04_FBSYT_01	锁妖塔第十九层	1026					1		15	
+04_FBSYT_02	锁妖塔第二十层	1026					1		15	
+04_FBSYT_03	锁妖塔第二十一层	1026					1		15	
+04_FBSYT_04	锁妖塔第二十二层	1026					1		15	
+04_FBSYT_05	锁妖塔第二十三层	1026					1		15	
+02_FBSYT_01	锁妖塔第七层	1027					1		15	
+02_FBSYT_02	锁妖塔第八层	1027					1		15	
+02_FBSYT_03	锁妖塔第九层	1027					1		15	
+02_FBSYT_04	锁妖塔第十层	1027					1		15	
+02_FBSYT_05	锁妖塔第十一层	1027					1		15	
+01_FBBDXG_beidouxinggong	装备副本（队）	1028					1	1	15	
+10_FBSYT_01	锁妖塔第六层	1029					1		15	
+10_FBSYT_02	锁妖塔第十二层	1029					1		15	
+10_FBSYT_03	锁妖塔第十八层	1029					1		15	
+10_FBSYT_04	锁妖塔第二十四层	1029					1		15	
+01_FBSYT_01	锁妖塔第一层	1030					1		15	
+01_FBSYT_02	锁妖塔第二层	1030					1		15	
+01_FBSYT_03	锁妖塔第三层	1030					1		15	
+01_FBSYT_04	锁妖塔第四层	1030					1		15	
+01_FBSYT_05	锁妖塔第五层	1030					1		15	
+01_FBCSS_caishenshan	财神山副本	1031					1		15	
+01_FBQLDT_qinglongdongtian	神兽副本	1033					1		15	
+01_FBKLS_kuloushan	经验副本	1036					1		15	
+01_FBBGD_baigudong	装备副本	1037					1		15	
+01_FBMWD_mowangdian	精英魔王殿	1039					1		15	
+pvp_ziyuan	世外桃源	1008					1		15	
+01_CG_zhucheng	朝歌	1040							15	
+01_BPBHLD_a	门派领地	1023					1		15	
+01_XYS_xuanyuanshan	玉虚宫	1000							15	
+02_XYS_yuxugong	西岐城	1001							15	
+03_XYS_fangcun	方寸山	1002							15	
+01_HGS_huaguoshan	九黎峰	1000							15	
+02_HGS_aolaiguo	傲莱国	1001							15	
+03_HGS_wuya	无涯国境	1002							15	
+	九尾狐逆袭									
+01_FBJAD_jinaodao	金鳌岛副本	1041					1		15	
+01_FBQXD_qixingdong	七星洞	1032					1		15	
+01_YWBDT_a	昆仑之巅	1024					0		15	
+02_YWBDT_b	镇魔古洞	1025					0		15	
+03_YWBDT_c	修罗殿	1037					0		15	
+04_YWBDT_d	青云顶	1027					0		15	
+05_YWBDT_e	天音寺	1028					0		15	
+06_YWBDT_f	流波山	1029					0		15	
+07_YWBDT_g	死灵渊	1030					0		15	
+08_YWBDT_h	蛮荒神殿	1019					0		15	
+09_YWBDT_i	阴殿	1030					0		15	
+10_YWBDT_j	阳殿	1019					0		15	
+ZYZ_zhenyingzhan01	皇城争霸战	1042	80	1			1		200	
+01_FBJXD5_a	景宵殿一层	1019					1		15	
+02_FBJXD5_b	景宵殿二层	1019					1		15	
+03_FBJXD5_c	景宵殿三层	1019					1		15	
+04_FBJXD5_d	景宵殿四层	1019					1		15	
+05_FBJXD5_e	景宵殿五层	1019					1		15	
+06_FBJXD5_f	景宵殿六层	1019					1		15	
+07_FBJXD5_g	景宵殿七层	1019					1		15	
+08_FBJXD5_h	景宵殿八层	1019					1		15	
+09_FBJXD5_i	景宵殿九层	1019					1		15	
+01_GWGC_a	保卫朝歌	1038					1		15	
+ZYZYZ_zhenyingziyuanzhan	阵营资源站	1043					1		15	
+01_FBvip_a	修仙龙穴	1035					1		15	
+										
+kls_kuloushan37	骷髅山副本	1036					1		15	
+YLXJ_youlongxianjing47	游龙仙境副本	1002					0		15	
+JL_julu57	巨鹿副本	1004					0		15	
+PLXD_penglaixiandao67	蓬莱仙岛副本	1041					0		15	
+YHM_youhongmu77	蚩尤墓副本	1006					0		15	
+01_yuanguzhanchang	坐骑副本	1012					1		15	
+NJD_nanjidao	南极岛副本	1010					0		15	
+1_xiqicheng	西岐城战场副本	1001					1		15	
+2_jiuyouzhidi	九幽战场副本	1002					1		15	
+3_julu	巨鹿战场副本	1004					1		15	
+4_xuanyuandong	轩辕洞战场副本	1005					1		15	
+5_chiyoumu	蚩尤战场副本	1006					1		15	
+6_nanjiang	南疆战场副本	1007					1		15	
+7_mengjin	孟津战场副本	1008					1		15	
+8_sanshanguan	三山关战场副本	1009					1		15	
+9_youhongguan	游魂关战场副本	1010					1		15	
+10_miaojiang	南极岛战场副本	1011					1		15	
+11_yuanguzhanchang	远古战场副本	1012					1		15	
+12_zangxiangu	葬仙谷副本	1013					1		15	
+13_damo	大漠战场副本	1014					1		15	
+01_SXFD_shenxianfudi	神仙福地	1045					1		15	
+guaji_01	东天门	1023					1		15	
+guaji_02	南天门	1023					1		15	
+guaji_03	西天门	1023					1		15	
+guaji_04	北天门	1023					1		15	
+01_FBBZS	不周山第一界	1041					1		15	
+02_FBBZS	不周山第二界	1041					1		15	
+03_FBBZS	不周山第一界	1041					1		15	
+04_FBBZS	不周山第四界	1041					1		15	
+05_FBBZS	不周山第五界	1041					1		15	
+06_FBBZS	不周山第六界	1041					1		15	
+07_FBBZS	不周山第七界	1041					1		15	
+08_FBBZS	不周山第八界	1041					1		15	
+09_FBBZS	不周山第九界	1041					1		15	
+10_FBBZS	不周山第十界	1041					1		15	
+11_FBBZS	不周山十一界	1041					1		15	
+12_FBBZS	不周山十二界	1041					1		15	
+13_FBBZS	不周山十三界	1041					1		15	
+14_FBBZS	不周山十四界	1041					1		15	
+15_FBBZS	不周山十五界	1041					1		15	
+99_FBBZS	不周山脚	1020					0		15	
+01_dss_dashisai	大师赛	1045					1		15	
+02_FBMWD_mowangdian	英雄魔王殿	1039					1		15	
+01_DLD_daluandou	枫红的树林	1048					1		15	
+HDmenpaizhan	门派战场	1047					1		15	
+ZYZ_huangcheng02	皇城	1049					0		15	
+02_FBKLS_kuloushan	经验副本	1036					1		15	
+02_FBCSS_caishenshan	财神副本	1031					1		15	
+01_XBHM_xibuhuangmo	西游降魔	1050					1	1	15	
+01_HD_zhongqiujie	蟹岛	1008					1		15	
+02_HD_guoqing	国庆岛	1016					1		15	
+03_HD_cangbaodao	神秘岛	1006					0		15	
+xiuxian01	筑基殿	1030					1		15	
+04_HD_liangshijie	桃园	1041	40	80			1		15	
+04_HD_shudong	鼠王洞	1028					1		15	
+										
+xiuxian02	开光殿	1030					1		15	
+xiuxian03	灵寂殿	1030					1	1	15	
+xiuxian04	金丹殿	1023					1		15	
+xiuxian05	元婴殿	1023					1		15	
+xiuxian06	分神殿	1023					1		15	
+xiuxian07	合体殿	1015					1		15	
+xiuxian08	渡劫殿	1015					1	1	15	
+xiuxian09	大乘殿	1015					1		15	
+01_FBCSS_caishenshan11		1031	1		1		1		15	
+02_FBCSS_caishenshan11	上古战场	1031	1		1		1		15	
+01_HYCS_huoyingceshi		1031	1		1		1		15	
+01_FBBGD_baigudong99	帝国军械库	1037	1		0		1			
+01_FBBGD_baigudong11	德玛森林	1037	1		0		1			
+01_FBBGD_baigudong22	帝国矿场	1037	1		0		1			
+01_FBBGD_baigudong33	帝国训练场	1037	1		0		1			
+01_FBBGD_baigudong44	上流酒吧	1037	1		0		1			
+01_FBBGD_baigudong55	军团禁地	1037	1		0		1			
+01_FBBGD_baigudong66	御兽场	1037	1		0		1			
+01_FBBGD_baigudong77	矿场深处	1037	1		0		1			
+01_FBBGD_baigudong88	战魂洞穴	1037	1		0		1			
+NJD_nanjidao11	咕噜噜副本	1010			1		0		15	
+01_MFLM_mofanglianmeng	魔方联盟	1049					0		15	
+01_FBBGD_baigudong991	帝国坟场	1037	1		0		1			
+01_FBBGD_baigudong992	迷雾洞窟	1037	1		0		1			
+01_FBBGD_baigudong993	王座矿山	1037	1		0		1			
+01_FBBGD_baigudong994	王族禁地	1037	1		0		1			
+01_FB_a	神霄殿一层	1015					1		15	
+02_FB_b	神霄殿二层	1015					1		15	
+03_FB_c	神霄殿三层	1015					1		15	
+04_FB_d	神霄殿四层	1015					1		15	
+05_FB_e	神霄殿五层	1015					1		15	
+06_FB_f	神霄殿六层	1015					1		15	
+07_FB_g	神霄殿七层	1015					1		15	
+08_FB_h	神霄殿八层	1015					1		15	
+09_FB_i	神霄殿九层	1015					1		15	
+10_FB_J	神宵殿十层	1015					1		15	
+01_MFSM_mofangshenmiao	魔方神庙	1015					1		15	
+01_AHDX_aihaodongxue	哀嚎洞穴	9003	1				1			
+										
+										
+										
+01_MFSM_mofangshenmiao	魔方神庙	9000	1						15	
+02_GLBJJC_gulabajingjichang	古拉巴竞技场	9001	1						15	
+01_LTS_leitingshan	雷霆山	9004	1						15	
+pvp_04	战神殿	1018					1		15	

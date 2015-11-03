@@ -1,0 +1,2 @@
+npcid	npcname	npctype	level	resid	forceId	exp	minMoney	maxMoney	bindMoney	angerValue	lootNpc	lootWorld	maxHP	maxMP	atk	rit	sacredHurt	critATKProb	speed	hurtAdd	hurtRemit	dodgeValue	hitValue	critATKValue	critRITValue	specialRIT	gossip	lockType	function	desc	funcResId	resRate
+怪物ID	怪物名称	类型	怪物级别	资源ID	势力id	经验	金钱下限	金钱上限	绑金	杀死获得气力	npc掉落索引	世界掉落索引	生命值上限	法力值上限	攻击力	防御力	神圣伤害	暴击伤害倍率	移动速度	伤害增幅	伤害减免	闪避值	命中值	暴击值	暴击抵抗值	特殊抵抗率	NPC闲话	锁定类型\n[0:默认1:自动]	功能	描述	功能npc图片id	资源缩放比例\n10=100%

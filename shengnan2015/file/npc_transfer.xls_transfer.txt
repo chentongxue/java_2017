@@ -1,0 +1,69 @@
+id	npcId	title	mapId	x	y	silver	camp	activeId	minLevel	maxLevel	openTime	day	withoutQuestIds	doingQuestIds	completeQuestIds	askTitleId	vipLevel	needGoodsId	needGoodsNum	needGoodsWay
+唯一标识	NPC模板Id	选项名称	目标地图ID	坐标x	坐标y	消耗游戏币\n银币	阵营限制\n	活动ID	角色等级下限	角色等级上限	开放时间，不填为全天开放\n例如 00:00-12:25,18:37-24:00	星期几	任务限制\n未接过的任务ID	任务限制\n正在做的任务ID	任务限制\n已完成的任务	需要称号ID	vip等级	所需物品ID	所需物品数量	所需物品方式
+1004	01n106	送我回朝歌	01_CG_zhucheng	1954	1327		0													
+1005	01n107	送我回朝歌	01_CG_zhucheng	1954	1327		1													
+1006	01n108	送我回朝歌	01_CG_zhucheng	1954	1327		2													
+1007	01n110	进入魔王殿	01_FBMWD_mowangdian	447	442		0	6												
+1008	02n110	进入魔王殿	01_FBMWD_mowangdian	384	2074		1	6												
+1009	03n110	进入魔王殿	01_FBMWD_mowangdian	4375	2185		2	6												
+1010	01n111	回到西岐城	04_KLS_xiqi	904	365		0		33											
+1011	01n112	回到玲珑城	02_XYS_yuxugong	904	365		1		33											
+1012	01n113	回到傲莱国	02_HGS_aolaiguo	904	365		2		33											
+1013	01n116	开始“保卫朝歌”	01_GWGC_a	1938	1260		-1	11												
+1014	01n128	开始“九尾狐逆袭”	01_BHD_a	1938	1260		-1	7												
+1015	01zyz01	回到玲珑城	02_XYS_yuxugong	1358	906		1													
+1016	01zyz02	回到西岐城	04_KLS_xiqi	1358	906		0													
+1017	01zyz03	回到傲莱国	02_HGS_aolaiguo	1358	906		2													
+1018	01zyz08	开始“三界资源战”	ZYZYZ_zhenyingziyuanzhan	1586	198		1	13												
+1019	01zyz08	开始“三界资源战”	ZYZYZ_zhenyingziyuanzhan	145	2924		0	13												
+1020	01zyz08	开始“三界资源战”	ZYZYZ_zhenyingziyuanzhan	2930	2752		2	13												
+1021	01n161	“神仙福地”北部入口	01_SXFD_shenxianfudi	381	259		-1		27											
+1022	01n161	“神仙福地”西部入口	01_SXFD_shenxianfudi	283	2219		-1		27											
+1023	01n161	“神仙福地”南部入口	01_SXFD_shenxianfudi	2880	2132		-1		27											
+1024	01n161	“神仙福地”东部入口	01_SXFD_shenxianfudi	2872	235		-1		27											
+1025	01n186	进入不周山第一界	01_FBBZS	1825	321		-1													
+1026	01n187	进入不周山第四界	04_FBBZS	1825	321		-1													
+1027	01n188	进入不周山第七界	07_FBBZS	1825	321		-1													
+1028	01n189	进入不周山第十界	10_FBBZS	1825	321		-1													
+1029	01n190	进入不周山十三界	13_FBBZS	1825	321		-1													
+1030	01n169	送我到不周山脚	99_FBBZS	905	660		-1													
+1031	01n170	送我到不周山脚	99_FBBZS	905	660		-1													
+1032	01n171	送我到不周山脚	99_FBBZS	905	660		-1													
+1033	01n172	送我到不周山脚	99_FBBZS	905	660		-1													
+1034	01n173	送我到不周山脚	99_FBBZS	905	660		-1													
+1035	01n174	送我到不周山脚	99_FBBZS	905	660		-1													
+1036	01n175	送我到不周山脚	99_FBBZS	905	660		-1													
+1037	01n176	送我到不周山脚	99_FBBZS	905	660		-1													
+1038	01n177	送我到不周山脚	99_FBBZS	905	660		-1													
+1039	01n178	送我到不周山脚	99_FBBZS	905	660		-1													
+1040	01n179	送我到不周山脚	99_FBBZS	905	660		-1													
+1041	01n180	送我到不周山脚	99_FBBZS	905	660		-1													
+1042	01n181	送我到不周山脚	99_FBBZS	905	660		-1													
+1043	01n182	送我到不周山脚	99_FBBZS	905	660		-1													
+1044	01n183	送我到不周山脚	99_FBBZS	905	660		-1													
+1045	01n110	进入魔王殿	02_FBMWD_mowangdian	447	442		0	22												
+1046	02n110	进入魔王殿	02_FBMWD_mowangdian	384	2074		1	22												
+1047	03n110	进入魔王殿	02_FBMWD_mowangdian	4375	2185		2	22												
+1048	01n103	进入枫红的树林	01_DLD_daluandou	1635	1175		-1	23			10:00-23:59									
+1049	01fbxbhm047	前往南瞻部洲(推荐55级:高攻)	01_XBHM_xibuhuangmo	656	1817		-1													
+1050	01fbxbhm048	前往西牛贺洲(推荐60级:高防)	01_XBHM_xibuhuangmo	2082	1868		-1													
+1051	01fbxbhm049	前往北俱芦洲(推荐65级:高闪)	01_XBHM_xibuhuangmo	2410	724		-1													
+1052	01fbxbhm050	前往东胜神州(推荐70级:高命中)	01_XBHM_xibuhuangmo	1303	651		-1													
+1053	01fbxbhm051	班师回朝	01_CG_zhucheng	1372	745		-1													
+1054	01gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11054					
+1055	02gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11064					
+1056	03gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11074					
+1057	04gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11084					
+1058	05gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11094					
+1059	06gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11104					
+1060	07gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11114					
+1061	08gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11124					
+1062	09gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11134					
+1063	10gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11144					
+1064	11gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11154					
+1065	12gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11164					
+1066	13gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11174					
+1067	14gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11184					
+1068	15gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11194					
+1069	16gcz018	奇袭入城	ZYZ_zhenyingzhan01	1935	1788		-1								11204					
+1070	01n201	送我回朝歌	01_CG_zhucheng	1372	745		-1													

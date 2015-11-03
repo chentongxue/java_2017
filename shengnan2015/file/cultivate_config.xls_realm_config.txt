@@ -1,0 +1,11 @@
+realmId	realmName	lvLimit	preRealmId	attriType	prop1	value1	prop2	value2	prop3	value3	prop4	value4	ponderNum	advanceNum	advanceFee	trainStartBC	trainMaxLevelBC	maxLevelAttrRate
+境界id	境界名	开启等级限制	开启境界的前提境界id	对于属性值类型	真元权重1	真元值1	真元权重2	真元值2	真元权重3	真元值3	真元权重4	真元值4	参悟次数	元宝参悟次数(进阶次数)	一次元宝参悟花费	开启修炼喊话	修炼满喊话	修炼满属性加成百分比
+1	筑基	45	-1	-21	1	8	1	12	1	16	1	20	3	3	20	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]成功击败{1}星宿，使自己的修仙层次步入[\C]ff1cfffc[C]{1}[\C]ffffffff[C]境界	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]{1}境界修炼圆满，额外获得该境界[\C]ff1cfffc[C]10%[\C]ffffffff[C]属性加成	11000
+2	开光	45	1	-22	1	8	1	12	1	16	1	20	3	3	30	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]成功击败{1}星宿，使自己的修仙层次步入[\C]ff1cfffc[C]{1}[\C]ffffffff[C]境界	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]{1}境界修炼圆满，额外获得该境界[\C]ff1cfffc[C]10%[\C]ffffffff[C]属性加成	11000
+3	灵寂	50	2	-23	1	8	1	12	1	16	1	20	3	3	40	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]成功击败{1}星宿，使自己的修仙层次步入[\C]ff1cfffc[C]{1}[\C]ffffffff[C]境界	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]{1}境界修炼圆满，额外获得该境界[\C]ff1cfffc[C]10%[\C]ffffffff[C]属性加成	11000
+4	金丹	50	3	-24	1	8	1	12	1	16	1	20	3	3	50	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]成功击败{1}星宿，使自己的修仙层次步入[\C]ff1cfffc[C]{1}[\C]ffffffff[C]境界	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]{1}境界修炼圆满，额外获得该境界[\C]ff1cfffc[C]10%[\C]ffffffff[C]属性加成	11000
+5	元婴	55	4	-25	1	8	1	12	1	16	1	20	3	3	60	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]成功击败{1}星宿，使自己的修仙层次步入[\C]ff1cfffc[C]{1}[\C]ffffffff[C]境界	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]{1}境界修炼圆满，额外获得该境界[\C]ff1cfffc[C]10%[\C]ffffffff[C]属性加成	11000
+6	分神	55	5	-26	1	8	1	12	1	16	1	20	3	3	70	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]成功击败{1}星宿，使自己的修仙层次步入[\C]ff1cfffc[C]{1}[\C]ffffffff[C]境界	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]{1}境界修炼圆满，额外获得该境界[\C]ff1cfffc[C]10%[\C]ffffffff[C]属性加成	11000
+7	合体	60	6	-27	1	8	1	12	1	16	1	20	3	3	80	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]成功击败{1}星宿，使自己的修仙层次步入[\C]ff1cfffc[C]{1}[\C]ffffffff[C]境界	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]{1}境界修炼圆满，额外获得该境界[\C]ff1cfffc[C]10%[\C]ffffffff[C]属性加成	11000
+8	渡劫	60	7	-28	1	8	1	12	1	16	1	20	3	3	90	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]成功击败{1}星宿，使自己的修仙层次步入[\C]ff1cfffc[C]{1}[\C]ffffffff[C]境界	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]{1}境界修炼圆满，额外获得该境界[\C]ff1cfffc[C]10%[\C]ffffffff[C]属性加成	11000
+9	大乘	65	8	-29	1	8	1	12	1	16	1	20	3	3	100	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]成功击败{1}星宿，使自己的修仙层次步入[\C]ff1cfffc[C]{1}[\C]ffffffff[C]境界	[\C]ff1cfffc[C]{0}[\C]ffffffff[C]{1}境界修炼圆满，额外获得该境界[\C]ff1cfffc[C]10%[\C]ffffffff[C]属性加成	11000

@@ -1,0 +1,3 @@
+goodsId1	goodsNum1	goodsBindType1	goodsId2	goodsNum2	goodsBindType2	goodsId3	goodsNum3	goodsBindType3	goodsId4	goodsNum4	goodsBindType4	goodsId5	goodsNum5	goodsBindType5	goodsId6	goodsNum6	goodsBindType6
+物品1	物品数1	绑定类型1	物品2	物品数2	绑定类型2	物品3	物品数3	绑定类型3	物品4	物品数4	绑定类型4	物品5	物品数5	绑定类型5	物品6	物品数6	绑定类型6
+10201	1	1	10203	1	1	71007	1	1	71040	1	1	72004	1	1			

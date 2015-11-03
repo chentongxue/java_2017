@@ -1,0 +1,17 @@
+vipLevel	vipExpMin	vipExpMax	 vipLevelUpAwardId	 vipLevelUpAwardNum	 vipLevelUpAwardBind	 vipLevelUpAwardInfo	 vipLevelUpAwardInfo1	 vipLevelUpAwardImageId	 vipDailyAwardId	 vipDailyAwardNum	vipDailyAwardBind
+VIP等级	经验值最小范围>=	经验值最大范围<	 vip升级奖励	 vip升级奖励个数	 vip升级奖励是否绑定	 vip升级奖励说明	 vip升级奖励说明	 vip升级奖励图片资源	 vip每日奖励	 vip升级奖励个数	 vip升级奖励是否绑定
+1	100	200	6000404	1	0	 vipawardinfo1	 vipawardinfo11	20001	6000404	1	0
+2	200	500	6000504	1	0	 vipawardinfo2	 vipawardinfo12	20002	6000504	1	0
+3	500	800	6000105	1	0	 vipawardinfo3	 vipawardinfo13	20003	6000105	1	0
+4	800	1000	6000205	1	0	 vipawardinfo4	 vipawardinfo14	20004	6000205	1	0
+5	1000	2000	6000305	1	0	 vipawardinfo5	 vipawardinfo15	20005	6000305	1	0
+6	2000	5000	6000405	1	0	 vipawardinfo6	 vipawardinfo16	20006	6000405	1	0
+7	5000	8000	6000505	1	0	 vipawardinfo7	 vipawardinfo17	20007	6000505	1	0
+8	8000	10000	6000404	1	0	 vipawardinfo8	 vipawardinfo18	20008	6000404	1	0
+9	10000	20000	6000504	1	0	 vipawardinfo9	 vipawardinfo19	20009	6000504	1	0
+10	20000	50000	6000105	1	0	 vipawardinfo10	 vipawardinfo20	20010	6000105	1	0
+11	50000	80000	6000205	1	0	 vipawardinfo11	 vipawardinfo21	20011	6000205	1	0
+12	80000	100000	6000305	1	0	 vipawardinfo12	 vipawardinfo22	20012	6000305	1	0
+13	100000	200000	6000405	1	0	 vipawardinfo13	 vipawardinfo23	20013	6000405	1	0
+14	200000	500000	6000505	1	0	 vipawardinfo14	 vipawardinfo24	20014	6000505	1	0
+15	500000	9500000	6000404	1	0	 vipawardinfo15	 vipawardinfo25	20015	6000404	1	0

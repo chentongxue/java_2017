@@ -1,0 +1,2 @@
+questId	registerChannel	loginChannel	vipLevel
+任务ID	注册渠道ID\n用逗号分隔	登录渠道ID\n用逗号分隔	vip等级限制\n用逗号分隔

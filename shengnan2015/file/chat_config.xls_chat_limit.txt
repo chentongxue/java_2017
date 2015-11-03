@@ -1,0 +1,8 @@
+type	spaceTime	roleLevel	goodsId
+频道类型	说话间隔时间(秒)	角色等级	消耗道具ID
+8	8	20	
+11	5		71042
+4	30	25	
+6	5		
+5	5		
+3	5		

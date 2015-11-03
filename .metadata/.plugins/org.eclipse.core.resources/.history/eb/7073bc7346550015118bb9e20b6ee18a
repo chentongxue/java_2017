@@ -1,0 +1,11 @@
+package classloader;
+
+public class Test2 {
+    private Test2(){
+    	System.out.println("¹¹Ôìº¯Êı");
+    }
+	public static void main(String[] args) {
+
+	}
+
+}

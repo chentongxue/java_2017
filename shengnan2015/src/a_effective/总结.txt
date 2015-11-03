@@ -1,0 +1,2 @@
+发生java.util.ConcurrentModificationException的例子：
+234，在for each 遍历时。在循环论试图调用remove方法

@@ -1,0 +1,11 @@
+package static_problem;
+
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String args[]){
+		TestStatic.hello();
+		System.out.println("hi");
+		System.out.println(Arrays.toString(args));
+	}
+}

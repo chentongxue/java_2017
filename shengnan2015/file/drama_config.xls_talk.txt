@@ -1,0 +1,2 @@
+id	npcId	content	imagePos	lastTime
+唯一标识	npcid	内容	头像位置	持续时间

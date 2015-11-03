@@ -1,0 +1,11 @@
+gateId	gateName	gateImageId	gateDesc	needGateId	level	gateNameImageId	proxyMoney	resetMoney	proxyBattleScore	topGoods1	topGoods2	topGoods3	first3sGoods
+关卡ID	关卡名称	关卡图片ID	关卡描述	需要完成关卡ID	等级要求	关卡名图片ID	代打消耗游戏币\n代打每层数目	重置消耗元宝	代打要求战斗力	霸主第1名奖励	霸主第2名奖励	霸主第3名奖励	首次3s奖励
+FBshenxiaodian1	神霄殿	409	击败:帝江神念		31	169	1000	50	3000	9104	9113	9122	9095
+FBqingxiaodian2	青霄殿	411	击败:句芒神念	FBshenxiaodian1	31	173	2000	50	5500	9105	9114	9123	9096
+FBbixiaodian3	碧霄殿	413	击败:蓐收神念	FBqingxiaodian2	31	177	3000	50	10000	9106	9115	9124	9097
+FBdanxiaodian4	丹霄殿	415	击败:共工神念	FBbixiaodian3	31	181	4000	50	17000	9107	9116	9125	9098
+FBjingxiaodian5	景霄殿	417	击败:祝融神念	FBdanxiaodian4	31	185	5000	50	30000	9108	9117	9126	9099
+FByuxiaodian6	玉霄殿	419	击败:天吴神念	FBjingxiaodian5	31	171	6000	50	40000	9109	9118	9127	9100
+FBzhenxiaodian7	振霄殿	421	击败:祝融神念	FByuxiaodian6	31	175	7000	50	50000	9110	9119	9128	9101
+FBzixiaodian8	紫霄殿	423	击败:天吴神念	FBzhenxiaodian7	31	179	8000	50	60000	9111	9120	9129	9102
+FBtaixiaodian9	太霄殿	425	击败:祝融神念	FBzixiaodian8	31	183	9000	50	70000	9112	9121	9130	9103

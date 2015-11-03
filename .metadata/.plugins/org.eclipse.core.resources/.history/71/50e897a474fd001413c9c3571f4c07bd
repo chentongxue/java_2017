@@ -1,0 +1,901 @@
+package org.gof.core;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.gof.core.entity.EntityBase;
+import org.gof.core.interfaces.IThreadCase;
+import org.gof.core.support.Config;
+import org.gof.core.support.Param;
+import org.gof.core.support.StepWatch;
+import org.gof.core.support.SysException;
+import org.gof.core.support.ThreadHandler;
+import org.gof.core.support.TickTimer;
+import org.gof.core.support.function.*;
+import org.gof.core.support.idAllot.IdAllotPoolBase;
+import org.gof.core.support.log.LogCore;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
+import org.quartz.impl.StdSchedulerFactory;
+import org.slf4j.Logger;
+public abstract class Port implements IThreadCase {
+	//榛樿寮傛璇锋眰閮芥槸30绉掕繃鏈�
+	public static final int DEFAULT_TIMEOUT = 30 * 1000; 
+
+	//鏃ュ織
+	private final Logger log = LogCore.core; 
+	//褰撳墠绾跨▼鐨凱ort瀹炰緥
+	private final static ThreadLocal<Port> portCurrent = new ThreadLocal<>(); 
+
+	//绾跨▼绠＄悊绫�
+	private final ThreadHandler thread;
+
+	//鎵�灞濶ode
+	private Node node;
+	//Port鍚嶇О
+	private final String portId;
+
+	//褰撳墠绾跨▼寮�濮嬫椂闂�(姣)
+	private long timeCurrent = 0; 	
+	//鍙戝嚭鐨勬渶鍚庝竴涓姹侷D鍙�
+	private long sendLastCallId = 0;
+
+	//涓嬪睘鏈嶅姟
+	private final Map<Object, Service> services = new ConcurrentHashMap<>();
+
+	//姝ｅ湪澶勭悊涓殑Call璇锋眰 鍒╃敤LinkedList鏉ユā鎷熸爤
+	private final LinkedList<Call> callHandling = new LinkedList<>();
+	//鎺ユ敹鍒板緟澶勭悊鐨勮姹�
+	private final ConcurrentLinkedQueue<Call> calls = new ConcurrentLinkedQueue<>();
+	//鎺ユ敹鍒扮殑璇锋眰杩斿洖鍊�
+	private final ConcurrentLinkedQueue<Call> callResults = new ConcurrentLinkedQueue<>();
+	//鏈蹇冭烦闇�瑕佸鐞嗙殑璇锋眰
+	private final List<Call> pulseCalls = new ArrayList<>();	
+	//鏈蹇冭烦闇�瑕佸鐞嗙殑璇锋眰杩斿洖鍊�
+	private final List<Call> pulseCallResults = new ArrayList<>();
+	//寰呭鐞嗘墽琛岄槦鍒�
+	private final ConcurrentLinkedQueue<PortPulseQueue> pulseQueues = new ConcurrentLinkedQueue<>();
+	//璁板綍蹇冭烦涓淇敼杩囩殑瀹炰綋瀵硅薄
+	private final Set<EntityBase> pulseEntityModify = new HashSet<>();
+	//蹇冭烦鏃堕棿绉掕〃
+	private final StepWatch pulseStepWatch = new StepWatch(LogCore.effect.isDebugEnabled());
+
+	//璇锋眰杩斿洖鍊肩洃鍚�
+	private final Map<Long, CallResultBase> callResultListener = new HashMap<>();
+	//璇锋眰杩斿洖鍊肩洃鍚秴鏃惰鏃跺櫒
+	private final TickTimer callReusltTimeoutCleanTimer = new TickTimer(1000);
+	//璁板綍寮傛杩斿洖闇�瑕佺殑鍘熷Call鐨勪俊鎭�
+	private final Map<Long, CallReturn> callReturnAsync = new HashMap<>();
+	//寮傛杩斿洖宸茬粡鍒嗛厤鍑哄幓鐨勬渶澶D
+	private long callReturnAsyncId = 0;	
+	
+	//浠诲姟闃熷垪璋冨害鍣�
+	public Scheduler scheduler; 
+
+	//杩滅▼璇锋眰RPC缂撳啿鍖�
+	private final Map<String, CallPulseBuffer> callFrameBuffers = new HashMap<>(); 
+
+	//ID鍒嗛厤姹�
+	private IdAllotPoolBase idPool = initIdAllotPool();
+
+	/**
+	 * 鏋勯�犲嚱鏁�
+	 * 
+	 * @param portId
+	 */
+	public Port(String portId) {
+		this.portId = portId;
+		this.thread = new ThreadHandler(this);
+	}
+
+	/**
+	 * 鑾峰彇褰撳墠绾跨▼鐨凱ort瀹炰緥
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T extends Port> T getCurrent() {
+		return (T) portCurrent.get();
+	}
+
+	/**
+	 * 鑾峰彇绯荤粺鏃堕棿
+	 * 
+	 * @return
+	 */
+	public static long getTime() {
+		return getCurrent().getTimeCurrent();
+	}
+
+	/**
+	 * 鐢宠涓�涓彲鐢ㄧ殑娴佹按ID
+	 * 
+	 * @return
+	 */
+	public static long applyId() {
+		return getCurrent().applySeqId();
+	}
+
+	/**
+	 * 寮�濮�
+	 * 
+	 * @param node
+	 */
+	public void startup(Node node) {
+		// 璁剧疆涓嶯ode鐨勫叧绯�
+		this.node = node;
+		this.node.addPort(this);
+		
+		// 鍒濆鍖杚uartz鐩稿叧鐜
+		try {
+			this.scheduler = new StdSchedulerFactory().getScheduler();
+			this.scheduler.start();
+		} catch (Exception e) {
+			throw new SysException(e);
+		}
+		
+		// 鍚姩鐙珛绾跨▼
+		this.thread.setName(toString());
+		this.thread.startup();
+		
+		//鏃ュ織
+		if(log.isInfoEnabled()) {
+			log.info("鍚姩Port={}", this);
+		}
+	}
+	
+	/**
+	 * 鏆傚仠褰撳墠鐨刾ort绾跨▼
+	 * 鐩墠鍙槸缁橬ode鏉ヨ皟鐢紝ClassLoader鏃朵娇鐢�
+	 */
+	@Deprecated
+	final void pause() {
+		if (thread == null)
+			return;
+		
+		thread.pauseT();
+	}
+	
+	/**
+	 * 鎭㈠褰撳墠绾跨▼
+	 *  鐩墠鍙槸缁橬ode鏉ヨ皟鐢紝ClassLoader鏃朵娇鐢�
+	 */
+	@Deprecated
+	final void resume() {
+		if (thread == null)
+			return;
+		
+		thread.resumeT();
+	}
+
+	/**
+	 * 缁撴潫
+	 */
+	public void stop() {
+		if (thread == null)
+			return;
+
+		// 瑙ｉ櫎涓嶯ode鐨勫叧绯�
+		this.node.delPort(this);
+		this.node = null;
+
+		// 鍋滄鐙珛绾跨▼
+		this.thread.cleanup();
+	}
+
+	/**
+	 * 蹇冭烦鎿嶄綔
+	 */
+	public final void pulse() {
+		//璁板綍涓嬪績璺冲紑濮嬫椂鐨勬椂闂存埑 渚涗箣鍚庣殑鎿嶄綔鏉ョ粺涓�鏃堕棿
+		timeCurrent = System.currentTimeMillis();
+		
+		//纭鏈績璺宠鎵ц鐨刢all鍙妑esult
+		pulseCallAffirm();
+		
+		//璁板綍涓�浜涙棩蹇楄皟璇曚俊鎭�
+		int countCall = -1;
+		int countResult = -1;
+		int countQueue = -1;
+		if(LogCore.effect.isDebugEnabled()) {
+			countCall = pulseCalls.size();
+			countResult = pulseCallResults.size();
+			countQueue = pulseQueues.size();
+			if(countCall > 1)
+				LogCore.effect.warn("callCount={}, resultCount={}, countQueue={}",
+						countCall, countResult, countQueue);
+		}
+		
+		//璁℃椂寮�濮�
+		StepWatch sw = pulseStepWatch;
+		sw.step();
+		
+		/* 鎵ц鏈績璺崇殑浠诲姟 */
+		//Call璇锋眰
+		pulseCalls();
+		sw.logTime("call");
+		
+		//澶勭悊杩斿洖鍊�
+		pulseCallResults();
+		sw.logTime("result");
+		
+		//娓呯悊瓒呮椂杩斿洖鍊肩洃鎺�
+		pulseCallResultsTimeoutClean();
+		sw.logTime("resultClean");
+		
+		//璋冪敤涓嬪睘鏈嶅姟
+		pulseSerivces();
+		sw.logTime("serivce");
+		
+		//璋冪敤port瀛愮被鐨勫績璺虫搷浣�
+		try {
+			pulseOverride();
+		} catch (Exception e) {
+			log.error("鎵ц瀛愮被pulseOverride鏂规硶閿欒", e);
+		}
+		sw.logTime("internal");
+		
+		//鎵ц绛夊緟浠诲姟闃熷垪
+		pulseQueue();
+		sw.logTime("queue");
+		
+		//鍙戦�佸疄浣撳睘鎬т慨鏀瑰彉鍖�
+		pulseEntityModifyUpdate();
+		sw.logTime("entityUpdate");
+		
+		//鍒锋柊call鍙戦�佺紦鍐插尯
+		flushCallFrameBuffers();
+		sw.logTime("buffer");
+		
+		//璁板綍涓嬫椂闂存瘮杈冮暱鐨勫績璺虫搷浣�
+		long timeFinish = System.currentTimeMillis();
+		if(timeFinish - timeCurrent >= Config.EFFECT_PLUS_LAG) {
+//		if(timeFinish - timeCurrent >= 100) {
+			LogCore.effect.warn("鏈蹇冭烦鎿嶄綔鎬绘椂闂磋緝闀匡紝杈惧埌浜唟}姣銆�"
+							+ "portName={}, callCount={}, resultCount={}, countQueue={}, time={}",this.portId,
+							timeFinish - timeCurrent, countCall, countResult, countQueue, sw.getLog(true));
+		}
+	}
+	
+	/**
+	 * 纭鏈績璺宠鎵ц鐨刢all鍙妑esult
+	 */
+	private void pulseCallAffirm() {
+		//鏈績璺宠鎵ц鐨刢all
+		while(!calls.isEmpty()) {
+			pulseCalls.add(calls.poll());
+		}
+		
+		//鏈績璺宠鎵ц鐨刢allResult
+		while(!callResults.isEmpty()) {
+			pulseCallResults.add(callResults.poll());
+		}
+	}
+
+	/**
+	 * 蹇冭烦涓鐞嗚姹�
+	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	private void pulseCalls() {
+		while(!pulseCalls.isEmpty()) {
+			// 鍥犱负涓嬮潰鐨則ry涓渶瑕佷笌鍑烘爤鍏ユ爤閰嶅悎 鎵�浠ヨ繖鍙ュ氨涓嶆斁鍦╰ry涓簡
+			Call call = pulseCalls.remove(0);
+
+			try {
+				// 鍘嬪叆鏍� 璁板綍姝ｅ湪澶勭悊鐨凜all璇锋眰
+				// 涓�鑸儏鍐典笅鏃犵敤 涓轰簡搴斿鐗规畩鎯呭喌 姣斿涓嬮潰鐨刬nvoke鎿嶄綔涓湁waitForResult鎿嶄綔
+				callHandling.addLast(call);
+
+				// 鎵цCall璇锋眰
+				Service serv = getService(call.to.servId);
+				if(serv == null) {
+					log.warn("鎵цCall闃熷垪鏃舵棤娉曟壘鍒板鐞嗘湇鍔★細call={}", call);
+				} else {
+					Object f = serv.getMethodFunction(call.methodKey);
+					Object[] m = call.methodParam;
+					switch (call.methodParam.length) {
+						case 0: ((GofFunction0) f).apply(); break;
+						case 1: ((GofFunction1) f).apply(m[0]); break;
+						case 2: ((GofFunction2) f).apply(m[0], m[1]); break;
+						case 3: ((GofFunction3) f).apply(m[0], m[1], m[2]); break;
+						case 4: ((GofFunction4) f).apply(m[0], m[1], m[2], m[3]); break;
+						case 5: ((GofFunction5) f).apply(m[0], m[1], m[2], m[3], m[4]); break;
+						case 6: ((GofFunction6) f).apply(m[0], m[1], m[2], m[3], m[4], m[5]); break;
+						case 7: ((GofFunction7) f).apply(m[0], m[1], m[2], m[3], m[4], m[5], m[6]); break;
+						case 8: ((GofFunction8) f).apply(m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7]); break;
+						case 9: ((GofFunction9) f).apply(m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8]); break;
+						case 10: ((GofFunction10) f).apply(m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8], m[9]); break;
+						case 11: ((GofFunction11) f).apply(m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8], m[9], m[10]); break;
+						case 12: ((GofFunction12) f).apply(m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8], m[9], m[10], m[11]); break;
+						default: break;
+					}
+				}
+			} catch (Exception e) {
+				// 涓嶅仛浠讳綍澶勭悊 浠呬粎璁板綍寮傚父
+				// 閬垮厤鍥犱负涓�涓换鍔＄殑鍑洪敊 閫犳垚鍚庣画鐨勪换鍔℃棤娉曠户缁墽琛� 闇�瑕佺瓑鍒颁笅涓�涓績璺�
+				log.error("鎵цCall闃熷垪鏃跺彂鐢熼敊璇�: call={}", call, e);
+			} finally {
+				// 璇锋眰澶勭悊瀹屾瘯 璁板綍鍑烘爤
+				callHandling.removeLast();
+			}
+		}
+	}
+
+	/**
+	 * 蹇冭烦涓鐞嗚姹傝繑鍥炲��
+	 */
+	private void pulseCallResults() {
+		while (!pulseCallResults.isEmpty()) {
+			try {
+				Call call = pulseCallResults.remove(0);
+
+				// 澶勭悊杩斿洖鍊�
+				CallResultBase listener = callResultListener.remove(call.id);
+				if (listener != null) {
+					listener.onResult(call);
+				} else {
+					log.error("澶勭悊Call杩斿洖鍊兼椂鏈彂鐜版帴鍙楀璞�: call={}, port={}, node={}", call, this, getNode());
+				}
+			} catch (Exception e) {
+				// 涓嶅仛浠讳綍澶勭悊 浠呬粎鎶涘嚭寮傚父
+				// 閬垮厤鍥犱负涓�涓换鍔＄殑鍑洪敊 閫犳垚鍚庣画鐨勪换鍔℃棤娉曠户缁墽琛� 闇�瑕佺瓑鍒颁笅涓�涓績璺�
+				log.error("", e);
+			}
+		}
+	}
+
+	/**
+	 * 娓呯悊瓒呮椂鐨勮繑鍥炲�肩洃鍚�
+	 */
+	private void pulseCallResultsTimeoutClean() {
+		// 闂撮殧涓�娈垫椂闂存竻鐞嗕竴娆�
+		if (!callReusltTimeoutCleanTimer.isPeriod(timeCurrent)) {
+			return;
+		}
+
+		// 瓒呮椂鐨勮繑鍥炲��
+		List<CallResultBase> timeoutResult = new ArrayList<>();
+		for (CallResultBase r : callResultListener.values()) {
+			if (!r.isTimeout()) continue;
+
+			timeoutResult.add(r);
+		}
+
+		// 鍒犻櫎瓒呮椂鐨勭洃鍚�
+		for (Iterator<CallResultBase> iter = timeoutResult.iterator(); iter.hasNext();) {
+			CallResultBase r = iter.next();
+
+			// 鍒犻櫎鐩戝惉
+			callResultListener.remove(r.getCallId());
+			try {
+				// 鎵ц娓呯悊
+				r.onTimeout();
+			} catch (Exception e) {
+				log.error("callResult瓒呮椂娓呯悊寮傚父锛宺={}", r.toString(), e);
+			}
+
+			// 鏃ュ織
+			log.error("鍙戠幇瓒呮椂鐨勮繑鍥炲�肩洃鍚�: callResult={}, port={}, node={}", r, this, getNode());
+		}
+	}
+
+	/**
+	 * 蹇冭烦涓墽琛岄槦鍒椾换鍔�
+	 */
+	private void pulseQueue() {
+		while (!pulseQueues.isEmpty()) {
+			try {
+				PortPulseQueue msg = pulseQueues.poll();
+				msg.execute(this);
+			} catch (Exception e) {
+				// 涓嶅仛浠讳綍澶勭悊 浠呬粎鎶涘嚭寮傚父
+				// 閬垮厤鍥犱负涓�涓换鍔＄殑鍑洪敊 閫犳垚鍚庣画鐨勪换鍔℃棤娉曠户缁墽琛� 闇�瑕佺瓑鍒颁笅涓�涓績璺�
+				log.error("", e);
+			}
+		}
+	}
+
+	/**
+	 * 璋冪敤涓嬪睘鏈嶅姟鐨勫績璺虫搷浣� 榛樿鍚姩鏈搷浣� 濡傛灉瀛怭ort涓嶆兂鑷姩璋冪敤鍙互瑕嗙洊鏈嚱鏁�
+	 */
+	protected void pulseSerivces() {
+		for (Service o : services.values()) {
+			try {
+				o.pulse();
+			} catch (Exception e) {
+				// 涓嶅仛浠讳綍澶勭悊 浠呬粎鎶涘嚭寮傚父
+				// 閬垮厤鍥犱负涓�涓换鍔＄殑鍑洪敊 閫犳垚鍚庣画鐨勪换鍔℃棤娉曠户缁墽琛� 闇�瑕佺瓑鍒颁笅涓�涓績璺�
+				log.error("", e);
+			}
+		}
+	}
+
+	/**
+	 * 鎻愪氦鏈蹇冭烦琚慨鏀硅繃鐨勫疄浣�
+	 */
+	private void pulseEntityModifyUpdate() {
+		// 閬嶅巻鎻愪氦
+		for (Iterator<EntityBase> iter = pulseEntityModify.iterator(); iter.hasNext();) {
+			try {
+				// 鑾峰彇骞朵粠闃熷垪涓垹闄� 閬垮厤鐢变簬閿欒閫犳垚绾跨▼闃诲
+				EntityBase e = iter.next();
+				iter.remove();
+
+				// 鎵ц鏇存柊鎻愪氦
+				e.update();
+			} catch (Exception e) {
+				// 涓嶅仛浠讳綍澶勭悊 浠呬粎鎶涘嚭寮傚父
+				// 閬垮厤鍥犱负涓�涓换鍔＄殑鍑洪敊 閫犳垚鍚庣画鐨勪换鍔℃棤娉曠户缁墽琛� 闇�瑕佺瓑鍒颁笅涓�涓績璺�
+				log.error("", e);
+			}
+		}
+	}
+
+	/**
+	 * 妗嗘灦鏁村悎RPC璇锋眰璋冪敤
+	 * 
+	 * @param fromId
+	 * @param toPoint
+	 * @param methodKey
+	 * @param methodParam
+	 */
+	public void callSeam(CallPoint toPoint, Object[] methodParam, Object... params) {
+		Call call = new Call();
+		call.id = applyCallId();
+		call.type = Call.TYPE_MIX;
+
+		call.methodParam = methodParam;
+
+		call.fromNodeId = node.getId();
+		call.fromPortId = portId;
+
+		call.to = toPoint;
+
+		call.param = new Param(params);
+
+		sendCall(call);
+	}
+
+	/**
+	 * 鍙戣捣涓�涓繙绋嬭皟鐢≧PC璇锋眰
+	 * 
+	 * @param fromId
+	 * @param toPoint
+	 * @param methodKey
+	 * @param methodParam
+	 */
+	public void call(CallPoint toPoint, int methodKey, Object[] methodParam) {
+		Call call = new Call();
+		call.id = applyCallId();
+		call.type = Call.TYPE_RPC;
+
+		call.methodKey = methodKey;
+		call.methodParam = methodParam;
+
+		call.fromNodeId = node.getId();
+		call.fromPortId = portId;
+
+		call.to = toPoint;
+
+		sendCall(call);
+	}
+
+	/**
+	 * 鍙戣捣涓�涓繙绋嬭皟鐢≧PC璇锋眰
+	 * 
+	 * @param fromId
+	 * @param toPoint
+	 * @param methodKey
+	 * @param methodParam
+	 */
+	private void sendCall(Call call) {
+		// 鐩爣鐐筃ode鍚嶇О
+		String toNodeId = call.to.nodeId;
+		
+		//鑲畾閿欒鐨刵odeId灏卞拷鐣ヤ簡
+		if(StringUtils.isBlank(toNodeId)) {
+			LogCore.core.warn("鍙戦�丆all璇锋眰澶辫触锛岄敊璇殑NodeId锛歝all={}", call);
+			
+			return;
+		}
+		
+		// 鐩爣鐐圭殑璇锋眰缂撳啿
+		CallPulseBuffer buffer = callFrameBuffers.get(toNodeId);
+
+		// 濡傛灉涔嬪墠娌℃湁缂撳啿 閭ｄ箞灏卞垵濮嬪寲涓�涓�
+		if (buffer == null) {
+			buffer = new CallPulseBuffer(toNodeId);
+			callFrameBuffers.put(toNodeId, buffer);
+		}
+
+		// 灏嗚鍙戦�佸唴瀹规斁鍏ュ彂閫佺紦鍐蹭腑
+		// 鍏堝皾璇曞啓鍏� 濡傛灉澶辫触(涓�鑸兘鏄紦鍐插墿浣欑┖闂翠笉瓒�)鍒欏厛娓呯┖缂撳啿 鍚庡啀灏濊瘯鍐欏叆
+		// 濡傛灉杩樻槸澶辫触 閭ｈ瘉鏄庢湁鍙兘鏄彂閫佸唴瀹硅繃澶� 涓嶈繘琛岀紦鍐� 鐩存帴鍙戦��
+		if (!buffer.writeCall(call)) {
+			//鏃ュ織 绗竴娆″皾璇曞啓鍏ョ紦鍐插け璐�
+			log.warn("绗竴娆″皾璇曞啓鍏ョ紦鍐插け璐ワ細bufferLen={}", buffer.getLength());
+			
+			//鍒锋柊缂撳啿鍖�
+			buffer.flush(node);
+			//鍐嶆灏濊瘯鍐欏叆缂撳啿
+			if (!buffer.writeCall(call)) {
+				//鏃ュ織 绗簩娆″皾璇曞啓鍏ョ紦鍐插け璐�
+				log.warn("绗簩娆″皾璇曞啓鍏ョ紦鍐插け璐ワ細bufferLen={}", buffer.getLength());
+				
+				node.sendCall(call);
+			}
+		}
+	}
+
+	/**
+	 * 鍒锋柊杩滅▼璋冪敤RPC缂撳啿鍖�
+	 */
+	private void flushCallFrameBuffers() {
+		for (CallPulseBuffer frameCache : callFrameBuffers.values()) {
+			try {
+				frameCache.flush(node);
+			} catch (Exception e) {
+				// 涓嶅仛浠讳綍澶勭悊 浠呬粎鎶涘嚭寮傚父
+				// 閬垮厤鍥犱负涓�涓换鍔＄殑鍑洪敊 閫犳垚鍚庣画鐨勪换鍔℃棤娉曠户缁墽琛� 闇�瑕佺瓑鍒颁笅涓�涓績璺�
+				log.error("", e);
+			}
+		}
+	}
+	
+	/**
+	 * 姣忔蹇冭烦鍙互杩涜鐨勫畾鍒舵搷浣� 渚涚户鎵縋ort鐨勫悇瀛愮被瀹炵幇
+	 */
+	protected void pulseOverride() {
+		//榛樿鏄┖瀹炵幇 鍟ヤ篃涓嶅仛
+	}
+
+	/**
+	 * 娣诲姞寰呭鐞嗚姹�
+	 * 
+	 * @param call
+	 */
+	public void addCall(Call call) {
+		calls.add(call);
+	}
+
+	/**
+	 * 娣诲姞寰呭鐞嗚姹傝繑鍥炲��
+	 * 
+	 * @param call
+	 */
+	public void addCallResult(Call call) {
+		callResults.add(call);
+	}
+
+	/**
+	 * 娣诲姞寤跺悗闃熷垪浠诲姟
+	 * 
+	 * @param msg
+	 */
+	public void addQueue(PortPulseQueue msg) {
+		pulseQueues.add(msg);
+	}
+
+	/**
+	 * 璁板綍琚慨鏀圭殑瀹炰綋瀵硅薄
+	 */
+	public void addEntityModify(EntityBase entity) {
+		pulseEntityModify.add(entity);
+	}
+
+	/**
+	 * 鑾峰彇鏈嶅姟
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends Service> T getService(Object id) {
+		return (T) services.get(id);
+	}
+
+	/**
+	 * 娣诲姞鏂版湇鍔�
+	 */
+	public void addService(Service service) {
+		services.put(service.getId(), service);
+	}
+	
+	/**
+	 * 鍒犻櫎鏈嶅姟
+	 */
+	public void delService(Object id) {
+		Service serv = services.get(id);
+		try {
+			serv.deleteSchedulerJobsByGroup(id.toString());
+		} catch (SchedulerException e) {
+			LogCore.core.error("鍒犻櫎service鏃讹紝娓呯┖璇ervice鐨剆cheduler鍑洪敊", e);
+		}
+		
+		services.remove(id);
+	}
+
+	/**
+	 * 鍒犻櫎鏈嶅姟
+	 */
+	public void delServiceBySafe(Object id) {
+		// 閬垮厤鐢变簬鍒犻櫎鏈嶅姟锛岄�犳垚蹇冭烦鍐呭悗缁搷浣滄姤閿欙紝鎵�浠ュ皢瀹為檯鍒犻櫎宸ヤ綔寤跺悗鑷充笅涓�蹇冭烦
+		this.addQueue(new PortPulseQueue(id) {
+			public void execute(Port port) {
+				Service serv = services.get(param.get());
+				if(serv == null) return ;
+				
+				//灏嗘坊鍔犲湪service涓婄殑瀹氭椂浠诲姟娓呴櫎鎺�
+				try {
+					serv.deleteSchedulerJobsByGroup(param.get().toString());
+				} catch (SchedulerException e) {
+					LogCore.core.error("鍒犻櫎service鏃讹紝娓呯┖璇ervice鐨剆cheduler鍑洪敊", e);
+				}
+				
+				port.services.remove(param.get());
+			}
+		});
+	}
+
+	public void listenResult(GofFunction2<String, String> method, Object... context) {
+		listenResult(method, new Param(context));
+	}
+	
+	public void listenResult(GofFunction3<Boolean, Param, Param> methodTimeout, Object... context) {
+		listenResult(methodTimeout, new Param(context));
+	}
+	/**
+	 * 鐩戝惉璇锋眰杩斿洖鍊�
+	 * 
+	 * @param obj
+	 * @param methodName
+	 * @param context
+	 */
+	public void listenResult(GofFunction2<Param, Param> method, Param context) {
+		//鍔犲叆涓�涓紓姝ョ洃鍚�
+		CallResultBase crb = new CallResultAsync(sendLastCallId, DEFAULT_TIMEOUT, method, context);
+		callResultListener.put(sendLastCallId, crb);
+	}
+	public void listenResult(GofFunction3<Boolean,Param, Param> method, Param context) {
+		//鍔犲叆涓�涓紓姝ョ洃鍚�
+		CallResultBase crb = new CallResultAsync(sendLastCallId, DEFAULT_TIMEOUT, method, context);
+		callResultListener.put(sendLastCallId, crb);
+	}
+
+	/**
+	 * 鍚屾绛夊緟璇锋眰杩斿洖鍊� 浠呬緵绯荤粺鍚姩绛夋瀬灏戞暟鍦烘櫙浣跨敤 浼氶樆濉炶繘绋嬫墽琛� 涓�鑸儏鍐典笅涓嶈璋冪敤
+	 * 
+	 * @param timeout
+	 * @return
+	 */
+	public Param waitForResult(long timeout) {
+		// 鍏堜富鍔ㄥ皢璇锋眰鍙戝嚭鍘�
+		flushCallFrameBuffers();
+
+		// 鍔犲叆鐩戝惉闃熷垪
+		CallResultSync crs = new CallResultSync(sendLastCallId, timeout);
+		callResultListener.put(sendLastCallId, crs);
+
+		try {
+			// 绛夊緟璇锋眰杩斿洖鎴栬秴鏃�
+			while (!crs.isCompleted() && !crs.isTimeout()) {
+				//涓诲姩浣胯姹傝繑鍥炲�肩敓鏁�
+				pulseCallAffirm();
+				pulseCalls();
+				pulseCallResults();
+				flushCallFrameBuffers();
+				// 寤惰繜10姣杩涜涓嬩竴娆℃鏌�
+				Thread.sleep(10);
+			}
+		} catch (Exception e) {
+			log.error("", e);
+		}
+
+		// 鍒犻櫎鐩戝惉
+		callResultListener.remove(sendLastCallId);
+
+		return crs.getResults();
+	}
+
+	/**
+	 * 鍚屾绛夊緟璇锋眰杩斿洖鍊� 浠呬緵绯荤粺鍚姩绛夋瀬灏戞暟鍦烘櫙浣跨敤 浼氶樆濉炶繘绋嬫墽琛� 涓�鑸儏鍐典笅涓嶈璋冪敤
+	 * 
+	 * @param timeoutTime
+	 * @return
+	 */
+	public Param waitForResult() {
+		return waitForResult(DEFAULT_TIMEOUT);
+	}
+
+	/**
+	 * 鍒涘缓涓�涓紓姝ヨ繑鍥�
+	 * 
+	 * @return
+	 */
+	public long createReturnAsync() {
+		Call call = callHandling.getLast();
+
+		// 璁板綍寮傛杩斿洖
+		long pid = applyRetrunAsyncId();
+		callReturnAsync.put(pid, call.createCallReturn());
+
+		return pid;
+	}
+
+	/**
+	 * 鐢宠涓�涓紓姝ヨ繑鍥濱D
+	 * 
+	 * @return
+	 */
+	private long applyRetrunAsyncId() {
+		return ++callReturnAsyncId;
+	}
+
+	/**
+	 * 鍙戦�佽姹傝繑鍥炲��
+	 * 
+	 * @param values
+	 */
+	public void returns(Object... values) {
+		Call call = callHandling.getLast();
+
+		returns(call.createCallReturn(), new Param(values));
+	}
+	
+	/**
+	 * 鍙戦�佽姹傝繑鍥炲��
+	 * @param callReturn
+	 * @param values
+	 */
+	public void returns(CallReturn callReturn, Object... values) {
+		returns(callReturn, new Param(values));
+	}
+
+	/**
+	 * 鍙戦�佸紓姝ヨ姹傝繑鍥炲��
+	 * 
+	 * @param rid
+	 * @param values
+	 */
+	public void returnsAsync(long rid, Object... values) {
+		CallReturn callReturn = callReturnAsync.remove(rid);
+
+		returns(callReturn, new Param(values));
+	}
+
+	/**
+	 * 鍙戦�佽姹傝繑鍥炲��
+	 */
+	private void returns(CallReturn callReturn, Param values) {
+		Call call = new Call();
+		call.id = callReturn.id;
+		call.type = Call.TYPE_RPC_RETURN;
+		call.methodParam = new Object[0];
+
+		call.fromNodeId = node.getId();
+		call.fromPortId = portId;
+
+		call.to = new CallPoint();
+		call.to.nodeId = callReturn.nodeId;
+		call.to.portId = callReturn.portId;
+
+		call.returns = values;
+
+		sendCall(call);
+	}
+
+	/**
+	 * 鐢宠涓�涓柊鐨勮姹侷D
+	 * 
+	 * @return
+	 */
+	private long applyCallId() {
+		return ++sendLastCallId;
+	}
+	
+	/**
+	 * 鑾峰緱褰撳墠Call
+	 */
+	public Call getCall() {
+		return callHandling.getLast();
+	}
+
+	/**
+	 * 鑾峰緱褰撳墠Call璇锋眰鐨勫彂閫佽�呯粨鐐筃odeId
+	 */
+	public String getCallFromNodeId() {
+		return callHandling.getLast().fromNodeId;
+	}
+
+	/**
+	 * 鑾峰緱褰撳墠Call璇锋眰鐨勫彂閫佽�呯粨鐐筆ortId
+	 */
+	public String getCallFromPortId() {
+		return callHandling.getLast().fromPortId;
+	}
+
+	/**
+	 * 褰撳墠绾跨▼寮�濮嬫椂闂�(姣)
+	 * 
+	 * @return
+	 */
+	public long getTimeCurrent() {
+		return timeCurrent;
+	}
+
+	/**
+	 * 鐢宠涓�涓彲鐢ㄧ殑娴佹按ID
+	 * 
+	 * @return
+	 */
+	public long applySeqId() {
+		// 鏈垵濮嬪寲id姹�
+		if (idPool == null) {
+			throw new SysException("鏈琍ort鏈疄鐜版垨鍒濆鍖朓D姹犲け璐ワ紝璇疯鐩栧疄鐜癷nitIdAllotPool鍑芥暟锛歱ort={}", this);
+		}
+
+		return idPool.applyId();
+	}
+
+	/**
+	 * 鍒濆鍖朓D鍒嗛厤姹�
+	 * 
+	 * @return
+	 */
+	protected IdAllotPoolBase initIdAllotPool() {
+		return null;
+	}
+
+	@Override
+	public void caseStart() {
+		portCurrent.set(this);
+	}
+
+	@Override
+	public void caseStop() {
+		portCurrent.set(null);
+	}
+
+	@Override
+	public void caseRunOnce() {
+		pulse();
+	}
+
+	public Node getNode() {
+		return node;
+	}
+
+	public String getNodeId() {
+		return node.getId();
+	}
+
+	public String getId() {
+		return portId;
+	}
+
+	public int getCallSize() {
+		return calls.size();
+	}
+
+	public int getPulseCallSize() {
+		return pulseCalls.size();
+	}
+
+	@Override
+	public String toString() {
+		return new ToStringBuilder(this)
+				.append("nodeId", getNodeId())
+				.append("portId", getId())
+				.toString();
+	}
+}

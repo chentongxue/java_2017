@@ -1,0 +1,3 @@
+id	npcId	toward	posX	posY	appearType
+唯一标识	npc标识	朝向	坐标x	坐标y	出现方式
+2000					

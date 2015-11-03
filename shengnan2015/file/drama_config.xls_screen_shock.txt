@@ -1,0 +1,2 @@
+id	lastTime
+标识	屏幕震动时间

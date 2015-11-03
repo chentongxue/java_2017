@@ -1,0 +1,2 @@
+dramaId	mapId	posX	posY
+剧情id	地图id	目标点X	目标点Y

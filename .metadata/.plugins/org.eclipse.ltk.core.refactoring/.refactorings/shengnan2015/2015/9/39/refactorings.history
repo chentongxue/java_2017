@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;single_ton&apos; to &apos;singleinstance/src&apos;&#x0D;&#x0A;- Original project: &apos;shengnan2015&apos;&#x0D;&#x0A;- Destination element: &apos;singleinstance/src&apos;&#x0D;&#x0A;- Original element: &apos;shengnan2015/src/single_ton&apos;" description="Copy package" destination="=singleinstance/src" element1="/src&lt;single_ton" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1442977376238" version="1.0"/>
+</session>

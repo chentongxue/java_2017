@@ -1,0 +1,59 @@
+package util;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class jdbcUtilTest {
+	private static Connection conn;  
+	public static void test() throws Exception{
+		String driver="com.mysql.jdbc.Driver";
+		String url="jdbc:mysql://119.29.57.138/test?user=root&password=123123" +
+				"&useUnicode=true&characterEncoding=utf-8";//指定jdbc数据源
+		String tablename = "test";
+		
+		Class.forName(driver);
+		conn=DriverManager.getConnection(url);
+		int num = 6;
+		Statement stmt = null; 
+		stmt = conn.createStatement(); 
+		
+		for(int i = 6;i <8000; i++){
+			String no = "0000"+i;
+			no = no.substring(no.length()-3);
+			String s1="INSERT INTO test (ID , t_date , t_no ) VALUES ( "+num+" , '2015-08-06' , '"+no+"' );";
+//			System.out.println(s1);
+			num++;
+			
+			String s2="INSERT INTO test (ID , t_date , t_no ) VALUES ( "+num+" , '2015-07-02' , '"+no+"');";
+//			System.out.println(s2);
+			num++;
+			String s3="INSERT INTO test (ID , t_date , t_no ) VALUES ( "+num+" , '2015-10-02' , '"+no+"');";
+			num++;
+			String s4="INSERT INTO test (ID , t_date , t_no ) VALUES ( "+num+" , '2015-05-02' , '"+no+"');";
+			num++;
+//			System.out.println(s3);
+			stmt.executeUpdate(s1); 
+			stmt.executeUpdate(s2); 
+			stmt.executeUpdate(s3); 
+			stmt.executeUpdate(s4); 
+		}
+		
+
+
+		conn.close(); 
+	}
+	public static void main(String[] args) {
+		try {
+			test();
+			String s = "012345";
+			
+			System.out.println(s.substring(s.length()-2));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

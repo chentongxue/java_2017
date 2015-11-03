@@ -1,0 +1,2 @@
+id	name	type	compareType	paramId1	paramId2	minValue	maxValue	condOrValue	display
+条件id	条件名称	条件类型	比较类型	条件参数指定id1	条件指定id2	比较类型下限	比较类型上线	比较类型是或时用到的值	条件不满足时是否显示选项

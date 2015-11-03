@@ -1,0 +1,12 @@
+package a_shengnan.a_mianshi.wm.excutor;
+
+import java.util.concurrent.Executor;
+
+public class MyExcutor implements Executor{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

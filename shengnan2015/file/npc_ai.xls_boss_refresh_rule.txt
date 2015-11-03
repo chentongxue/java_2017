@@ -1,0 +1,56 @@
+id	npcId1	npcCount1	npcId2	npcCount2	circle
+id	npcId1	数量1	npcId2	数量2	半径
+1000	01syt141	1			50
+1001	01syt212	1			50
+1002	01syt252	1			50
+1003	01syt262	1			50
+1004	01syt272	1			50
+1005	01syt282	1			50
+1006	01syt291	1	01syt292	1	50
+1007	01syt293	1	01syt294	1	50
+1008	01bzsxg901	1			400
+1009	01bzsxg902	1			100
+1010	01bzsxg903	1			100
+1011	01bzsxg904	1			100
+1012	01fbxbhm011	2			200
+1013	01fbxbhm012	2			200
+1014	01fbxbhm013	2			200
+1015	01fbxbhm014	2			200
+1016	01fbxbhm015	2			200
+1017	01guoqingxg901	1			400
+1018	01guoqingxg902	1			100
+1019	01guoqingxg903	1			100
+1020	01guoqingxg904	1			100
+					
+1021	01xiuxianxg001	3			100
+1022	01xiuxianxg002	3			100
+1023	01xiuxianxg003	3			100
+1024	01xiuxianxg004	2			200
+1025	01xiuxianxg005	2			200
+1026	01xiuxianxg006	2			200
+1027	01xiuxianxg007	1			100
+1028	01xiuxianxg008	1			100
+1029	01xiuxianxg009	1			100
+					
+1030	01xiuxianxg013	1	01xiuxianxg014	1	200
+1031	01xiuxianxg015	1	01xiuxianxg016	1	200
+1032	01xiuxianxg017	1	01xiuxianxg018	1	200
+					
+1033	01xiuxianxg019	2			100
+1034	01xiuxianxg020	3			100
+1035	01xiuxianxg021	4			100
+					
+1036	01xiuxianxg007	1			200
+1037	01xiuxianxg007	1			300
+					
+1038	01xiuxianxg007	2			200
+1039	01xiuxianxg008	2			200
+1040	01xiuxianxg009	2			200
+					
+1041	01xiuxianxg010	2			200
+1042	01xiuxianxg011	2			200
+1043	01xiuxianxg012	2			200
+					
+1044	01xiuxianxg022	2			200
+1045	01xiuxianxg023	2			200
+1046	01xiuxianxg024	2			200

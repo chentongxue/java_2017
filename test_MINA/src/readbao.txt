@@ -1,0 +1,38 @@
+
+2是发送手机短信想DEMO
+
+
+
+3
+Mina提供了编解码过滤器：ObjectSerializationCodecFactory()接口
+不需要你关系对象的序列号问题
+短信对象
+把发送短信指定成一个java对象
+这样就很有面向对象的操作啦
+
+4
+   实现ProtocolDecoder接口
+   覆盖decode()方法
+   
+5 
+自定义协议
+
+6 
+纯 SOCKET
+
+7
+并发处理每一个到达的请求
+
+8
+线程池
+
+9
+JDK的线程池
+
+
+10
+ServerSocketChannel与SocketChannel采用默认的阻塞模式，
+因此我们用NIO提供的API做一个阻塞服务器，
+和以前的阻塞服务器做个对比
+
+

@@ -1,0 +1,2 @@
+activeId	type	index	bindMoney	silverMoney	goodsId1	goodsNum1	bind1	goodsId2	goodsNum2	bind2	goodsId3	goodsNum3	bind3	goodsId4	goodsNum4	bind4	goodsId5	goodsNum5	bind5	senderName	title	content
+活动ID	奖励类型	排名顺序	绑金	游戏币	奖励物品1	奖励1数量	绑定\n类型	奖励物品2	奖励2数量	绑定\n类型	奖励物品3	奖励3数量	绑定\n类型	奖励物品4	奖励4数量	绑定\n类型	奖励物品5	奖励5数量	绑定\n类型	邮件发件人	邮件标题	邮件内容

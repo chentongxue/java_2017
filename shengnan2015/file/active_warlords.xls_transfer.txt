@@ -1,0 +1,2 @@
+id	activeId	npcId	title	mapId	mapX	mapY	fatherId
+唯一标识	活动ID	NPC模板Id	选项名称	目标地图ID	坐标x	坐标y	父节点ID

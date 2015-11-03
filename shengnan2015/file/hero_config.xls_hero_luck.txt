@@ -1,0 +1,5 @@
+typeId	freeTimes	cd	goldMoney	tips	imageQuality
+抽卡类型	每日最大免费次数	单位分钟	元宝	提示信息	品质\n决定图的颜色
+1	5	5	10	[\C]ff00ff24[C]优秀 [\C]ff00aeff[C]精良 [\C]ffcc2fff[C]史诗[\C]ffffffff[C]	3
+2	1	1440	100	[\C]ff00aeff[C]精良 [\C]ffcc2fff[C]史诗 [\C]ffffee2f[C]传说[\C]ffffffff[C]	4
+3	1	4320	300	[\C]ffcc2fff[C]史诗 [\C]ffffee2f[C]传说[\C]ffffffff[C]	5

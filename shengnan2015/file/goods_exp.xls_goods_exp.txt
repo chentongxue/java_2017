@@ -1,0 +1,8 @@
+id	name	goodsType	imageId	bindType	overlapCount	level	effectId	desc	recycling	recyclePrice	only	offlineDie	discard	printlog	qualityType	lvLimit	secondType	triggerBuffId	triggerBuffLv
+id	名称	物品分类	图标id	绑定类型	叠加数量	物品等级	效果id	描述	可否回收	回收价格	是否唯一	下线消失	可否丢弃	是否打印日志	物品品质	等级需求	物品小类	产生BUFFid	产生BUFF等级
+2001	1.5倍经验丹	18	5	3	200			使用此道具，60分钟内，玩家打怪可以额外获得50%的经验。	1	1	0	0	1	0	3	1	0	6001	1
+2002	2倍经验丹	18	5	3	200			使用此道具，60分钟内，玩家打怪可以额外获得100%的经验。	1	1	0	0	1	0	4	1	0	6001	2
+																			
+2004	倍率提高100%	18	5	3	200			使用后获得经验提高100%	1	1	0	0	1	0	1	1	0	6002	1
+2005	倍率提高200%	18	5	3	200			使用后获得经验提高200%	1	1	0	0	1	0	1	1	0	6002	2
+2006	倍率提高300%	18	5	3	200			使用后获得经验提高300%	1	1	0	0	1	0	1	1	0	6002	3

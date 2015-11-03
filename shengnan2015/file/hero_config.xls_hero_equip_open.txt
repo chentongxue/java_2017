@@ -1,0 +1,12 @@
+equipPosId	heroLevel	goodsId	goodsNum
+装备位id	要求英雄等级	需要消耗的物品ID	需要的物品数目
+1	1		
+2	3		
+3	5		
+4	7		
+5	9		
+6	11	3	1
+7	13	3	1
+8	15	3	1
+9	17	3	1
+10	19	3	2

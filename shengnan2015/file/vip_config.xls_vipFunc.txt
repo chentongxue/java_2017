@@ -1,0 +1,6 @@
+vipLevel	storeNpcId	storeShowType	exchangeMenuId	mapId	x	y
+vip等级	远程药店npcId	远程药店类型	限购商店兑换ID	挂机地图寻路地图ID	挂机地图寻路地图X	挂机地图寻路地图Y
+1	01n023	0				
+2	01n023	0	27			
+3	01n023	0	27	01_CG_zhucheng	247	1506
+4	01n023	0	27	01_CG_zhucheng	247	1506

@@ -1,0 +1,2 @@
+level	title	context	sendName
+等级	标题	邮件内容	发件人

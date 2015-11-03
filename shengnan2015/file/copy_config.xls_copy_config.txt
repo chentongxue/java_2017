@@ -1,0 +1,4 @@
+copyId	type	copyName	signType	difficulty	minLevel	maxLevel	minEnterCount	maxEnterCount	countType	count	power	totalTime	enterMapId	mapX	mapY	content	needGoodsId	needGoodsNum	needGoodsWay	needQuestIds	needTitleId	needVipLvl	needFactionLvl	showSign	passTips	passJumpType	intimate
+副本ID	副本类型	副本名称	标记类型	难易程度	最低等级	最高等级	最小进入人数（下限）	最大进入人数（上限）	次数类型	副本次数	消耗体力值	通关时间限制(秒)	进入地图ID	地图X坐标	地图Y坐标	副本简介	所需物品ID	所需物品数量	所需物品方式	所需任务ID\n（正在做任务）	所需称号ID\n（有效称号）	所需VIP等级（有效vip等级）	所需公会等级	显示标记\n副本列表中	副本通关提示	单人副本通关后\n刷跳转点的类型	组队副本\n亲密度奖励
+1	0	哀嚎洞穴	0	1	1	10000	1	1		-1		0	01_AHDX_aihaodongxue	161	351	时常传出的哀嚎之声，让这个洞穴充满了恐怖与神秘				308							
+2	0	红发公主	0	1	1	10000	1	1		-1		0	01_FBBGD_baigudong996	1327	995	真的是红头发的公主么？快去看看吧！				319							

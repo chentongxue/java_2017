@@ -1,0 +1,7 @@
+qualityType	material	num	gameMoney	goldMoney
+装备品质\n	材料ID	材料数量	游戏币	消耗元宝
+3			500	20
+4			500	20
+5			1000	40
+6			1000	40
+7			1000	40

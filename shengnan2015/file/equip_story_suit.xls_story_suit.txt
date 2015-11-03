@@ -1,0 +1,6 @@
+suitGroupId	name	roleLevel	relySuitGroupId
+套装组ID	套装名称	角色等级	依赖套装组ID
+4	勇士	1	0
+5	少校	1	4
+6	将军	1	5
+7	元帅	1	6

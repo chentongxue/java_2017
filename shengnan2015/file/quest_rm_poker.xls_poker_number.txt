@@ -1,0 +1,2 @@
+vipLevel	rmWeight	linkWeight	gapWeight
+VIP等级	随机权重	相连权重	间连权重

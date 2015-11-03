@@ -1,0 +1,2 @@
+id	npcId	content	lastTime
+唯一标识	npcId	内容	持续时间

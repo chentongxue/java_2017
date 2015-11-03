@@ -1,0 +1,14 @@
+#Thu Dec 06 17:57:13 CST 2012
+eclipse.preferences.version=1
+encoding//res/drawable/btn_nav_drag_down.xml=UTF-8
+encoding//src/cn/bao/wifi/LocationWebViewActivity.java=UTF-8
+encoding//src/cn/bao/wifi/SplashActivity.java=UTF-8
+encoding//src/cn/bao/wifi/domain/LocationResult.java=UTF-8
+encoding//src/cn/bao/wifi/domain/WebLocationRequest.java=UTF-8
+encoding//src/cn/bao/wifi/domain/WifiApInfo.java=UTF-8
+encoding//src/cn/bao/wifi/net/HttpReq.java=UTF-8
+encoding//src/cn/bao/wifi/util/App.java=UTF-8
+encoding//src/cn/bao/wifi/util/JsonParser.java=UTF-8
+encoding//src/cn/bao/wifi/util/LogUtil.java=UTF-8
+encoding//src/cn/bao/wifi/util/StreamTool.java=UTF-8
+encoding//src/cn/bao/wifi/util/WifiApManager.java=UTF-8

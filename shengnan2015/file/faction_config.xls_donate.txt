@@ -1,0 +1,5 @@
+id	moneyType	money	contribute	maxCounts	factionMoney
+id	金钱类型	消耗的金钱	获得的贡献度/公会获得的经验	捐献次数	公会获得的钱
+1	5	5000	50	2	50
+2	4	10	110	5	110
+3	4	100	1100	2	1100

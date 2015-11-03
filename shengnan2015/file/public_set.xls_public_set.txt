@@ -1,0 +1,3 @@
+trade	maxRoleNameSize	langName
+点对点允许交易(被邀请/邀请)	角色名长度	语言
+0	16	cn

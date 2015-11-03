@@ -1,0 +1,3 @@
+vipMaxLevel	headerInfo
+VIP最大等级配置	提示信息
+15	再冲{0}，可以再升一级

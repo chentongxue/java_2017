@@ -1,0 +1,12 @@
+mapId
+同一公会友好地图\n前提:地图必须是PVP地图
+01_YWBDT_a
+02_YWBDT_b
+03_YWBDT_c
+04_YWBDT_d
+05_YWBDT_e
+06_YWBDT_f
+07_YWBDT_g
+08_YWBDT_h
+09_YWBDT_i
+10_YWBDT_j

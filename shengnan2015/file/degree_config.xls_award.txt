@@ -1,0 +1,10 @@
+groupId	degree	bindGold	silver	factionDevote	factionScore 	exp	magicSoul	goodsId1	num1	bindType1	goodsId2	num2	bindType2	goodsId3	num3	bindType3	goodsId4	num4	bindType4	goodsId5	num5	bindType5	broadcast
+组ID	活越度	绑金	银币	帮会贡献	帮会积分	经验	仙魂	物品ID	数量	绑定类型	物品ID	数量	绑定类型	物品ID	数量	绑定类型	物品ID	数量	绑定类型	物品ID	数量	绑定类型	广播
+0	10	1						9014	1	1	77777	2	1										
+0	30	2						9014	1	1	71004	2	1										
+0	50	3						9014	1	1	71001	1	1										
+0	70	4						9014	1	1	71073	1	1										
+0	100	5						9014	1	1	72001	1	1										
+0	130	6						9014	1	1	9231	1	1	73984	1	1							
+0	160	7						9014	1	1	72006	1	1	9278	1	1							
+0	200	8						9014	1	1	9021	1	1										[\C]ffffffff[C]玩家[\C]ff1cfffc[C]{0}[\C]ffffffff[C]今日活跃度达到200，领取了[\C]ffff6000[C]活跃度大礼包[\C]ffffffff[C]奖励，天道酬勤！

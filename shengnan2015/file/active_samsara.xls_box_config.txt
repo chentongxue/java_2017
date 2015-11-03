@@ -1,0 +1,7 @@
+boxId	minLevel	maxLevel	silverMoney	bindMoney	exp	good1Id	good1Num	bind1	good2Id	good2Num	bind2	good3Id	good3Num	bind3	good4Id	good4Num	bind4	good5Id	good5Num	bind5	broadcastInfo
+宝箱ID	最小\n角色等级	最大\n角色等级	游戏币\n银币	绑金	经验	物品1ID	物品1数量	绑定\n类型	物品2ID	物品2数量	绑定\n类型	物品3ID	物品3数量	绑定\n类型	物品4ID	物品4数量	绑定\n类型	物品5ID	物品5数量	绑定\n类型	获得宝箱时广播内容
+1	21	80			0	9019	1	1													
+2	21	80		5	0	9019	1	1	71007	1	1										
+3	21	80		10	0	9019	2	1	71007	2	1										[\C]ffffffff[C]凭借着超人的运气，[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]在轮回转盘中连续三次通关获得了金箱子中的宝物！
+4	21	80		50	0	9019	5	1	71007	3	1	72004	2	1							[\C]ffffffff[C]凭借着超人的运气，[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]在轮回转盘中连续四次通关获得了太虚圣宝的宝物！
+5	21	80		100	0	9019	10	1	71007	5	1	72005	1	1	70068	2	0				[\C]ffffffff[C]凭借着超人的运气，[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]在轮回转盘中连续五次通关获得了上古宝藏中的财宝！

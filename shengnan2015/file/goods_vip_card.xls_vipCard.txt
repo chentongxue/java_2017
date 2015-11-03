@@ -1,0 +1,2 @@
+id	name	goodsType	imageId	bindType	overlapCount	level	effectId	desc	recycling	recyclePrice	only	offlineDie	discard	printlog	qualityType	lvLimit	secondType	applyDisappear	vipEffectMinutes
+id	名称	物品分类	图标id	绑定类型	叠加数量	物品等级	效果ID	描述	可否回收	回收价格	是否唯一	下线消失	可否丢弃	是否打印日志	物品品质	等级需求	物品小类	使用后是否消失\n[0不消失 1消失]	vip有效时长（分钟）

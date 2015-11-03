@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 注意透明的主题是给mainactivity 用 -->
+<!--  android:background="@drawable/xiaomi_tost_background_a6" -->
+<resources>
+
+    <style name="Theme" parent="android:Theme"></style>
+
+    <style name="Theme.Translucent" parent="android:style/Theme.Translucent"></style>
+
+    <style name="title_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#ff66ff00</item>
+        <item name="android:paddingTop">10px</item>
+        <item name="android:paddingLeft">5px</item>
+    </style>
+
+    <style name="Theme.Wallpaper" parent="android:style/Theme.Wallpaper">
+        <item name="android:colorForeground">#fff</item>
+    </style>
+
+    <style name="Theme.Xiaomi" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/xiaomi_tost_background_a6</item>
+    </style>
+    <style name="normal_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#ff65b9fc</item>
+        <item name="android:paddingTop">10px</item>
+        <item name="android:paddingLeft">5px</item>
+    </style>
+
+    <style name="tool_text_as_button_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:paddingTop">10px</item>
+        <item name="android:paddingLeft">5px</item>
+    </style>
+
+
+    <style name="NotificationText">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="NotificationTitle">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

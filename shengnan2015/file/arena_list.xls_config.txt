@@ -1,0 +1,4 @@
+arenaType	activeId	mapId	x1	y1	x2	y2	levelRange	clearBaffleTime	matchInterval	maxBattleTime	successScore	failScore	battleScore	specialTimes	exchangeMenuId
+擂台赛类型	相关联的活动ID	地图ID	地图点1x坐标	地图点1y坐标	地图点2x坐标	地图点2y坐标	等级匹配区间(闭区间),\n多个等级用半角,隔开\n不填写则表示不对等级进行区间分配	清除障碍时间(单位:秒)	匹配周期(单位:秒)	战斗最长时间(单位:秒)	胜利获得积分	失败获得积分	报名需求战斗力	有特殊奖励的次数	兑换菜单ID
+0	4	pvp_01	175	116	1416	898		5	20	180	10	2		10	10
+2		pvp_02	205	224	1410	864		10	40	300	0	0			

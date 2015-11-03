@@ -1,0 +1,3 @@
+trainGameMoney	trainGameMoneyTimes	trainGameMoneyCd	cleanCdGlod	glodTrainRate1	glodTrainRate2	lockMoney1	lockMoney2	lockMoney3	rate2	rate3	rate4	allSameMsg	qualityFullMsg	soulMsg
+培养消耗的游戏币	每天游戏币培养次数	游戏币培养cd(单位秒)	清除CD消耗元宝数	元宝培养消耗系数1\n\n每X次递增Y元宝\n中的X	元宝培养消耗系2\n每X次递增Y元宝\n中的Y	锁定1个	锁定2个	锁定3个	2个球奖励倍率	3个球奖励倍率	4个球奖励倍率	4个相同球时喊话内容	品质最高时的提示信息	圣兽面板功能描述文本
+1000	10	180	1	5	5	5000	20000	50000	4	10	20	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]{0}[\C]ffffffff[C]鸿运当头，在坐骑培养中获得4个相同球，一举拿下[\C]ffc7e462[C]20倍[\C]ffffffff[C]经验奖励！	坐骑已经进化到最高阶,可以进化成圣兽了!	洪荒圣兽【翔龙】，千万年来，真神的忠实座驾，一旦拥有别无所求，进化成功后开启属性上限，解封终极技能，技能升级上限提升至10级，拥有圣兽坐骑外形！

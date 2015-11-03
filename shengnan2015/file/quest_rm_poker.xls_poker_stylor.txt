@@ -1,0 +1,2 @@
+vipLevel	rmWeight	sameWeight	diffWeight
+VIP等级	随机权重	相同权重	不同权重

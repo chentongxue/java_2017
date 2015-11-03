@@ -1,0 +1,5 @@
+id	name	goodsType	imageId	bindType	overlapCount	level	effectId	desc	recycling	recyclePrice	only	offlineDie	discard	printlog	qualityType	lvLimit	secondType	applyDisappear	grid
+id	名称	物品分类	图标id	绑定类型	叠加数量	物品等级	效果id	描述	可否回收	回收价格	是否唯一	下线消失	可否丢弃	是否打印日志	物品品质	等级需求	物品小类	使用后是否消失\n[0不消失 1消失]	扩充格子数
+88888	背包扩充1格	2	29	0	200			使用后可使背包容量扩充1格	0	0	0	0	1	0	3	1	1	1	1
+88889	背包扩充5格	2	29	0	200			使用后可使背包容量扩充5格	0	0	0	0	1	0	4	1	1	1	5
+88890	背包扩充20格	2	29	0	200			使用后可使背包容量扩充20格	0	0	0	0	1	0	5	1	1	1	20

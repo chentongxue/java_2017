@@ -1,0 +1,4 @@
+rewardType	buttonImageId
+奖励类型(5是点化成金，14是潜能)	按钮图片ID
+5	122
+14	123

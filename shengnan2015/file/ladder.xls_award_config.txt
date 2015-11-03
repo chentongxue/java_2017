@@ -1,0 +1,3 @@
+winMoney	winMagicSoul	winGoodsId1	winGoodsNum1	winGoodsBind1	winGoodsId2	winGoodsNum2	winGoodsBind2	winGoodsId3	winGoodsNum3	winGoodsBind3	loseMoney	loseMagicSoul	loseGoodsId1	loseGoodsNum1	loseGoodsBind1	loseGoodsId2	loseGoodsNum2	loseGoodsBind2	loseGoodsId3	loseGoodsNum3	loseGoodsBind3
+赢奖励的钱	获胜获得的声望	获胜获得的物品1	获胜获得物品数量1	获胜获得物品1绑定类型	获胜获得物品2	获胜获得物品2数量	获胜获得物品2绑定类型	获胜获得的物品3	获胜获得物品数量3	获胜获得物品3绑定类型	失败获得的钱	失败获得的声望	失败获得的物品1	失败获得的物品1数量	失败获得的物品1绑定类型	失败获得的物品1	失败获得的物品2数量	失败获得的物品1绑定类型	失败获得的物品1	失败获得的物品3数量	失败获得的物品1绑定类型
+3000											1000										

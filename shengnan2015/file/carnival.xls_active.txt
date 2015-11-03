@@ -1,0 +1,3 @@
+id	name	desc	startDateAbs	endDateAbs	startDateRel	endDateRel	serverId
+活动ID	活动名称	活动描述	开启日期	结束日期	相对开启日期(天)\n开服的第X天	相对结束日期(天)\n开服的第X天	服务器ID\n-1代表所有服务器
+1	开服十天嘉年华	完成开服十天活动，即可获得价值6888元宝的丰厚奖励			1	10	-1

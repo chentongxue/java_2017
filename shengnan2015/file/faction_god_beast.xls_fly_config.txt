@@ -1,0 +1,6 @@
+id	flyNum	flyLevel	flyGoodsId	flyGoodsNum	skillId	resId
+神兽ID	飞升等级	需要仙兽等级	飞升所需物品	飞升所需物品数量	技能ID	资源ID
+1	0	0	0	0	16009	21000
+1	1	2	70072	10	16010	21004
+1	2	3	70072	20	16011	21010
+1	3	4	70072	40	16012	21013

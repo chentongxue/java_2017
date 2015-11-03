@@ -1,0 +1,2 @@
+level	gender	career	payGold	silverMoney	bindMoney	goldMoney	exp	goodsId1	num1	bindType1	goodsId2	num2	bindType2	goodsId3	num3	bindType3	goodsId4	num4	bindType4	goodsId5	num5	bindType5
+等级	性别	职业	付费金条	银币	绑金	金条	经验	物品1	数量1	绑定类型1	物品2	数量2	绑定类型2	物品3	数量3	绑定类型3	物品4	数量4	绑定类型4	物品5	数量5	绑定类型5

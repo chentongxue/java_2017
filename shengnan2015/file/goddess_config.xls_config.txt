@@ -1,0 +1,3 @@
+robNum	robAwardId	robAwardNum	robAwardBind	weakTime	weakRate	revengeNum	revengeAwardId	revengeAwardNum	revengeAwardBind	blessMax
+抢夺次数	抢夺掉落	掉落数量	绑定类型	虚弱时间	buff虚弱百分比	复仇次数	复仇掉落			祝福最大值
+3	7000003	1	1		5000	3	7000003	1	1	5000

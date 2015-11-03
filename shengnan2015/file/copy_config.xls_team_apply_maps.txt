@@ -1,0 +1,8 @@
+mapId
+可副本自动组队地图
+01_LC_tianchao
+04_LC_huanggong
+02_BGT_baguatan
+03_QQS_shandong
+02_DTZ_duantianzhu
+01_BGT_baguatan

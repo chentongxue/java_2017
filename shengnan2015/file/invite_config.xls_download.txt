@@ -1,0 +1,3 @@
+channelId	osType	url
+渠道ID	系统类型	下载地址
+2	0	http://down5.game.uc.cn/t/14/14/xianbian_v1.4_20130628_uc_47054_1234586302d5.apk

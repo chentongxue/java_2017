@@ -1,0 +1,2 @@
+id	npcId	disppearType
+唯一标识	npc标识	消失方式

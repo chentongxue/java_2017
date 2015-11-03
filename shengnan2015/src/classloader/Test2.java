@@ -1,0 +1,22 @@
+package classloader;
+
+public class Test2 {
+    private Test2(){
+    	System.out.println("¹¹Ôìº¯Êý");
+    }
+    static {
+//    	new Test2();
+    	System.out.println("static");
+    }
+	public static void main(String[] args) {
+		try {
+			Class.forName("classloader.Test2").newInstance();
+			Class.forName("classloader.Test2");
+			Class.forName("classloader.Test2");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

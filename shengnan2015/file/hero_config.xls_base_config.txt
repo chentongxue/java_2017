@@ -1,0 +1,3 @@
+valorGoodsId	valorDesc	justiceGoodsId	justiceDesc
+勇气印记物品ID	勇气描述	正义印记物品ID	正义描述
+13002001	可以永久提升英雄的能力	13003001	可以永久提升英雄的能力

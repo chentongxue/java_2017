@@ -1,0 +1,2 @@
+id	name	goodsType	imageId	bindType	level	effectId	desc	recycling	recyclePrice	only	offlineDie	discard	printlog	qualityType	lvLimit	secondType	radius	clueDesc	maps	mapProbs	identifyGoodsId	lackIdenGoodInfo	emptyProb	monsterProb	goodsProb	monsterIds	monsterProbs	goodsIds	goodsProbs	transGold	transBindingGold
+id	名称	物品分类	图标id	绑定类型	物品等级	效果ID	描述	可否回收	回收价格	是否唯一	下线消失	可否丢弃	是否打印日志	物品品质	等级需求	宝图小类	宝藏半径[int]象素	宝图线索描述	地图list[string]	地图概率[string]	鉴定道具的id[int]	缺少鉴定道具提示信息	什么都没有的权重[int]	是否出项怪物的权重[int]	是否出现道具的权重[int]	怪物id列表	怪物id权重	道具id列表	道具id权重	地图传送消费金条	地图传送消费绑金

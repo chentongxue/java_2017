@@ -1,0 +1,2 @@
+channelId	feeValue	feeDesc	feeType
+支付渠道号	充值面额	充值描述	充值通道号

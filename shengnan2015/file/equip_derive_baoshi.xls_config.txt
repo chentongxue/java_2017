@@ -1,0 +1,3 @@
+mosaicMoney	exciseMoney
+镶嵌消耗游戏币	摘除消耗游戏币
+500	500

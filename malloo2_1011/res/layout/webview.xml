@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="2dp"
+        android:text="@string/hello" />
+
+    <ProgressBar
+        android:id="@+id/pb_load_map"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="60dp" >
+    </ProgressBar>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="50.0dip"
+        android:gravity="center_vertical"
+        android:paddingRight="0dip" >
+
+        <Button
+            android:id="@+id/ButtonShow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bt_at"
+            android:background="@drawable/zoom_popup_button_presse"
+            android:text="点击此按钮可以定位哦"
+            android:textColor="#ff000000"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/view_log"
+        android:layout_width="fill_parent"
+        android:layout_height="270dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="130dp"
+        android:background="@drawable/xiaomi_tost_background_a6"
+        android:clickable="true"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/tv_log"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="长按显示详细信息"
+            android:textColor="@android:color/white" />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/l_search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="2.0dip"
+        android:background="@drawable/bg_title_mapsearch"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+         android:visibility="gone" >
+
+        <EditText
+            android:id="@+id/et"
+            android:layout_width="fill_parent"
+            android:layout_height="36.0dip"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="3.0dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/nav_btn_map_poi"
+            android:clickable="true"
+            android:drawableLeft="@drawable/icon_geo"
+            android:gravity="center_vertical"
+            android:hint="请输入..."
+            android:singleLine="true"
+            android:textColor="#ff6d6d6d"
+            android:textSize="16.0sp" >
+        </EditText>
+
+        <ImageButton
+            android:id="@+id/bt_nearsearc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3.0dip"
+            android:layout_marginRight="3.0dip"
+            android:background="@android:color/transparent"
+            android:onClick="go_search"
+            android:src="@drawable/btn_map_nearsearch" />
+
+        <ImageButton
+            android:id="@+id/bt_go"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3.0dip"
+            android:layout_marginRight="3.0dip"
+            android:background="@android:color/transparent"
+            android:onClick="go_click"
+            android:src="@drawable/btn_map_nav" />
+
+        <ImageButton
+            android:id="@+id/bt_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@android:color/transparent"
+            android:onClick="go_location"
+            android:src="@drawable/btn_map_loc" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="50.0dip"
+        android:paddingRight="2.0dip" >
+
+        <ImageButton
+            android:id="@+id/ImageButtonZoomUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="3.0dip"
+            android:background="@android:color/transparent"
+            android:src="@drawable/btn_zoom_up"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/ImageButtonZoomDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="3.0dip"
+            android:layout_toLeftOf="@id/ImageButtonZoomUp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/btn_zoom_down"
+            android:visibility="invisible" />
+
+        <!-- android:background="@drawable/bg_title_mapsearch" -->
+
+
+        <!--
+             Button
+            android:id="@+id/ButtonZoomStreet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ImageButtonZoomUp"
+            android:layout_alignLeft="@id/ImageButtonZoomUp"
+            android:background="@drawable/zoom_popup_button"
+            android:text="街道"
+            android:textColor="#ff000000" /
+        -->
+
+        <Button
+            android:id="@+id/ButtonShowLog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ImageButtonZoomUp"
+            android:layout_alignLeft="@id/ImageButtonZoomUp"
+            android:background="@drawable/zoom_popup_button"
+            android:onClick="showlog"
+            android:text="显示日志"
+            android:textColor="#ff000000" />
+
+        <Button
+            android:id="@+id/ButtonHideLog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ImageButtonZoomUp"
+            android:layout_alignLeft="@id/ImageButtonZoomUp"
+            android:background="@drawable/zoom_popup_button"
+            android:onClick="hidelog"
+            android:text="隐藏日志"
+            android:textColor="#ff000000"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/ButtonZoomCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ImageButtonZoomDown"
+            android:layout_alignRight="@id/ImageButtonZoomDown"
+            android:background="@drawable/zoom_popup_button"
+            android:text="全城"
+            android:textColor="#ff000000"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <!-- 可以拖拽的组件 -->
+
+
+    <!--
+         ImageView
+        android:id="@+id/iv_drag_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="140dp"
+        android:scaleType="matrix"
+        android:src="@drawable/draw" /
+    -->
+
+</RelativeLayout>

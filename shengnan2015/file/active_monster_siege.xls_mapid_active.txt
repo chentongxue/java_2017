@@ -1,0 +1,3 @@
+mapId	activeId	ruleId	successContent	failContent
+地图ID	活动ID	刷怪规则ID	成功广播内容	失败广播内容
+01_GWGC_a	11	1600	守城地图（${mapName}）的勇士们，经过不懈努力，终于击溃了前来攻城的怪物们。活动奖励已经通过邮件发到您的邮箱。	守城地图（${mapName}）的战士们守城失利。退回城内养精蓄锐，以待与怪物们死战。活动奖励已经通过邮件发到您的邮箱。

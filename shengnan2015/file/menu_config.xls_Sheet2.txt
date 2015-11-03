@@ -1,0 +1,16 @@
+menuType	imageId	effectId	priority	roleLevel	acceptQuestId	completeQuestId	activeId	activeBeforeTimes
+菜单类型\n不能重复\n1 商城\n2 公告\n3 活动\n4 首充\n5 淘宝\n6 北斗七星\n7 九重天(通天塔)\n8 天命轮回\n9 单人PVP	图片ID	特效ID	优先级\n[0-127]\n数值越小优先级越高,不要重复	开启等级	接任务开启ID	完成任务开启ID	关联活动\n淘宝\n渡劫\n天命轮回\n单人PVP\n\n需要填写	活动开启提前提示(分钟)\n\n单人PVP\n\n需要填写
+1	23		2	20				
+2	134		3	1				
+3	21		4	20				
+5	136		5	1			2	
+7	22		7	4				
+9	127		9				4	10
+								
+8	117		8	1			1	
+6	140		6	1			10	
+4	20		1	12				
+								
+								
+								
+12	234		10				15	15

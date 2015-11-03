@@ -1,0 +1,3 @@
+vipMaxLevel	levelUpHeaderInfo	MaxLevelHeaderInfo
+VIP最大等级配置	提示信息	提示信息
+15	再冲{0}钻石，可以再升一级	你的vip等级已经达到最高

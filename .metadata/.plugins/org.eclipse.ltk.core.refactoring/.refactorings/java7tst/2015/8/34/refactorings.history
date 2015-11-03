@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;HTTP2.java&apos; to &apos;http.HTTP2.java&apos;&#x0D;&#x0A;- Original project: &apos;java7tst&apos;&#x0D;&#x0A;- Destination element: &apos;http.HTTP2.java&apos;&#x0D;&#x0A;- Original element: &apos;http.HTTP2.java&apos;" description="Copy compilation unit" destination="/src&lt;http{HTTP2.java" element1="/src&lt;http{HTTP2.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1440146227256" units="1" version="1.0"/>
+</session>

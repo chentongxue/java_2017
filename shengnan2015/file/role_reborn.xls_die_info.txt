@@ -1,0 +1,3 @@
+dieInfo
+死亡提示信息
+您被[\C]ffff3c3c[C]${attackerName}杀死了！\n\n快速提升战斗力：[\C]ff5aff4e[C]轩辕鼎打造装备、培养坐骑和神兽、升级技能。

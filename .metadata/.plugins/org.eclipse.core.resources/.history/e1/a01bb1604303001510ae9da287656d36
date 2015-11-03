@@ -1,0 +1,22 @@
+package static_problem;
+/**
+ * 构造函数和静态域，哪个先调用？
+ * 答案是静态域先调用，这个例子具有迷惑性
+ * @author admin
+ *
+ */
+public class TestStatic {
+//	private static final TestStatic t = new TestStatic();
+	static{
+		System.out.println("static");
+	}
+	public TestStatic(){
+		System.out.println("构造函数");//1
+	}
+	public static void hello(){
+		System.out.println("hello");//2
+	}
+	public static void main(String args[]){
+		System.out.println("hi");
+	}
+}

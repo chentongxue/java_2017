@@ -1,0 +1,2 @@
+id	name	statStartTime	statEndTime	rewardStartTime	rewardEndTime	statStartTimeRel	statEndTimeRel	rewardStartTimeRel	rewardEndTimeRel	rankIds
+活动id	活动名称	统计开始时间	统计结束时间	领奖开始时间	领奖结束时间	统计开始时间（相对）	统计结束时间（相对）	领奖开始时间（相对）	领奖结束时间（相对）	排行榜ID列表\n多个用,(英文半角)分隔

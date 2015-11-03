@@ -1,0 +1,5 @@
+campId	mapId	x	y
+阵营ID	地图ID	地图x坐标	地图y坐标
+0	01_MFSM_mofangshenmiao	983	552
+1	01_MFSM_mofangshenmiao	983	552
+2	01_MFSM_mofangshenmiao	983	552

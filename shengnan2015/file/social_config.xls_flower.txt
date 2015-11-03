@@ -1,0 +1,5 @@
+flowerId	flowerName	flowerNum	iconId	gold	goodsId	intimate	effect	time	effectType	broadcastInfo	info
+鲜花ID	名称	花数量	图片ID	消耗金条	物品ID	亲密度	效果ID	效果时间（秒）	特效广播方式	广播内容	效果说明
+1	1朵玫瑰花	1	1	10	71033	10	1	3	0	[\C]ff1cfffc[C]${sender}[\C]ffffffff[C]含情脉脉的赠送给[\C]ff1cfffc[C]${receiver}[\C]ffffffff[C]1朵玫瑰花!	
+2	9朵玫瑰花	9	2	90	71034	100	1	4	1	[\C]ff1cfffc[C]${sender}[\C]ffffffff[C]赠送给[\C]ff1cfffc[C]${receiver}[\C]ffffffff[C]9朵玫瑰花!愿他们有情人终成眷属！	双方地图下花雨
+3	99朵玫瑰花	99	3	990	71040	1000	1	4	2	[\C]ff1cfffc[C]${sender}[\C]ffffffff[C]赠送给[\C]ff1cfffc[C]${receiver}[\C]ffffffff[C]99朵玫瑰花!祝他们早生贵子，白头到老！	全服花雨

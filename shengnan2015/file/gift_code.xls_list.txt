@@ -1,0 +1,3 @@
+activeId	channelId	context	beginShowDate	beginDate	endDate	rewardGoodsId	silverMoney	bindingGoldMoney	goldMoney	serverId
+活动Id	渠道ID\n-1 为所有渠道都可见	邮件说明内容	开始显示时间\n格式:2001-01-01\n必须配置	开启日期\n格式:2001-01-01\n必须配置	结束日期\n格式:2001-01-01\n必须配置	奖励礼包ID	银币	绑金	金条	服务器ID\n-1表示所有服务器
+999	-1	恭喜您成功获得：	2013-11-07	2013-11-07	2019-12-06	9870				-1

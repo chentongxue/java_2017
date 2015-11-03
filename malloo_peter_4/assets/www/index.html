@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+	<html>  
+		<head>    
+			<title>Acceleration Example</title>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">  
+   
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.2.0.min.css" />         
+
+		     
+		<link rel="stylesheet" href="css/bootstrap.min.css" />         
+		<link rel="stylesheet" href="css/bootstrap-responsive.min.css" /> 
+        <link rel="stylesheet" href="css/malloo.min.css" /> 
+         <link rel="stylesheet" href="css/malloo.ui.css" />        
+ <!-- JavaScript at the bottom for fast page loading -->
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.3.min.js"></script>
+
+
+     <script type="text/javascript" charset="utf-8" src="js/underscore-min.js"></script>
+    
+    
+     <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.min.js"></script>
+     
+     <script type="text/javascript" charset="utf-8" src="js/jquery.ui.core.js"></script>  
+     <script type="text/javascript" charset="utf-8" src="js/jquery.ui.mouse.js"></script>
+     <script type="text/javascript" charset="utf-8" src="js/jquery.ui.draggable.js"></script> 
+     <script type="text/javascript" charset="utf-8" src="js/jquery.ui.touch-punch.js"></script>     
+ <!-- scripts concatenated and minified via build script -->    
+    <script type="text/javascript" charset="utf-8" src="js/cordova-2.2.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/raphael-min.js"></script>
+    <script src="js/navHolder.js" type="text/javascript" charset="utf-8"></script> 
+    
+         <script src="js/position.js"></script>
+ 
+    
+     <script type="text/javascript" charset="utf-8" src="js/WifiInfoPlugin.js"></script>  
+      <script type="text/javascript" charset="utf-8" src="js/LKFPlugin.js"></script>       
+  <script type="text/javascript" charset="utf-8">  
+ 	$(function() {
+		//$( "#navHolder" ).draggable();
+	});
+	</script>     
+     <script type="text/javascript" charset="utf-8">         
+var pX=0,pY=0;
+var nX=0,nY=0;
+var poi=[0,0];//x,y
+var smoothingPoi=null;
+var alpha=0.3;
+var scanCount=3;
+var running=-1;
+
+		var ts,nl,X0=0,Y0=0,Ang0,Vel0,NowX,NowY;
+		var oX ,oY ;
+
+
+
+var nPoi=new Array(0,0);
+ var interv;
+  
+
+	var scale=7.33;//10;
+	var offsetx=456.667;
+	var offsety=150;
+	var posList=new Array();
+	var pcount=0;
+	var posP;
+	
+	var mrssi;
+ function getPosition (aplist){
+	 
+	 
+	  $.ajax({
+                    type: 'post',
+					data: aplist,
+					dataType:"json",
+					contentType: "application/json", 
+					cache:false,
+					url:'http://172.20.10.4:81/WiFrontLocationService.svc/GetWiFrontLocation',
+					 
+                  //  url: 'http://malloolocation.cloudapp.net/MallooLocationService.svc/GetMallooLocation',
+                    success: function(data){
+						//alert(data.x);
+						//alert(data.tostring());
+						 
+                    poi[0]=new Number(data.x);
+					poi[1]=new Number(data.y);
+  
+					if(running==-1)
+					{
+						X0=poi[0];
+						Y0=poi[1];
+					}
+					// alert(X0);
+		//smooth it
+		if(smoothingPoi==null){
+			smoothingPoi=poi;
+			}
+			
+		for (var i=0; i<poi.length;i++)
+		{
+			smoothingPoi[i] = smoothingPoi [i] +alpha * (poi[i] -
+			smoothingPoi[i]);
+		}
+		nX=Math.round(smoothingPoi[0]*1000000)/1000000;
+		nY=Math.round(smoothingPoi[1]*1000000)/1000000;							
+					
+					//posList.push([nX,nY]);
+					//alert(pX+"|list|"+pY);
+					//pcount=pcount+1;
+ 					//if(pcount==scanCount)
+					posP(nX,nY);
+					//posP();
+ 
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown){
+						//alert("error!");
+   						errorLoad('Get position error!');
+
+                    }
+                });
+	 }   
+        
+	</script>         
+ 
+    <script type="text/javascript" charset="utf-8">    
+	// The watch id references the current `watchHeading`    
+	var watchID = null; 
+	var accelID=null;
+	var sensorOptions = { frequency: 100 }; 
+	
+
+	function startWatch() { 
+	     
+	// Update compass every 3 seconds        
+	        
+	watchID = navigator.compass.watchHeading(onSuccessHeading, onErrorHeading, sensorOptions);    
+	accelID=navigator.accelerometer.watchAcceleration(onSuccessAcceleration,                                                       onErrorAcceleration, sensorOptions);
+ 
+	}    
+	// Stop watching the compass    //    
+	function stopWatch() {        
+	if (watchID) {            
+	navigator.compass.clearWatch(watchID);            
+	watchID = null;        
+	}    
+	}    
+	// onSuccess: Get the current heading    //    
+	function onSuccessHeading(heading) {  
+	
+	pHeading = (parseFloat(heading.magneticHeading/100))*100; 
+	
+	   myMarker.attr({transform: "r" + pHeading});
+ 
+	var element = document.getElementById('heading');        
+	element.innerHTML = 'Heading: ' + pHeading;    
+	}    // onError: Failed to get the heading    //    
+	function onErrorHeading(compassError) {        
+	//alert('Compass error: ' + compassError.code);    
+	}    
+	
+	
+	
+    </script>    
+ 
+        
+ <script type="text/javascript" charset="utf-8">  
+
+window.onload=function () {
+ 		document.addEventListener("deviceready", onDeviceReady, false);  
+    	
+		  
+		if(interv){    
+		clearInterval(interv); 
+		monitorInterval = null; 
+		} 
+		
+		interv=setInterval(locationRun,100);
+//var t=new   Array([1,2],[3,4],[5,6]);
+// pfilter(t);
+}; 
+
+		function onDeviceReady() {
+			navigator.splashscreen.show();
+		startWatch();
+		//map
+		navStart(); 
+		//locationRun();
+		
+		
+		
+
+		}
+
+
+		//LKFPos
+		var getX,getY,xAccel,yAccel,zAccel,tsNow,reNew;
+
+		function LKFPos( wx,wy) { 
+		
+		ts=1,nl=10, Vel0=10,Ang0=90,NowX=wx*scale+offsetx,NowY=wy*scale+offsety,reNew=0;
+		
+		// alert(wx);
+	     
+	// Update compass every 3 seconds        
+       
+	//navigator.accelerometer.getCurrentAcceleration(onSuccessAcceleration, onErrorAcceleration);
+	//navigator.accelerometer.watchAcceleration(onSuccessAcceleration,                                                       onErrorAcceleration, sensorOptions);
+ 
+ 		if(running==30){reNew=1;}
+     	window.plugins.LKFPlugin.get(function(LKF){ 
+		 
+		//oX =Math.round(LKF.newX*10)/10*scale-offset;
+		//oY =Math.round(LKF.newY*10)/10*scale-offset;
+		
+		oX =Math.round(LKF.newX*10)/10;
+		oY =Math.round(LKF.newY*10)/10;
+		
+		if(running>1){animate(oX,oY);}
+		
+		//alert(oX);
+		
+		//		$("#newposition").html('Position: wX='+wX+'|'+oX+',wY='+WY+'|'+oY+',running:'+running+',rssi:'+mrssi); 
+		//$("#rssi").html('rss:'+mrssi);
+		//running=running+1;
+ 
+ 
+					
+		 });//  
+ 
+ 
+ }
+ 
+ 
+   // onSuccess: Get a snapshot of the current acceleration    
+   //   
+   var iAccelSignificantReadings=0,iAccelReadings=0; 
+   var startPos=0;
+   function onSuccessAcceleration(acceleration) 
+   {      
+   getX=0;
+   getY=0;
+   xAccel=acceleration.x;
+   yAccel=acceleration.y;
+   zAccel=acceleration.z;
+   tsNow=acceleration.timestamp; 
+
+   //alert("acc="+((parseFloat(Math.abs(xAccel))+parseFloat(Math.abs(yAccel))+parseFloat(Math.abs(zAccel)))-9.8)); 
+ 
+   
+    //var accel=Math.abs(Math.sqrt(Math.pow(parseFloat(xAccel),2)+Math.pow(parseFloat(yAccel),2)+Math.pow(parseFloat(zAccel),2));
+   var accel=Math.abs(Math.sqrt(Math.pow(parseFloat(xAccel),2)+Math.pow(parseFloat(yAccel),2)+Math.pow(parseFloat(zAccel),2)));
+   //alert(accel-9.8);
+   
+   		iAccelReadings++;
+      if (accel > 10.1) {
+			iAccelSignificantReadings++;
+		//alert(iAccelReadings+'|'+iAccelSignificantReadings);
+		}
+		
+		
+		
+		if (((1.0*iAccelSignificantReadings) / iAccelReadings) > 0.20) {
+			startPos=1;
+ 			
+		} else {
+			startPos=0;
+ 		}
+		//$("#newaccel").html('accel='+accel+',iAccelReadings='+iAccelReadings+',iAccelSignificantReadings='+iAccelSignificantReadings+',startPos='+startPos); 
+		if(iAccelReadings>10){iAccelSignificantReadings=0;iAccelReadings=0;}
+		
+   
+    //var accel=Math.abs(Math.sqrt(Math.pow(x,2)+Math.pow(y,2)+Math.pow(z,2));
+   
+  //alert('Acceleration X: ' + acceleration.x + '\n' + 'Acceleration Y: ' + acceleration.y + '\n' +              'Acceleration Z: ' + acceleration.z + '\n' +              'Timestamp: '      + acceleration.timestamp + '\n');    
+   }  
+     
+   // onError: Failed to get the acceleration    
+   //    
+   function onErrorAcceleration() {        alert('onError!');    }
+ 
+ //////////////////////////
+ 
+ 
+ var getPos=0;
+ 
+
+posP= function(gX,gY){
+		
+		//nX=pX;
+		//nY=pY;
+		/*
+		if(smoothingPoi==null){
+			smoothingPoi=poi;
+			}
+			
+		for (var i=0; i<poi.length;i++){
+			smoothingPoi[i] = smoothingPoi [i] +alpha * (poi[i] -
+			smoothingPoi[i]);
+		}
+		nX=Math.round(smoothingPoi[0]*1000000)/1000000;
+		nY=Math.round(smoothingPoi[1]*1000000)/1000000;		
+			*/     
+ 		//animate(nX*scale,nY*scale);
+		//pfilter(posList);
+		LKFPos(gX,gY);
+		//var oX=nPoi[0]*scale+offset;
+		//var oY=nPoi[1]*scale+offset;
+		//if(startPos==1||getPos==1)
+		{
+		//animate(oX,oY);
+		//iAccelSignificantReadings=0,iAccelReadings=0; 
+		}
+		
+		$("#newposition").html('P pX='+nX+'|'+oX+',pY='+nY+'|'+'|'+oY+'|'+Math.round(oY-(nY*10-35))+',r:'+running); 
+		//$("#rssi").html('rss:'+mrssi);
+		//$("#newposition").html('Position: wX='+wX+'|'+oX+',wY='+WY+'|'+oY+',running:'+running+',rssi:'+mrssi);
+		running=running+1;
+		 
+		//posList=new Array();
+	    //pcount=0;
+		//locationRun();
+}
+
+
+
+		function locationRun() {  
+		
+		//for(var w=0;w<scanCount;w++)
+		{     
+    	window.plugins.WifiInfo.get(function(wifi){ 
+		mrssi=wifi.wifiexp;
+		//alert(wifi.wifilist);
+		if(wifi.wifilist=='noMallo')
+		{
+			errorLoad('No WiFront signal available , please wait.');
+		}else {
+			
+			getPosition(wifi.wifilist); 
+			}
+					
+		 });// WifiInfo.get  
+		}
+ 
+			
+        } // onDeviceReady
+		
+		
+		
+		
+		
+		function errorLoad(msg) { 
+		$("#newposition").html(msg);  
+		}
+	</script>  
+</head>  
+
+ <body> 
+ 
+
+
+<!-- page -->
+
+<div data-role="page">
+
+    <div data-role="header">
+        <h1>ECMall演示2013-04-03</h1><div id="newposition">Waiting for location...</div>
+    </div><!-- /header -->
+ 
+    <div data-role="content" id="mapHolder">  
+    
+       <div id="navHolder"></div>        
+    </div><!-- /content -->
+
+    <div data-role="footer">
+        <h4><a href="index.html">2013-04-03</a></h4>
+        <!--<div id="newposition1">Waiting for position...</div>
+        <div id="newaccel">Waiting for accel...</div>
+        -->
+    </div><!-- /footer -->
+</div><!-- /page --> 
+ 
+        
+        
+ </body>
+</html>

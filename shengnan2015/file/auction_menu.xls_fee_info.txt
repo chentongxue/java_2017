@@ -1,0 +1,3 @@
+fee8	fee24	fee48	minGameMoney	minGlodMoney	deductRate	upGameMoney	upGoldMoney
+8小时手续费(游戏币)	24小时手续费(游戏币)	48小时手续费(游戏币)	上架游戏币的最小额度	上架元宝的最小额度	拍卖行手续费百分比\n100=100%	是否允许上架金币	是否允许上架元宝
+500	1000	2000	1000	2	15	0	0

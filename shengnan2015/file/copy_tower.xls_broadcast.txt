@@ -1,0 +1,41 @@
+gateId	gateName	instead	roleLevel	maxLevel	scoreType	broadcastInfo
+关卡ID	关卡名称	代打广播	玩家最小等级	玩家最大等级	评价等级	广播信息
+FBshenxiaodian1	神霄殿		20	35	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]完美的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FBshenxiaodian1	神霄殿		20	35	2	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]毫发无伤的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+						
+FBqingxiaodian2	青霄殿		20	45	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]完美的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FBqingxiaodian2	青霄殿		20	45	2	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]毫发无伤的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+						
+FBbixiaodian3	碧霄殿		20	55	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]完美的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FBbixiaodian3	碧霄殿		20	55	2	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]毫发无伤的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+						
+FBdanxiaodian4	丹霄殿		20	65	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]完美的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FBdanxiaodian4	丹霄殿		20	65	2	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]毫发无伤的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FBdanxiaodian4	丹霄殿		20	65	3	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]轻而易举[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+						
+FBjingxiaodian5	景霄殿		20	80	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]完美的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FBjingxiaodian5	景霄殿		20	80	2	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]毫发无伤的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FBjingxiaodian5	景霄殿		20	80	3	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]轻而易举[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+						
+FByuxiaodian6	玉霄殿		20	80	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]完美的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FByuxiaodian6	玉霄殿		20	80	2	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]毫发无伤的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FByuxiaodian6	玉霄殿		20	80	3	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]轻而易举[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+						
+FBzhenxiaodian7	振霄殿		20	80	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]完美的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FBzhenxiaodian7	振霄殿		20	80	2	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]毫发无伤的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FBzhenxiaodian7	振霄殿		20	80	3	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]轻而易举[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+						
+FBzixiaodian8	紫霄殿		20	80	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]完美的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FBzixiaodian8	紫霄殿		20	80	2	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]毫发无伤的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FBzixiaodian8	紫霄殿		20	80	3	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]轻而易举[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+						
+FBtaixiaodian9	太霄殿		20	80	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]完美的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FBtaixiaodian9	太霄殿		20	80	2	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]毫发无伤的通过了[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+FBtaixiaodian9	太霄殿		20	80	3	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]轻而易举[\C]ffff38b6[C]${gateName}[\C]ffffffff[C]并获得了[\C]ffc7e462[C]${scoreName}[\C]ffffffff[C]的评价
+						
+						
+						
+						
+						
+						
+						

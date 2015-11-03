@@ -1,0 +1,2 @@
+id	npcId	targetX	targetY
+唯一标识	npcId	目标点x	目标点y

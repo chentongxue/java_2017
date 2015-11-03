@@ -1,0 +1,3 @@
+mapId
+神仙福地类型地图ID
+01_SXFD_shenxianfudi

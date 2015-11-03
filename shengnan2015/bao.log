@@ -1,0 +1,162 @@
+2015-08-07 15:31:54,600 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======begin===
+2015-08-07 15:31:54,600 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - ????? cmd:grep 'RichManAward' /data/stat2/Log/LogStat_2015-08-06*.log > /data/stat2/date_test/HuoDongDetail.log
+2015-08-07 15:31:55,158 ERROR [com.sincetimes.dragon.statistics.service.HuodongDetail] - 
+java.sql.SQLException: Parameter index out of range (2 > number of parameters, which is 1).
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926)
+	at com.mysql.jdbc.PreparedStatement.checkBounds(PreparedStatement.java:3657)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3641)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3683)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3559)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3528)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setDate(DelegatingPreparedStatement.java:138)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.clearCzzhl(HuodongDetail.java:109)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.handle(HuodongDetail.java:77)
+	at bao.bao_test_1.hanle_czzhl(bao_test_1.java:66)
+	at bao.bao_test_1.main(bao_test_1.java:55)
+2015-08-07 15:31:55,163 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======end===
+2015-08-07 15:31:55,166 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======begin===
+2015-08-07 15:31:55,166 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - ????? cmd:grep 'RichManAward' /data/stat2/Log/LogStat_2015-08-05*.log > /data/stat2/date_test/HuoDongDetail.log
+2015-08-07 15:31:55,349 ERROR [com.sincetimes.dragon.statistics.service.HuodongDetail] - 
+java.sql.SQLException: Parameter index out of range (2 > number of parameters, which is 1).
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926)
+	at com.mysql.jdbc.PreparedStatement.checkBounds(PreparedStatement.java:3657)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3641)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3683)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3559)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3528)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setDate(DelegatingPreparedStatement.java:138)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.clearCzzhl(HuodongDetail.java:109)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.handle(HuodongDetail.java:77)
+	at bao.bao_test_1.hanle_czzhl(bao_test_1.java:66)
+	at bao.bao_test_1.main(bao_test_1.java:55)
+2015-08-07 15:31:55,354 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======end===
+2015-08-07 15:31:55,356 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======begin===
+2015-08-07 15:31:55,356 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - ????? cmd:grep 'RichManAward' /data/stat2/Log/LogStat_2015-08-04*.log > /data/stat2/date_test/HuoDongDetail.log
+2015-08-07 15:31:55,521 ERROR [com.sincetimes.dragon.statistics.service.HuodongDetail] - 
+java.sql.SQLException: Parameter index out of range (2 > number of parameters, which is 1).
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926)
+	at com.mysql.jdbc.PreparedStatement.checkBounds(PreparedStatement.java:3657)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3641)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3683)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3559)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3528)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setDate(DelegatingPreparedStatement.java:138)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.clearCzzhl(HuodongDetail.java:109)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.handle(HuodongDetail.java:77)
+	at bao.bao_test_1.hanle_czzhl(bao_test_1.java:66)
+	at bao.bao_test_1.main(bao_test_1.java:55)
+2015-08-07 15:31:55,526 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======end===
+2015-08-07 15:31:55,529 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======begin===
+2015-08-07 15:31:55,530 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - ????? cmd:grep 'RichManAward' /data/stat2/Log/LogStat_2015-08-03*.log > /data/stat2/date_test/HuoDongDetail.log
+2015-08-07 15:31:55,689 ERROR [com.sincetimes.dragon.statistics.service.HuodongDetail] - 
+java.sql.SQLException: Parameter index out of range (2 > number of parameters, which is 1).
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926)
+	at com.mysql.jdbc.PreparedStatement.checkBounds(PreparedStatement.java:3657)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3641)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3683)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3559)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3528)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setDate(DelegatingPreparedStatement.java:138)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.clearCzzhl(HuodongDetail.java:109)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.handle(HuodongDetail.java:77)
+	at bao.bao_test_1.hanle_czzhl(bao_test_1.java:66)
+	at bao.bao_test_1.main(bao_test_1.java:55)
+2015-08-07 15:31:55,694 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======end===
+2015-08-07 15:31:55,697 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======begin===
+2015-08-07 15:31:55,697 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - ????? cmd:grep 'RichManAward' /data/stat2/Log/LogStat_2015-08-02*.log > /data/stat2/date_test/HuoDongDetail.log
+2015-08-07 15:31:55,857 ERROR [com.sincetimes.dragon.statistics.service.HuodongDetail] - 
+java.sql.SQLException: Parameter index out of range (2 > number of parameters, which is 1).
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926)
+	at com.mysql.jdbc.PreparedStatement.checkBounds(PreparedStatement.java:3657)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3641)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3683)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3559)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3528)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setDate(DelegatingPreparedStatement.java:138)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.clearCzzhl(HuodongDetail.java:109)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.handle(HuodongDetail.java:77)
+	at bao.bao_test_1.hanle_czzhl(bao_test_1.java:66)
+	at bao.bao_test_1.main(bao_test_1.java:55)
+2015-08-07 15:31:55,862 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======end===
+2015-08-07 15:31:55,865 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======begin===
+2015-08-07 15:31:55,865 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - ????? cmd:grep 'RichManAward' /data/stat2/Log/LogStat_2015-08-01*.log > /data/stat2/date_test/HuoDongDetail.log
+2015-08-07 15:31:56,023 ERROR [com.sincetimes.dragon.statistics.service.HuodongDetail] - 
+java.sql.SQLException: Parameter index out of range (2 > number of parameters, which is 1).
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926)
+	at com.mysql.jdbc.PreparedStatement.checkBounds(PreparedStatement.java:3657)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3641)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3683)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3559)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3528)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setDate(DelegatingPreparedStatement.java:138)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.clearCzzhl(HuodongDetail.java:109)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.handle(HuodongDetail.java:77)
+	at bao.bao_test_1.hanle_czzhl(bao_test_1.java:66)
+	at bao.bao_test_1.main(bao_test_1.java:55)
+2015-08-07 15:31:56,028 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======end===
+2015-08-07 15:31:56,031 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======begin===
+2015-08-07 15:31:56,032 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - ????? cmd:grep 'RichManAward' /data/stat2/Log/LogStat_2015-07-31*.log > /data/stat2/date_test/HuoDongDetail.log
+2015-08-07 15:31:56,191 ERROR [com.sincetimes.dragon.statistics.service.HuodongDetail] - 
+java.sql.SQLException: Parameter index out of range (2 > number of parameters, which is 1).
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926)
+	at com.mysql.jdbc.PreparedStatement.checkBounds(PreparedStatement.java:3657)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3641)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3683)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3559)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3528)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setDate(DelegatingPreparedStatement.java:138)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.clearCzzhl(HuodongDetail.java:109)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.handle(HuodongDetail.java:77)
+	at bao.bao_test_1.hanle_czzhl(bao_test_1.java:66)
+	at bao.bao_test_1.main(bao_test_1.java:55)
+2015-08-07 15:31:56,195 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======end===
+2015-08-07 15:31:56,199 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======begin===
+2015-08-07 15:31:56,199 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - ????? cmd:grep 'RichManAward' /data/stat2/Log/LogStat_2015-07-30*.log > /data/stat2/date_test/HuoDongDetail.log
+2015-08-07 15:31:56,360 ERROR [com.sincetimes.dragon.statistics.service.HuodongDetail] - 
+java.sql.SQLException: Parameter index out of range (2 > number of parameters, which is 1).
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926)
+	at com.mysql.jdbc.PreparedStatement.checkBounds(PreparedStatement.java:3657)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3641)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3683)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3559)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3528)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setDate(DelegatingPreparedStatement.java:138)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.clearCzzhl(HuodongDetail.java:109)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.handle(HuodongDetail.java:77)
+	at bao.bao_test_1.hanle_czzhl(bao_test_1.java:66)
+	at bao.bao_test_1.main(bao_test_1.java:55)
+2015-08-07 15:31:56,365 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======end===
+2015-08-07 15:31:56,369 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======begin===
+2015-08-07 15:31:56,369 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - ????? cmd:grep 'RichManAward' /data/stat2/Log/LogStat_2015-07-29*.log > /data/stat2/date_test/HuoDongDetail.log
+2015-08-07 15:31:56,529 ERROR [com.sincetimes.dragon.statistics.service.HuodongDetail] - 
+java.sql.SQLException: Parameter index out of range (2 > number of parameters, which is 1).
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926)
+	at com.mysql.jdbc.PreparedStatement.checkBounds(PreparedStatement.java:3657)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3641)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3683)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3559)
+	at com.mysql.jdbc.PreparedStatement.setDate(PreparedStatement.java:3528)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setDate(DelegatingPreparedStatement.java:138)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.clearCzzhl(HuodongDetail.java:109)
+	at com.sincetimes.dragon.statistics.service.HuodongDetail.handle(HuodongDetail.java:77)
+	at bao.bao_test_1.hanle_czzhl(bao_test_1.java:66)
+	at bao.bao_test_1.main(bao_test_1.java:55)
+2015-08-07 15:31:56,534 INFO [com.sincetimes.dragon.statistics.service.HuodongDetail] - =====================HuodongDetail=======end===

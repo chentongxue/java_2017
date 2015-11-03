@@ -1,0 +1,6 @@
+level	num	name	effectId	iconId	attriType1	attriValue1	attriType2	attriValue2	attriType3	attriValue3	attriType4	attriValue4
+属性品质	属性数目	达成目标名	特效id	点亮图标ID	加成属性类型1	加成属性值1	加成属性类型2	加成属性值2	加成属性类型3	加成属性值3	加成属性类型4	加成属性值4
+4	3	[\C]ff17ecff[C]全身装备3条紫色洗练属性		263	51	50	8	100	50	150		
+5	3	[\C]ff17ecff[C]全身装备3条橙色洗练属性		263	51	100	8	200	50	250		
+6	3	[\C]ff17ecff[C]全身装备3条红色洗练属性		263	51	200	8	400	50	350		
+7	3	[\C]ff17ecff[C]全身装备3条金色洗练属性		263	51	300	8	500	50	450		

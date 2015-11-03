@@ -1,0 +1,32 @@
+level	hitProb	remainProb	failProb	stoneId	stoneNum	materialId	materialNum	silverMoney	maxRelegation	broadcastInfo	showHitProb
+强化目标等级	成功几率\n[10000=100%]	失败-0几率	降级几率	保底符id	保底符数量	强化材料id	强化材料数目	消耗金钱	最大降级数	强化成功广播信息	显示成功几率\n[10000=100%]
+1	10000	0	0			7000005	1	500	0		10000
+2	8000	2000	0			7000005	1	500	0		8500
+3	6000	4000	0			7000005	1	500	0		7000
+4	4000	6000	0			7000005	1	500	0		5000
+5	2000	8000	0			7000005	1	1000	0	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b6[C]${level}[\C]ffffffff[C]级，功参造化！	4000
+6	3000	7000	0			7000005	1	1000	0		4000
+7	2000	8000	0			7000005	1	1000	0		3000
+8	1500	8500	0			7000005	1	1000	0		2500
+9	1000	9000	0			7000005	1	1000	0		2000
+10	500	9500	0			7000005	1	1500	0	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b6[C]${level}[\C]ffffffff[C]级，功参造化！	1000
+11	3000	4900	2100	7000008	1	7000006	3	1500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b7[C]${level}[\C]ffffffff[C]级，功参造化！	4000
+12	1500	5525	2975	7000008	1	7000006	3	1500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b8[C]${level}[\C]ffffffff[C]级，功参造化！	2000
+13	1200	5280	3520	7000008	1	7000006	3	1500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b9[C]${level}[\C]ffffffff[C]级，功参造化！	1500
+14	1000	4950	4050	7000008	1	7000006	3	1500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b10[C]${level}[\C]ffffffff[C]级，功参造化！	1500
+15	800	4600	4600	7000008	1	7000006	3	1500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b11[C]${level}[\C]ffffffff[C]级，功参造化！	1000
+16	600	4230	5170	7000008	1	7000006	3	2000	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b12[C]${level}[\C]ffffffff[C]级，功参造化！	1000
+17	400	3840	5760	7000008	1	7000006	3	2000	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b13[C]${level}[\C]ffffffff[C]级，功参造化！	600
+18	400	3360	6240	7000008	1	7000006	3	2000	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b14[C]${level}[\C]ffffffff[C]级，功参造化！	600
+19	300	2910	6790	7000008	1	7000006	3	2000	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b15[C]${level}[\C]ffffffff[C]级，功参造化！	600
+20	300	2425	7275	7000008	1	7000006	3	2000	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b16[C]${level}[\C]ffffffff[C]级，功参造化！	600
+21	1800	1640	6560	7000009	1	7000007	6	2500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b17[C]${level}[\C]ffffffff[C]级，功参造化！	3000
+22	1800	1230	6970	7000009	1	7000007	6	2500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b18[C]${level}[\C]ffffffff[C]级，功参造化！	3000
+23	1100	890	8010	7000009	1	7000007	9	2500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b19[C]${level}[\C]ffffffff[C]级，功参造化！	2000
+24	800	920	8280	7000009	1	7000007	12	2500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b20[C]${level}[\C]ffffffff[C]级，功参造化！	1500
+25	500	950	8550	7000009	1	7000007	15	2500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b21[C]${level}[\C]ffffffff[C]级，功参造化！	1000
+26	500	950	8550	7000009	1	7000007	18	2500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b22[C]${level}[\C]ffffffff[C]级，功参造化！	1000
+27	300	970	8730	7000009	1	7000007	21	2500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b23[C]${level}[\C]ffffffff[C]级，功参造化！	600
+28	200	980	8820	7000009	1	7000007	21	2500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b24[C]${level}[\C]ffffffff[C]级，功参造化！	400
+29	150	985	8865	7000009	1	7000007	21	2500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b25[C]${level}[\C]ffffffff[C]级，功参造化！	300
+30	100	990	8910	7000009	1	7000007	27	2500	1	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]${roleName}[\C]ffffffff[C]将${goodsName}[\C]ffffffff[C]强化至[\C]ffff38b26[C]${level}[\C]ffffffff[C]级，功参造化！	300

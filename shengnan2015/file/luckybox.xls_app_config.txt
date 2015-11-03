@@ -1,0 +1,13 @@
+roundsCount	firstDrawSilverMoneyConsume	consumeSilverMoneyInfo	consumeDiamondsInfo
+每天每个角色几轮	第一次游戏币消耗消耗	消耗金币提示	消耗钻石提示
+2	10	 {0}金币可以打开一个宝箱	 {0}钻石可以打开一个宝箱
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

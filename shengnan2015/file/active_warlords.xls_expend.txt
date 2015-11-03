@@ -1,0 +1,2 @@
+activeId	integral
+活动ID	消耗积分

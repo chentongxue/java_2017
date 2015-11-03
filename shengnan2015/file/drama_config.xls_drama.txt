@@ -1,0 +1,2 @@
+dramaId	componentIds	replay
+剧情id	剧情组成ids	是否重播

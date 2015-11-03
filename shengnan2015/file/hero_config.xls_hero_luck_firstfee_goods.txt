@@ -1,0 +1,5 @@
+typeId	goodsId	goodsNum	weights	weightsType	broadcast
+类型ID	物品ID	物品数量	权重	0 默认\n1 (一般是非英雄)表示由于算法减少的英雄权重，\n会平均添加到此物品权重上	广播信息
+1	1000005	1	1000	1	不详之刃
+2	1000006	1	1000	1	盖伦
+3	1000007	1	1000	1	寒冰射手

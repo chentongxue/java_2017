@@ -1,0 +1,7 @@
+times	resId	goodsId	goodsNum	bindType
+ 签名次数 	展示资源ID	奖励的物品ID	物品数目	绑定类型
+5		9004	1	1
+10		9005	1	1
+15		9006	1	1
+20		9007	1	1
+25		9008	1	1

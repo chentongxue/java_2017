@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="2.0dip"
+        android:background="@drawable/bg_title_mapsearch"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+
+        <EditText
+            android:id="@+id/et"
+            android:hint="请输入..." 
+            android:layout_width="fill_parent"
+            android:layout_height="36.0dip"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="3.0dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/nav_btn_map_poi"
+            android:clickable="true"
+            android:drawableLeft="@drawable/icon_geo"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textColor="#ff6d6d6d"
+            android:textSize="16.0sp" 
+            
+            >
+        </EditText>
+
+        <ImageButton
+            android:id="@+id/bt_go"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3.0dip"
+            android:layout_marginRight="3.0dip"
+            android:background="@android:color/transparent"
+            android:src="@drawable/bt_search_button"
+                   
+            android:onClick="go_search"
+            />
+
+        <ImageButton
+            android:id="@+id/bt_go"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3.0dip"
+            android:layout_marginRight="3.0dip"
+            android:background="@android:color/transparent"
+            android:src="@drawable/bt_go_button"
+            android:onClick="go_click" 
+            />
+
+             <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/bt_location_button"
+            android:onClick="go_location" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="456dp"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/darker_gray" >
+
+        <WebView
+            android:id="@+id/webview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/hello" />
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:background="#6699FF" >
+
+        <TextView
+            android:id="@+id/tv_log"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="日志信息\n init……\n"
+            android:textColor="@android:color/white" />
+    </ScrollView>
+
+</LinearLayout>

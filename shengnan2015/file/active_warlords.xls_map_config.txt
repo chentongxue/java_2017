@@ -1,0 +1,2 @@
+mapId	activeId	npcIds
+地图ID	活动ID	可能出现的BOSS集合

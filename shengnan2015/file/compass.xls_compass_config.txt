@@ -1,0 +1,3 @@
+rewardPointsExchangeRate	whichRound	lastRound
+积分兑换比率	现在第几轮	上一轮是第几轮
+3	2	1

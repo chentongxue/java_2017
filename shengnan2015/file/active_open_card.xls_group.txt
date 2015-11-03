@@ -1,0 +1,2 @@
+id	itemId	num	weight	level
+id(short)	物品ID1	数量	权重1	特、高、中、低

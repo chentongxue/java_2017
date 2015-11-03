@@ -1,0 +1,2 @@
+id	npcId	anim	effectId	sound	lastTime
+唯一标识	npcid	动画	特效	音效	持续时间

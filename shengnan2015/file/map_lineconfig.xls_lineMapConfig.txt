@@ -1,0 +1,29 @@
+lineMapId	maxRoleCount	maxLineCount	lifeCycle	changeLine
+分线地图ID	每条分线地图最大人数	此地图最大分线数目	生命周期(单位：秒)	是否允许变线
+01_KLS_xinshoucun	30	50	300	
+04_KLS_xiqi	30	50	300	
+03_KLS_jiuyouzhidi	30	50	300	
+01_HGS_huaguoshan	30	50	300	
+02_HGS_aolaiguo	30	50	300	
+03_HGS_wuya	30	50	300	
+01_XYS_xuanyuanshan	30	50	300	
+02_XYS_yuxugong	30	50	300	
+03_XYS_fangcun	30	50	300	
+01_CYGM_chiyoumu	30	40	300	
+02_CYGM_nanjiang	30	40	300	
+03_CYGM_mengjin	30	40	300	
+01_GBT_gebi	30	40	300	
+02_GBT_xuanyuandong	30	40	300	
+01_GWGC_a	50	40	300	
+01_CG_zhucheng	50	50	300	
+01_BHD_a	50	40	300	
+ZYZYZ_zhenyingziyuanzhan	50	40	300	
+01_SSG_sanshanguan	30	40	300	
+02_SSG_youhongguan	30	40	300	
+03_SSG_miaojiang	30	40	300	
+01_YGZC_yuanguzhanchang	30	40	300	
+02_YGZC_zangxiangu	30	40	300	
+03_YGZC_damo	30	40	300	
+01_SXFD_shenxianfudi	60	40	600	
+01_DLD_daluandou	16	60	300	0
+04_HD_liangshijie	20	60	300	

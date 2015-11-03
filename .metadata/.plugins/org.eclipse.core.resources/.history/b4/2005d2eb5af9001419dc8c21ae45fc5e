@@ -1,0 +1,21 @@
+package swich;
+
+public class Test2 {
+	public static void main(String args[]) {
+		for (int a = 1; a < 6; a++) {
+			switch (a) {
+			case 1:
+			case 2:
+			case 3:
+				System.out.println("ccc :" + a);
+				return;
+			case 4:
+				System.out.println("a :" + a);
+				return;
+			case 5:
+				System.out.println("a :" + a);
+				return;
+			}
+		}
+	}
+}

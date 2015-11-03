@@ -1,0 +1,6 @@
+vipLevel	bindGoldMoney	gameMoney	buffId	goodsId1	goodsNum1	goodsBindType1	goodsId2	goodsNum2	goodsBindType2	goodsId3	goodsNum3	goodsBindType3
+vip等级	绑定元宝	游戏币	祝福buffId	物品1	物品数1	绑定类型1	物品2	物品数2	绑定类型2	物品3	物品数3	绑定类型3
+1	10	5000	9105	9010	1	1						
+2	10	5000	9105	9152	1	1						
+3	20	10000	9105	9153	1	1						
+4	30	20000	9105	9154	1	1						

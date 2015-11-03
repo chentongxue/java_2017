@@ -1,0 +1,2 @@
+hpRatio
+BOSS血量百分比

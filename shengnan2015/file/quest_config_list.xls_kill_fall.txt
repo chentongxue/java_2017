@@ -1,0 +1,2 @@
+questId	questName	questDesc	targetDesc	mapId	npcId	goodsName	count	dropProb
+任务ID	任务名称	任务描述	任务目标描述	阶段地图ID	怪物ID	物品名称	物品数量	掉落几率

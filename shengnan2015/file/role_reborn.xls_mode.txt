@@ -1,0 +1,4 @@
+id	name	buff	goodsId	goodsTips	hpRate	mpRate	durableRate	goldMoney
+复活方式\n0 墓地复活\n1 原地复活\n2 技能复活	复活名称	添加buff列表\n多个用,隔开	需要道具id	道具不足提示	复活后hp百分比\n取值[1-100]	复活后mp百分比\n取值[1-100]	复活时扣除装备\n耐久百分比[0-100]	原地复活消耗的元宝
+1	原地复活		77779	复活卷轴数量不足，请到商城中购买。	100	100	0	5
+0	墓地复活				50	50	10	

@@ -1,0 +1,2 @@
+serverId	startDateAbs	endDateAbs	startDateRel	endDateRel	groupId
+服务器ID	开启日期	结束日期	相对开启日期(天)\n开服的第X天	相对结束日期(天)\n开服的第X天	组ID

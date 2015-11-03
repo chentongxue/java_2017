@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+externalMigrateFromAuthorizationDatabase/isMigrated=true
+migrateFromAuthorizationDatabase/isMigrated=true
+repositories/10e39919f3e800141068f0255fb87daa=10e39919f3e800141068f0255fb87daa;http\://192.168.1.182/svn/naruto/tech/server/draco;http\://192.168.1.182/svn/naruto/tech/server/draco;branches;tags;trunk;true;;;;false;;;0

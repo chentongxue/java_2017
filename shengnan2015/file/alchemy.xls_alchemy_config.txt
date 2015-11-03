@@ -1,0 +1,3 @@
+critMultiple	headerTipsStr	footerTipsStr	alchemySucessInfo	critBroadcast
+暴击倍数	顶部信息，提示暴击率和收益	尾部信息，提示VIP广告	炼金成功信息	暴击广播信息
+5	本次炼金有{0}%产生暴击	VIP可以XXXX	炼金成功获得{0}:{1}	玩家:{0}炼金成功获得{1}:{2}

@@ -1,0 +1,6 @@
+winCount	copyId	name	broadcastSelf	broadcastAll
+连胜场次	副本ID	名字	给玩家的喊话	给所有玩家的喊话
+3	31	持国天王		
+6	32	增长天王	[\C]ffffffff[C]您完成[\C]ffc7e462[C]{0}[\C]ffffffff[C]场连胜，惹怒了[\C]ffff38b6[C]{1}[\C]ffffffff[C]，战胜他可以拿海量大奖	
+12	33	广目天王	[\C]ffffffff[C]您完成[\C]ffc7e462[C]{0}[\C]ffffffff[C]场连胜，惹怒了[\C]ffff38b6[C]{1}[\C]ffffffff[C]，战胜他可以拿海量大奖	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]{0}[\C]ffffffff[C]在战神榜连胜[\C]ffc7e462[C]{1}[\C]ffffffff[C]场，惹怒了四大天王[\C]ffff38b6[C]{2}[\C]ffffffff[C]，大家祝福TA能成功弑神吧！
+24	34	多闻天王	[\C]ffffffff[C]您完成[\C]ffc7e462[C]{0}[\C]ffffffff[C]场连胜，惹怒了[\C]ffff38b6[C]{1}[\C]ffffffff[C]，战胜他可以拿海量大奖	[\C]ffffffff[C]玩家[\C]ff1cfffc[C]{0}[\C]ffffffff[C]在战神榜连胜[\C]ffc7e462[C]{1}[\C]ffffffff[C]场，惹怒了四大天王[\C]ffff38b6[C]{2}[\C]ffffffff[C]，大家祝福TA能成功弑神吧！

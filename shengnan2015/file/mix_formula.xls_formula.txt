@@ -1,0 +1,69 @@
+srcId	srcNum	targetId	fee	broadcast
+材料ID	材料数目	产物ID	合成消耗游戏币	广播
+6000101	3	6000102	0	
+6000102	3	6000103	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000103	3	6000104	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000104	3	6000105	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000105	3	6000106	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000106	3	6000107	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000107	3	6000108	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000201	3	6000202	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000202	3	6000203	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000203	3	6000204	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000204	3	6000205	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000205	3	6000206	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000206	3	6000207	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000207	3	6000208	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000301	3	6000302	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000302	3	6000303	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000303	3	6000304	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000304	3	6000305	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000305	3	6000306	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000306	3	6000307	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000307	3	6000308	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000401	3	6000402	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000402	3	6000403	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000403	3	6000404	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000404	3	6000405	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000405	3	6000406	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000406	3	6000407	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000407	3	6000408	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000501	3	6000502	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000502	3	6000503	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000503	3	6000504	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000504	3	6000505	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000505	3	6000506	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000506	3	6000507	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000507	3	6000508	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000601	3	6000602	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000602	3	6000603	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000603	3	6000604	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000604	3	6000605	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000605	3	6000606	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000606	3	6000607	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000607	3	6000608	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000701	3	6000702	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000702	3	6000703	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000703	3	6000704	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000704	3	6000705	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000705	3	6000706	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000706	3	6000707	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+6000707	3	6000708	0	[\C]ffffffff[C]异彩流光临仙界，原来是[\C]ff1cfffc[C]{0}[\C]ffffffff[C]合成出了一颗{1}[\C]ffffffff[C]！
+7001001	20	3000001	0	
+7001002	20	3000002	0	
+7001003	20	3000003	0	
+7001004	20	3000004	0	
+7001005	20	3000005	0	
+7001006	20	3000006	0	
+7001007	20	3000007	0	
+7001008	20	3000008	0	
+13000001	40	1000000	0	
+13000002	40	1000001	0	
+13000003	40	1000002	0	
+13000004	40	1000003	0	
+13000005	40	1000004	0	
+13000006	40	1000005	0	
+13000007	40	1000006	0	
+13000008	40	1000007	0	
+13000009	40	1000008	0	
+13000010	40	1000009	0	

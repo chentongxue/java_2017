@@ -1,0 +1,4 @@
+copyId	mapId	mapIndex	needKillNpcId	needKillAll	needKillAllTips	passTips	ruleType	ruleId	limitTime	jumpX	jumpY	toMapId	toMapX	toMapY	passCleanNpc
+副本ID	地图ID	地图序列	需杀死NpcId	需杀死所有怪物	需杀死所有怪物提示	地图通关提示	规则类型	刷怪规则	限制时间	传送点X	传送点Y	目标地图ID	目标X	目标Y	目标Y地图通关后是否清除NPC
+1	01_AHDX_aihaodongxue	0		1	杀死所有怪物	已通关，点击“出口”可离开副本！	1	4013	0	1975	1487	01_MFSM_mofangshenmiao	652	497	
+2	01_FBBGD_baigudong996	0		1	杀死所有怪物	已通关，点击“出口”可离开副本！	1		0	268	348	01_MFSM_mofangshenmiao	652	497	

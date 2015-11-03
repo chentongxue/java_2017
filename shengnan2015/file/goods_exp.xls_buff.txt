@@ -1,0 +1,8 @@
+buffId	name	level	iconId	effectId	categoryType	transNoClean	persistTime	dieLost	offlineLost	offlineTiming	groupId	replace	replaceType	add	mult	desc
+BUFF序号	BUFF名称	等级	图标ID	效果ID	buff分类\n[0 buff 1 debuff]	变身是否不清除\n[0 清除|1 不清除 ]	持续时间\n（毫秒）	死亡后是否消失	下线后是否消失	下线是否计时	互斥组	是否强制替换(任务添加的相关buff)\n1 是 0 否	替换类型	经验加法系数\n[100%=10000]	经验乘法系数\n[100%=10000]	BUFF说明
+6001	经验提高	1	6		0	1	3600000	0	0	0	6001	0	2	5000		打怪经验提高50%
+6001	经验提高	2	7		0	1	3600000	0	0	0	6001	0	2	10000		打怪经验提高100%
+																
+6002	经验提高	1	6		0	1	3600000	0	0	0	6002	0	2		10000	经验提高100%
+6002	经验提高	2	7		0	1	3600000	0	0	0	6002	0	2		20000	经验提高200%
+6002	经验提高	3	8		0	1	3600000	0	0	0	6002	0	2		30000	经验提高300%

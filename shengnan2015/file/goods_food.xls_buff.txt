@@ -1,0 +1,71 @@
+buffId	name	level	iconId	effectId	timeType	categoryType	transNoClean	intervalTime	persistTime	dieLost	offlineLost	beingType	groupId	replaceType	notReplaceDesc	hatredPercent	hatredAdd	desc	addHp	addHpRate	addHpBaseRate	addMp	addMpRate	addMpBaseRate	addAnger	addGroupId	addValueGroupId	addRateGroupId	continueGroupId	continueValueGroupId	continueRateGroupId	everyAddHp	everyAddHpRate	everyAddHpBaseRate	everyAddMp	everyAddMpRate	everyAddMpBaseRate	everyAddAnger	clearNum	clearGroupId	useSkillId	useSkillLv
+BUFF序号	BUFF名称	等级	图标ID	效果ID	buff时间类型\n[0单次|1持久]	buff分类\n[0 buff 1 debuff]	变身是否不清除\n[0 清除|1 不清除 ]	间隔时间\n（毫秒）	持续时间\n（毫秒）	死亡后是否消失	下线后是否消失	buff类型	互斥组	替换类型	替换不能时说明\n[string]	伤血造成仇恨百分比	获得造成仇恨值	BUFF说明	立即恢复HP值	立即恢复HP百分比(最大hp)	立即恢复HP百分比(基本hp)	立即恢复MP值	立即恢复MP百分比(最大mp)	立即恢复MP百分比(基本mp)	立即增加气力值	立即增加指定属性id组	增加属性加值组	增加属性倍值组	BUFF持续影响属性id组	BUFF持续影响属性加值组	BUFF持续影响属性倍值组	BUFF每跳恢复HP值	BUFF每跳恢复HP百分比	BUFF每跳恢复HP百分比(基本)	BUFF每跳恢复MP值	BUFF每跳恢复MP百分比	BUFF每跳恢复MP百分比(基本)	BUFF每跳恢复气力值	立即清除BUFF数量	清除BUFFid组	立即使用技能id	使用技能等级
+1	0	1	0		0	0						1							600												 											
+2	0	2	0		0	0						1							1200												 											
+3	0	3	0		0	0						1							3200																							
+4	0	4	0		0	0						1							6400																							
+5	0	5	0		0	0						1							12000																							
+101	0	1	0		0	0						1										600																				
+102	0	2	0		0	0						1										1200																				
+103	0	3	0		0	0						1										3200																				
+104	0	4	0		0	0						1										6400																				
+105	0	5	0		0	0						1										12000																				
+201	0	1	0		0	0						1														50	10															
+202	0	1	0		0	0						1														51	6															
+203	0	1	0		0	0						1														8	75															
+204	0	1	0		0	0						1														9	38															
+0	0	0	0		0	0						1										1800																				
+0	0	0	0		0	0						1										3000																				
+0	0	0	0		0	0						1										6000																				
+0	0	0	0		0	0						1										9000																				
+																																										
+																																										
+7005	0	4	0		0	0						1														14	1000															
+7005	0	5	0		0	0						1														14	2000															
+7005	0	6	0		0	0						1														14	5000															
+7005	0	7	0		0	0						1														14	10000															
+7005	0	1	0		0	0						1														14	100															
+7005	0	2	0		0	0						1														14	200															
+7005	0	3	0		0	0						1														14	500															
+																																										
+7006	0	1	0		0	0						1														25	200															
+7006	0	2	0		0	0						1														25	300															
+																																										
+7006	100仙魂丹	3	0		0	0						1														25	100															
+7006	150仙魂丹	4	0		0	0						1														25	150															
+7006	200仙魂丹	5	0		0	0						1														25	200															
+7006	250仙魂丹	6	0		0	0						1														25	250															
+7006	300仙魂丹	7	0		0	0						1														25	300															
+7006	350仙魂丹	8	0		0	0						1														25	350															
+7006	400仙魂丹	9	0		0	0						1														25	400															
+7006	450仙魂丹	10	0		0	0						1														25	450															
+7006	500仙魂丹	11	0		0	0						1														25	500															
+																																										
+7007	0	1	0		0	0						1														26	200															
+7007	0	2	0		0	0						1														26	300															
+																																										
+7007	0	3	0		0	0						1														26	100															
+7007	0	4	0		0	0						1														26	150															
+7007	0	5	0		0	0						1														26	200															
+7007	0	6	0		0	0						1														26	250															
+7007	0	7	0		0	0						1														26	300															
+7007	0	8	0		0	0						1														26	350															
+7007	0	9	0		0	0						1														26	400															
+7007	0	10	0		0	0						1														26	450															
+7007	0	11	0		0	0						1														26	500															
+																																										
+7008	0	1	0		0	0						1														-21	10															
+7009	0	1	0		0	0						1														-22	10															
+7010	0	1	0		0	0						1														-23	10															
+7011	0	1	0		0	0						1														-24	10															
+7012	0	1	0		0	0						1														-25	10															
+7013	0	1	0		0	0						1														-26	10															
+7014	0	1	0		0	0						1														-27	10															
+7015	0	1	0		0	0						1														-28	10															
+7016	0	1	0		0	0						1														-29	10															
+7017	0	1	0		0	0						1														-30	10															
+																																										
+7018	0	1	0		0	0						1														19	150000															
+7019	0	1	0		0	0						1														19	300000															
+7020	0	1	0		0	0						1														19	600000															
+7021	0	1	0		0	0						1														19	15000000															

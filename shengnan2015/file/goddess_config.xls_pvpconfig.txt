@@ -1,0 +1,3 @@
+challengeNum	mapId	mapX	mapY	targetMapX	targetMapY	recordSize	challengeCount	payChallengeMoneyType	payChallengeMoney	maxPayMoney	clearBaffleTime	rewardCycle	rewardTime	rewardMinute	selfSoulHpRate	targetSoulHpRate	challengeCd	noCdVipLevel	cdMoney
+挑战列表人数	地图ID	玩家位置X	玩家位置Y	npc位置X	npc位置Y	战斗记录条数	每天挑战次数	付费挑战金钱类型	付费挑战金钱数	最大付费	清除障碍时间	领奖周期(天)	奖励结算时间(小时)	奖励结算时间(分钟)	npc变身自身血量百分比	npc变身目标血量百分比	挑战CD(秒)	无CD VIP等级	清CD花费
+5	pvp_04	210	220	1410	860	4	10	4	2	128	3	2	19	30	30	40	180	3	2

@@ -1,0 +1,3 @@
+mapId	minRoleLevel	maxRoleLevel	ruleId
+地图ID	角色最低等级	角色最高等级	规则ID
+01_AHDX_aihaodongxue	1	80	4013

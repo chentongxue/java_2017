@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, MainActivity!</string>
+    <string name="app_name">Malloo</string>
+    <string name="main_activity_name">WELCOME</string>
+    <string name="splash_activity_text">Malloo</string>
+    <string name="splash_activity_mark">摩路智慧广场</string>
+    <string name="version">Version 1.0</string>
+    <string name="click">SCAN WIFI</string>
+    <string name="click2">显示位置</string>
+    <string name="click3">GET RES</string>
+    <string name="show_map">显示地图</string>
+    <string name="json_excample">{"BssList":[{"Rss":-41,"PhysicalType":0,"Channel":0,"Ssid":"Wireless","Bssid":"e0:05:c5:cb:1a:4a"},{"Rss":-84,"PhysicalType":0,"Channel":1,"Ssid":"TP-LINK_2648CE","Bssid":"b0:48:7a:26:48:ce"}],"RequestDeviceId":"351565054716870","OSModel":"Android","HardwareModel":"maguro","RequestUserId":"123456","ApplicationId":"124235"}
+    </string>
+
+</resources>

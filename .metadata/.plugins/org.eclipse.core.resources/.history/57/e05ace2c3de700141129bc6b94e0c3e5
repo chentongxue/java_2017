@@ -1,0 +1,10 @@
+package a_shengnan.a_mianshi.wm.excutor;
+
+public class MyExcutor {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

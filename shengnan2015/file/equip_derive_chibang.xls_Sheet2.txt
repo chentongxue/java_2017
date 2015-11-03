@@ -1,0 +1,16 @@
+private byte	id	;//	命格ID
+private String	name	;//	命格名称
+private int	level	;//	等级
+private int	maxExp	;//	升级所需经验
+private byte	type1	;//	属性类型1
+private int	value1	;//	属性值1
+private byte	type2	;//	属性类型2
+private int	value2	;//	属性值2
+private byte	type3	;//	属性类型3
+private int	value3	;//	属性值3
+private int	wingLevel	;//	需要翅膀等级
+private int	goodsId	;//	培养道具ID
+private int	goodsNum	;//	道具数量
+private int	gameMoney	;//	消耗游戏币
+private int	addExp	;//	培养增加经验
+private String	info	;//	材料不足提示信息

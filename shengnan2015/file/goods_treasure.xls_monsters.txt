@@ -1,0 +1,2 @@
+id	monster1	num1	monster2	num2	monster3	num3	broadcastInfo
+id	刷新怪物id1	刷新怪物数量1	刷新怪物id2	刷新怪物数量2	刷新怪物id3	刷新怪物数量3	刷新怪物广播

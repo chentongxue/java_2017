@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="back_ground">#ffd3d3d3</color>
+    <color name="title">#ff00133e</color>
+    <color name="red">#ffff0000</color>
+    <color name="defaultText">#ff1a7abd</color>
+    <color name="listdef">#ffeeeeee</color>
+    <color name="listex">#ffced3db</color>
+    <color name="listpress">#ffd8dce2</color>
+    <color name="poilistdef">#fff1f1f1</color>
+    <color name="poilistpress">#ffffffff</color>
+    <color name="tab_selected">#ff1d2a3d</color>
+    <color name="tab_not_selected">#ff60656f</color>
+    <color name="off_notif_loading">#ff2392ce</color>
+    <color name="off_notif_suspending">#fff10000</color>
+    <color name="childview_background">#fff6f6f6</color>
+    <color name="clildview_bg">#ffe7e7e7</color>
+    <color name="calcmode_text_color_not_selected">#ffb3b3b3</color>
+    <color name="calcmode_text_color_selected">#ffffffff</color>
+    <color name="list_bubble_item_pressed">#ff464646</color>
+    <color name="nav_poilistdef">#fff1f1f1</color>
+    <color name="nav_poilistpress">#ffffffff</color>
+</resources>

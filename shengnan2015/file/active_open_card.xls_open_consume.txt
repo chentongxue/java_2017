@@ -1,0 +1,2 @@
+type	goodsId	num
+类型	物品ID	物品数量

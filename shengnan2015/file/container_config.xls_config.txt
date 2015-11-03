@@ -1,0 +1,3 @@
+defaultGoodsId	minGoodsId
+默认道具\n道具必须在商城存在	增加1格子的道具必须在商城存在
+88889	88888

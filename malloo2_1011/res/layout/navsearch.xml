@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout_roadsearch_top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_title3"
+        android:gravity="center" >
+
+        <ImageButton
+            android:id="@+id/imagebtn_roadsearch_startoption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="6.0dip"
+            android:layout_marginRight="6.0dip"
+            android:layout_marginTop="6.0dip"
+            android:background="@drawable/btn_nav_drag_down"
+            android:src="@drawable/icon_nav_drag_down" />
+
+        <ImageButton
+            android:id="@+id/imagebtn_roadsearch_goalsoption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/imagebtn_roadsearch_startoption"
+            android:layout_marginLeft="6.0dip"
+            android:layout_marginRight="6.0dip"
+            android:layout_marginTop="12.0dip"
+            android:background="@drawable/btn_nav_drag_down"
+            android:src="@drawable/icon_nav_drag_down" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autotextview_roadsearch_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/imagebtn_roadsearch_startoption"
+            android:layout_marginLeft="5.0dip"
+            android:layout_toLeftOf="@id/imagebtn_roadsearch_startoption"
+            android:layout_toRightOf="@+id/LinearLayout_roadsearch"
+            android:background="@drawable/btn_map_poi"
+            android:dropDownVerticalOffset="1.0dip"
+            android:hint="输入起点..."
+            android:imeOptions="actionDone"
+            android:maxLength="20"
+            android:paddingRight="37.0dip"
+            android:popupBackground="@color/poilistdef"
+            android:singleLine="true"
+            android:textSize="16.0sp" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autotextview_roadsearch_goals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/imagebtn_roadsearch_goalsoption"
+            android:layout_marginLeft="5.0dip"
+            android:layout_toLeftOf="@id/imagebtn_roadsearch_goalsoption"
+            android:layout_toRightOf="@+id/LinearLayout_roadsearch"
+            android:background="@drawable/btn_map_poi"
+            android:dropDownVerticalOffset="1.0dip"
+            android:hint="输入终点..."
+            android:imeOptions="actionDone"
+            android:maxLength="20"
+            android:paddingRight="37.0dip"
+            android:popupBackground="@color/poilistdef"
+            android:singleLine="true"
+            android:textSize="16.0sp" />
+
+      
+
+        <ProgressBar
+            android:id="@+id/ProgressBar_roadsearch_goals"
+            android:layout_width="30.0dip"
+            android:layout_height="30.0dip"
+            android:layout_alignBottom="@id/imagebtn_roadsearch_goalsoption"
+            android:layout_alignTop="@id/imagebtn_roadsearch_goalsoption"
+            android:layout_margin="7.0dip"
+            android:layout_toLeftOf="@id/imagebtn_roadsearch_goalsoption"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayout_roadsearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/autotextview_roadsearch_goals"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@id/autotextview_roadsearch_start"
+            android:layout_centerVertical="true"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/imagebtn_roadsearch_exchange"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="6.0dip"
+                android:background="@drawable/btn_nav_drag_down"
+                android:src="@drawable/icon_change" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imagebtn_roadsearch_goalsoption"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="5.0dip"
+            android:layout_marginTop="12.0dip"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40.0dip"
+                android:layout_weight="2.0"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/imagebtn_roadsearch_tab_transit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/btn_mode_transit" />
+
+                <Button
+                    android:id="@+id/imagebtn_roadsearch_tab_driving_no_arrow"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/btn_mode_driving_no_arrow" />
+
+                <Button
+                    android:id="@+id/imagebtn_roadsearch_tab_walk"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/btn_mode_walk" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="6.0dip"
+                android:layout_weight="4.2" >
+
+                <ImageButton
+                    android:id="@+id/imagebtn_roadsearch_search"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:background="@drawable/btn_nav_drag_down"
+                    android:src="@drawable/ic_btn_poi_search_normal" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

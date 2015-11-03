@@ -1,0 +1,3 @@
+mapId
+小红帽类型地图ID
+01_DLD_daluandou

@@ -1,0 +1,12 @@
+flyLevel	attrRate	lvUpGoodsId	lvUpGoodsNum	broadcastInfo
+飞升等级	全属性加成百分比	升级道具id	升级道具数量	升级喊话
+0	10000	73971	50	[\C]ffffffff[C]晴天一道闪电，[\C]ff1cfffc[C]{0}[\C]ffffffff[C]修仙一重天飞升成功，闪亮登场！
+1	10300	73971	80	[\C]ffffffff[C]晴天一道闪电，[\C]ff1cfffc[C]{0}[\C]ffffffff[C]修仙二重天飞升成功，闪亮登场！
+2	10600	73971	110	[\C]ffffffff[C]晴天一道闪电，[\C]ff1cfffc[C]{0}[\C]ffffffff[C]修仙三重天飞升成功，闪亮登场！
+3	10900	73971	150	[\C]ffffffff[C]晴天一道闪电，[\C]ff1cfffc[C]{0}[\C]ffffffff[C]修仙四重天飞升成功，闪亮登场！
+4	11400	73971	190	[\C]ffffffff[C]晴天一道闪电，[\C]ff1cfffc[C]{0}[\C]ffffffff[C]修仙五重天飞升成功，闪亮登场！
+5	11900	73971	230	[\C]ffffffff[C]晴天一道闪电，[\C]ff1cfffc[C]{0}[\C]ffffffff[C]修仙六重天飞升成功，闪亮登场！
+6	12400	73971	280	[\C]ffffffff[C]晴天一道闪电，[\C]ff1cfffc[C]{0}[\C]ffffffff[C]修仙七重天飞升成功，闪亮登场！
+7	13100	73971	330	[\C]ffffffff[C]晴天一道闪电，[\C]ff1cfffc[C]{0}[\C]ffffffff[C]修仙八重天飞升成功，闪亮登场！
+8	13800	73971	380	[\C]ffffffff[C]晴天一道闪电，[\C]ff1cfffc[C]{0}[\C]ffffffff[C]修仙九重天飞升成功，从此不见踪影！
+9	14500			
