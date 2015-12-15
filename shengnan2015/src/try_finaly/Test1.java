@@ -9,7 +9,7 @@ public class Test1 {
 	public static int test(){
 		int x = 1;
 		try{
-			System.out.println("return x;");
+			System.out.println("return x; = "+x);
 			return x;
 		}finally{
 //			return ++x;

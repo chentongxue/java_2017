@@ -37,7 +37,6 @@ public abstract class ManagerBase {
 		if(inst == null) {
 			throw new SysException("获取Manager实例时出错：未能找到对应实例，class={}", clazz);
 		}
-		
 		return (T)inst;
 	}
 	

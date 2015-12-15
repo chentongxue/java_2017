@@ -12,7 +12,7 @@ public class alibabaJson {
 		System.out.println(questIds.contains(1));
 		System.out.println(Arrays.toString(questIds.toArray()));
 		System.out.println(questIds.size());
-		System.out.println(questIds.toArray(a));
+//		System.out.println(questIds.toArray(a));
 	}
 	public static JSONArray toJSONArray(String str) {
 		return JSON.parseArray(str);

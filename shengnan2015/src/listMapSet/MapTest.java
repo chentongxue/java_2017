@@ -9,11 +9,12 @@ import java.util.Map;
 public class MapTest {
 
 	public static void main(String[] args) {
-//		Map<String, Integer> map = new HashMap<String, Integer>();
-//		map.put("tom",12);
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("1",12);
 //		System.out.println(map);
 //		Object a = map.containsKey("a");
-//		System.out.println(a);
+		System.out.println(map.get(null));
+		System.out.println(map.get(1+""));
 //		
 //		
 //		String s = "12:";

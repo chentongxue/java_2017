@@ -5,15 +5,17 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-
+/***
+ * 测试SLG使用
+ * @author BAO
+ *
+ */
 public class GetPostSimpleTest {
     /**
      * 使用GET方法向服务器提交数据
      * @throws Exception
      */
      public static boolean sendGet(String path){
-//         String basepath = "http://187.187.40.230:8080/web/LoginServlet?";
-//          String path = basepath + "name="+URLEncoder.encode(name)+"&password="+password;
           
 		try {
 			URL url = new URL(path);
@@ -125,12 +127,16 @@ public class GetPostSimpleTest {
      }
      public static void main(String args[]){
     	 System.out.println("hah");
-    	 sendGet("http://192.168.2.169:8060/1111.html");
-    	 sendPost("http://192.168.2.169:8060/version");
-    	 String content= "subPackage=0&deviceType=windows&region=1&channel=10001&"
-    	 		+ "bundleId=com.st.tank.windows&openid=10001201509281624012961811&deviceId=47615b7483bcf9fa8743c8e04de65c01";
-    	 sendPost("http://192.168.2.169:8060/mix/login");
-    	 sendPost("http://192.168.2.169:8060/mix/login",content);
+    	 String path = "http://ec2-52-33-4-138.us-west-2.compute.amazonaws.com/login";
+    	 String content = "openid=wrwe&deviceCode=864895022518292-0c1dafc69140&channel=1042&deviceType=ANDROID&uniqueCode=14490646345&token=123";
+    	 String url = "http://ec2-52-33-4-138.us-west-2.compute.amazonaws.com/login?openid=&deviceCode=864895022518292-0c1dafc69140&channel=1042&deviceType=ANDROID&uniqueCode=14490646345&token=123";
+    	 sendGet(url);
+//    	 sendPost(path, content);
+//    	 sendPost("http://192.168.2.169:8060/version");
+//    	 String content= "subPackage=0&deviceType=windows&region=1&channel=10001&"
+//    	 		+ "bundleId=com.st.tank.windows&openid=10001201509281624012961811&deviceId=47615b7483bcf9fa8743c8e04de65c01";
+//    	 sendPost("http://192.168.2.169:8060/mix/login");
+//    	 sendPost("http://192.168.2.169:8060/mix/login",content);
      }
 }
 

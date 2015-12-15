@@ -11,8 +11,8 @@ public class LookLong {
 		long time = System.currentTimeMillis();
 		long t = 9L;
 //		Date now = new Date(t);
-		Date date = sdf.parse( "2015-05-01 00:00:00" );
-		Date date2 = sdf.parse( "2015-06-01 00:00:00" );
+		Date date = sdf.parse( "2015-12-01 00:00:00" );
+		Date date2 = sdf.parse( "2015-12-02 00:00:00" );
 		Date now = new Date(1403005502277L);
 		System.out.println(date.getTime());
 		System.out.println(date2.getTime());
