@@ -1,0 +1,14 @@
+package sacred.alliance.magic.app.compass;
+
+import lombok.Data;
+
+/**
+ * 罗盘的配置信息
+ * @author gaibaoning@moogame.cn
+ * @date 2014-4-2 下午05:21:06
+ */
+public @Data class CompassConfig {
+	private int rewardPointsExchangeRate;//积分兑换钻石比率，正整数
+	private int whichRound;//第几轮
+	private int lastRound;//上一轮轮
+}

@@ -1,0 +1,8 @@
+package sacred.alliance.magic.app.npc.store;
+
+import lombok.Data;
+
+public @Data class NpcStoreName {
+	private int showType;//类型
+	private String storeName;//商店名称
+}

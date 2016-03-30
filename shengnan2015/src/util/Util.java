@@ -115,7 +115,6 @@ public class Util {
 		}
 		return map.size() ;
 	}
-	
 	public static boolean isEmpty(Collection<?> collection) {
 		return null == collection || 0 == collection.size() ;
 	}
@@ -128,7 +127,7 @@ public class Util {
 		return null == map || 0 == map.size() ;
 	}
 
-	public static boolean isEmpty(Multimap<?, ?> map) {
+	public static boolean gw(Multimap<?, ?> map) {
 		return null == map || 0 == map.size() ;
 	}
 

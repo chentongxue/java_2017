@@ -3,9 +3,13 @@ package queue;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.CountDownLatch;
-
+/**
+ * 计数器，等所有工作完成后。。。
+ * @author BAO
+ *
+ */
 public class CountDownLatchTest {
-	private final static SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+	private final static SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS"); 
 	public static void main(String[] args) throws InterruptedException {
         CountDownLatch latch=new CountDownLatch(2);//两个工人的协作  
         Worker worker1=new Worker("bao", 2000, latch);  

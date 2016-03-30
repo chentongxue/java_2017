@@ -1,0 +1,36 @@
+package com.game.draco.app.shop.type;
+
+public enum ShopShowStatus {
+	
+	Common((byte)0,"衍生"),
+	Hot((byte)1,"热卖"),
+	Discount((byte)2,"折扣"),
+	
+	;
+	
+	private final byte type;
+	private final String name;
+	
+	ShopShowStatus(byte type, String name){
+		this.type = type;
+		this.name = name;
+	}
+
+	public byte getType() {
+		return type;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public static ShopShowStatus get(byte type){
+		for(ShopShowStatus item : ShopShowStatus.values()){
+			if(item.getType() == type){
+				return item;
+			}
+		}
+		return null;
+	}
+	
+}

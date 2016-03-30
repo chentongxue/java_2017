@@ -7,8 +7,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import com.google.common.collect.Maps;
 /**
+ * hashMap的key和value可以为null
+ * ConcurrentHashMap的key和value都不可以为null
  * 不能传入 key = null
- * @author mofun030601
  *
  */
 public class MapTestNullValye {
@@ -16,11 +17,11 @@ public class MapTestNullValye {
 		HashMap<Integer, String> map = new HashMap<Integer, String>();
 		map.put(1, "aaa");
 		map.put(2, "bbb");
-		map.put(3, null);
+		map.put(null, null);
 //		for (Student s : map.values()) {
 //			s.setAge(100);
 //		}
-		System.out.println(map);
+		System.out.println(map+"");
 		  for (Map.Entry<Integer, String> entry : map.entrySet()) {
 		  }
 
@@ -33,8 +34,8 @@ public class MapTestNullValye {
 		Map<Integer, String> map3 = new ConcurrentHashMap<>();
 		map3.put(1, "aaa");
 		map3.put(2, "bbb");
-		map3.put(3, null);
-		System.out.println(map3);
+		map3.put(null, "ccc");
+		System.out.println(map3+"");
 //		map3.get(null);
 	}
 }

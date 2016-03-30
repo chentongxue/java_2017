@@ -1,0 +1,56 @@
+package com.game.draco.app.vip;
+
+import sacred.alliance.magic.app.hint.HintSupport;
+import sacred.alliance.magic.core.Message;
+import sacred.alliance.magic.core.Service;
+import sacred.alliance.magic.vo.RoleInstance;
+/**
+ * 
+ */
+public interface VipApp extends Service, HintSupport {
+	
+	
+	/**
+	 * role login
+	 */
+	public void login(RoleInstance role);
+	/**
+	 * role offline
+	 */
+	public void offline(RoleInstance role);
+	
+	/**
+	 * vip role increase vipExp directly
+	 */
+	public void addVipLevelExp(RoleInstance role,int expAddValue);
+	/**
+	 * when role recharge offline, push the gain message to a msg queue
+	 * vip role buy diamands for gain vipExp
+	 */
+	public void addDiamands(RoleInstance role,int daimansAddValue);
+	/**
+	 * messge 2510
+	 * @param role
+	 */
+	public Message openVipPanel(RoleInstance role);
+	/**
+	 * messge 2511
+	 * @param role
+	 * @param vipLevel
+	 */
+	public Message vipGalleryShift(RoleInstance role, byte vipLevel);
+	/**
+	 * msg 2512
+	 * @param role
+	 */
+	public Message vipDailyAwardReceive(RoleInstance role);
+	
+	/**
+	 * msg 2513
+	 * @param role
+	 * @param vipLevel
+	 */
+	public Message vipLevelUpAwardReceive(RoleInstance role, byte vipLevel);
+	
+	public byte getVipLevel(String roleId) ;
+}

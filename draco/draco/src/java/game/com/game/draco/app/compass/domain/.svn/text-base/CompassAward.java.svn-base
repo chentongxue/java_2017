@@ -1,0 +1,29 @@
+package com.game.draco.app.compass.domain;
+
+import com.game.draco.GameContext;
+
+import lombok.Data;
+import sacred.alliance.magic.domain.GoodsBase;
+
+public @Data class CompassAward {
+	
+	private int award;//奖励物品ID
+	private int num;//奖励数量
+	private int odds;//几率
+	private byte bindType;//绑定类型
+	private String broadcastInfo;//广播信息
+	
+	public CompassAward(int award, int num, int odds, byte bindType, String broadcastInfo){
+		this.award = award;
+		this.num = num;
+		this.odds = odds;
+		this.bindType = bindType;
+		this.broadcastInfo = broadcastInfo;
+	}
+	
+	/** 获得奖励物品 */
+	public GoodsBase getAwardGoods(){
+		return GameContext.getGoodsApp().getGoodsBase(this.award);
+	}
+	
+}

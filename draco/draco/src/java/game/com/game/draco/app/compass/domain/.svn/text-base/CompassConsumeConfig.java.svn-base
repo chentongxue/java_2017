@@ -1,0 +1,18 @@
+package sacred.alliance.magic.app.compass;
+
+import lombok.Data;
+
+public @Data class CompassConsumeConfig {
+
+	private int goodsId ;
+	private int number ;
+	private float singleGoldMoney ;
+	
+	public int totalGoldMoney(){
+		return (int)(number * singleGoldMoney + 0.5) ;
+	}
+	
+	public int totalGoldMoney(int count){
+		return (int)(count * singleGoldMoney + 0.5) ;
+	}
+}

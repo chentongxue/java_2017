@@ -10,7 +10,7 @@ public interface QuestTypeKey {
 	
 	/* 普通任务类型*/
 	public static final int QUEST_TYPE_1 = 1;				//任务类型1：提升玩家等级任务
-	public static final int QUEST_TYPE_2 = 2;				//任务类型2：指定数量的伙伴等级达到N级
+	public static final int QUEST_TYPE_h2 = 2;				//任务类型2：指定数量的伙伴等级达到N级
 	public static final int QUEST_TYPE_3 = 3;				//任务类型3：指定数量的伙伴品质达到要求品质
 	public static final int QUEST_TYPE_4 = 4;				//任务类型4：伙伴数量
 	public static final int QUEST_TYPE_5 = 5;				//任务类型5：指定个数的技能等级升到N级

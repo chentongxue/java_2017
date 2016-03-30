@@ -4,12 +4,17 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
 /***
  * 2015年12月8日17:20:11
  */
 public class GetPostSimpleUtilFB {
+	public static String LOGIN_KEY = "slg@sincetimes.com123!";
+	public  static String RESET_URL = "http://ec2-52-33-4-138.us-west-2.compute.amazonaws.com/restart";
+	private static String CHANNEL_ID = "21101";// facebook
+
 	public static byte[] getStreamBytes(InputStream is) throws Exception {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		byte[] buffer = new byte[1024];
@@ -90,6 +95,7 @@ public class GetPostSimpleUtilFB {
 //    	 LogA.i("unbind test:"+testUnBind());//【解绑】 成功0 2 
 //    	 LogA.i("isbind test:"+testIsBind());//是否绑定  {"code":31,"msg":""}已解绑
     	 LogA.i("quick login test:"+testQuickLogin());
+//    	 LogA.i("quick login test:"+testReset());
      }
      public static String testBind(){
     	 
@@ -102,11 +108,11 @@ public class GetPostSimpleUtilFB {
     	 		+ "&deviceType=ANDROID"
     	 		+ "&deviceCode=864895022518292-0c1dafc69140";
     	 String openid = "21412250250";
-    	 String account =  "1666543123627887";
+    	 String account =  "1666543123627000";
     	 String uniCode = "14498051118481666543123627887";
     	 String deviceCode = "864895022518292-0c1dafc69140";
     	 String deviceType = "ANDROID";
-    	 String channel = "1042";
+    	 String channel = CHANNEL_ID;
     	 String token = "CAAFDDRlIT2wBAIcRmLaZAiYZBFZA4AhZCrQtdfrY62LewGr9q1C0otb3F54jF8E2ZAnmLdWXhkm08CGEM6Lq0CGpwIA3r368i88cBt1s5sZCP0ByJgIBlTOAxLs6zLLbRTwK5ZCtlm7opvVfV28U3dgROcF7STL3sPKHYPg23ZAwrvFEOpFbK2tor6k7cMl7jUUi7m9iSmSD8wZDZD";
     	 Map<String,String> params = new HashMap<String, String>();
     	 params.put("openid", openid);//测试的时候随机下
@@ -136,7 +142,7 @@ public class GetPostSimpleUtilFB {
     	 String uniCode = System.currentTimeMillis()+account;
     	 String deviceCode = "864895022518292-0c1dafc69140";
     	 String deviceType = "ANDROID";
-    	 String channel = "1042";
+    	 String channel = CHANNEL_ID;
     	 String token = "CAAFDDRlIT2wBAMRVBWVOfZA767lHmJdxFZBR33UbFXu00QMaBMSbTtAM237tNf9cQ457ndZAZCZC6GWM5AuG7ok4xwV9cpgBf534PA1rRwrRBAWDrmkLcdiC3ZC8zbNEOEkuBwQbhASexaO6NMqwEgxWClsZBuoQ76zDyDsZBVqQvrZBLd4P8HNDibjuRL4iDNZCUZD";
     	 Map<String,String> params = new HashMap<String, String>();
 //    	 params.put("openid", openid);
@@ -151,7 +157,16 @@ public class GetPostSimpleUtilFB {
     	 return GetPostSimpleUtil.post(ServerInfo.bindUrl, params);
      }
      public static String testIsBind(){
-    	 
+//    	 http://ec2-52-33-4-138.us-west-2.compute.amazonaws.com/account
+//account=101577199875024042795&
+//type=isbind&
+//token=&
+//uniqueCode=1450917506264&
+//channel=21102&
+//deviceType=
+//ANDROID&
+//deviceCode=864895022518292-0c1dafc10086
+
     	 String ts = "12-11 15:18:01.046: I/POST(7901): >>>>"
     	 		+ "http://ec2-52-33-4-138.us-west-2.compute.amazonaws.com/account"
     	 		+ "?account=1666543123627887"
@@ -161,11 +176,11 @@ public class GetPostSimpleUtilFB {
     	 		+ "&channel=1042"
     	 		+ "&deviceType=ANDROID&deviceCode=864895022518292-0c1dafc69140";
 //    	 String openid = "21412250250";
-    	 String account =  "1666543123627887";
+    	 String account =  "1666543123627000";
     	 String uniCode = System.currentTimeMillis()+account;
     	 String deviceCode = "864895022518292-0c1dafc69140";
     	 String deviceType = "ANDROID";
-    	 String channel = "1042";
+    	 String channel = CHANNEL_ID;
     	 String token = "CAAFDDRlIT2wBAMRVBWVOfZA767lHmJdxFZBR33UbFXu00QMaBMSbTtAM237tNf9cQ457ndZAZCZC6GWM5AuG7ok4xwV9cpgBf534PA1rRwrRBAWDrmkLcdiC3ZC8zbNEOEkuBwQbhASexaO6NMqwEgxWClsZBuoQ76zDyDsZBVqQvrZBLd4P8HNDibjuRL4iDNZCUZD";
     	 Map<String,String> params = new HashMap<String, String>();
 //    	 params.put("openid", openid+"1");
@@ -194,12 +209,13 @@ public class GetPostSimpleUtilFB {
     	 		+ "&token=14490646345";
     	 
 //    	 String openid = "21412250250";
-    	 String openid = "1450176210724018165";
+    	 String openid = "";
     	 String uniCode = System.currentTimeMillis()+"";
-    	 String deviceCode = "864895022518292-0c1dafc19988888";
+    	 String deviceCode = "864895022518292-0c1dafc199ASD";
     	 String deviceType = "ANDROID";
-    	 String channel = "1042";
+    	 String channel = CHANNEL_ID;
     	 String token = "wqe";
+ 		String key = md5(LOGIN_KEY+openid);
 //    	 String token = "CAAFDDRlIT2wBAMRVBWVOfZA767lHmJdxFZBR33UbFXu00QMaBMSbTtAM237tNf9cQ457ndZAZCZC6GWM5AuG7ok4xwV9cpgBf534PA1rRwrRBAWDrmkLcdiC3ZC8zbNEOEkuBwQbhASexaO6NMqwEgxWClsZBuoQ76zDyDsZBVqQvrZBLd4P8HNDibjuRL4iDNZCUZD";
     	 Map<String,String> params = new HashMap<String, String>();
     	 params.put("openid", openid);
@@ -207,10 +223,52 @@ public class GetPostSimpleUtilFB {
     	 params.put("channel", channel);
     	 params.put("deviceType", deviceType);
     	 params.put("uniqueCode", uniCode);
-//    	 params.put("token", token);
+    	 params.put("key", key);
     	 
     	 return GetPostSimpleUtil.post(ServerInfo.loginUrl, params);
      }
-     
+     public static String testReset(){
+
+    	 String s="http://ec2-52-33-4-138.us-west-2.compute.amazonaws.com/login"
+    			 + "?openid=3&"
+    			 + "deviceCode=864895022518292-0c1dafc69140"
+    			 + "&channel=1042"
+    			 + "&deviceType=ANDROID"
+    			 + "&uniqueCode=14490646345"
+    			 + "&token=14490646345";
+    	 
+    	 String uniCode = System.currentTimeMillis()+"";
+    	 String deviceCode = "864895022518292-0c1dafc199AAA";
+    	 String deviceType = "ANDROID";
+    	 String channel = "1042";
+//    	 String token = "CAAFDDRlIT2wBAMRVBWVOfZA767lHmJdxFZBR33UbFXu00QMaBMSbTtAM237tNf9cQ457ndZAZCZC6GWM5AuG7ok4xwV9cpgBf534PA1rRwrRBAWDrmkLcdiC3ZC8zbNEOEkuBwQbhASexaO6NMqwEgxWClsZBuoQ76zDyDsZBVqQvrZBLd4P8HNDibjuRL4iDNZCUZD";
+    	 Map<String,String> params = new HashMap<String, String>();
+    	 params.put("deviceCode", deviceCode);
+    	 params.put("channel", channel);
+    	 params.put("deviceType", deviceType);
+    	 params.put("uniqueCuode", uniCode);
+    	 
+    	 return GetPostSimpleUtil.post(RESET_URL, params);
+     }
+	  public static String md5(String source) {
+		    try {
+		      MessageDigest md = MessageDigest.getInstance("MD5");
+		      md.update(source.getBytes("UTF-8"));
+		      byte[] bytes = md.digest();
+
+		      char[] chars = new char[32];
+		      char[] hexDigits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+		      int k = 0;
+		      for (int i = 0; i < 16; i++) {
+		        byte byte0 = bytes[i];
+		        chars[(k++)] = hexDigits[(byte0 >>> 4 & 0xF)];
+		        chars[(k++)] = hexDigits[(byte0 & 0xF)];
+		      }
+		      return new String(chars);
+		    }
+		    catch (Exception e) {
+		      e.printStackTrace();
+		    }return null;
+		  }
 }
 

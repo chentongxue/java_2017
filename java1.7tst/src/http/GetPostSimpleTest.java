@@ -129,7 +129,7 @@ public class GetPostSimpleTest {
     	 System.out.println("hah");
     	 String path = "http://ec2-52-33-4-138.us-west-2.compute.amazonaws.com/login";
     	 String content = "openid=wrwe&deviceCode=864895022518292-0c1dafc69140&channel=1042&deviceType=ANDROID&uniqueCode=14490646345&token=123";
-    	 String url = "http://ec2-52-33-4-138.us-west-2.compute.amazonaws.com/login?openid=&deviceCode=864895022518292-0c1dafc69140&channel=1042&deviceType=ANDROID&uniqueCode=14490646345&token=123";
+    	 String url = "http://119.29.111.164:800mf/MobileGame/file.dragon";
     	 sendGet(url);
 //    	 sendPost(path, content);
 //    	 sendPost("http://192.168.2.169:8060/version");

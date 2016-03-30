@@ -1,0 +1,88 @@
+package com.game.draco.app.exchange;
+
+import java.util.List;
+import java.util.Map;
+
+import sacred.alliance.magic.app.goods.behavior.result.GoodsResult;
+import sacred.alliance.magic.constant.Status;
+import sacred.alliance.magic.core.Service;
+import sacred.alliance.magic.vo.RoleInstance;
+
+import com.game.draco.app.exchange.domain.ExchangeItem;
+import com.game.draco.app.exchange.domain.ExchangeMenu;
+import com.game.draco.app.npc.npcfunction.NpcFunctionSupport;
+import com.game.draco.message.item.ExchangeChildGoodsItem;
+import com.game.draco.message.item.ExchangeChildItem;
+
+public interface ExchangeApp extends NpcFunctionSupport,Service {
+	
+	/**
+	 * 判断物品能否兑换，返回相应信息
+	 * @param role
+	 * @param item
+	 * @return
+	 */
+	public Status canExchange(RoleInstance role, ExchangeItem item);
+	public GoodsResult exchange(RoleInstance role, ExchangeItem item);
+	/**
+	 * 上线加载有次数限制的兑换
+	 */
+	public void loadRoleExchange(RoleInstance role);
+	
+	/**
+	 * 角色有次数限制的兑换入库
+	 * */
+	public void saveRoleExchange(RoleInstance role);
+
+	/**
+	 * 入库失败日志
+	 * @param role
+	 */
+	public void offlineLog(RoleInstance role);
+	
+	/**
+	 * 获取兑换
+	 * @param menuId
+	 * @return
+	 */
+	public List<ExchangeChildItem> getChildList(RoleInstance role, int menuId);
+	
+	/**
+	 * 获取兑换项
+	 * @return
+	 */
+	public Map<Integer, ExchangeItem> getAllItemMap();
+	
+	/**
+	 * 获取兑换目录
+	 * @return
+	 */
+	public Map<Integer, ExchangeMenu> getAllMenuMap();
+	
+	/**
+	 * 获取非NPC兑换目录
+	 * @return
+	 */
+	public Map<Integer, ExchangeMenu> getMenuMap();
+	
+	/**
+	 * 获取NPC兑换目录
+	 * @return
+	 */
+	public List<ExchangeMenu> getNpcMenuMap(String npcId);
+	
+	/**
+	 * 获取兑换(物品换物品兑换类型)
+	 * @param role
+	 * @param menuId
+	 * @return
+	 */
+	public List<ExchangeChildGoodsItem> getGoodsChildList(RoleInstance role, int menuId);
+	
+	/**
+	 * 根据copyId重置兑换次数
+	 * @param role
+	 * @param copyId
+	 */
+	public void resetExchangeByCopyId(RoleInstance role, short copyId);
+}

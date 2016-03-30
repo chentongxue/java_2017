@@ -2,11 +2,13 @@ package swich;
 
 public class Test3 {
 	public static void main(String args[]) {
-		String a = "a";
+		String b = "a";
 		for (int a = 1; a < 6; a++) {
 			switch (a) {
 			case 1:
+				System.out.println("ccc :" + a);
 			case 2:
+				System.out.println("ccc :" + a);
 			case 3:
 				System.out.println("ccc :" + a);
 				break;

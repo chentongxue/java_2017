@@ -1,16 +1,18 @@
 package test;
 
+import java.util.Arrays;
+
 /**
  */
 public class MainNotUse {
 
 	public static void main(String[] args) {
-		int a = 24*3600;
-		int b = 3600;
-		int c = 10000;
-		int d = c*b/a;
-		System.out.println(d);
-		int e = c*b/a;
-		System.out.println(e);
+		try {
+			int a = 1;
+			int b = 0;
+			System.out.println(a/b);
+		} catch (Exception e) {
+			System.out.println(Arrays.toString(e.getStackTrace()));
+		}
 	}
 }

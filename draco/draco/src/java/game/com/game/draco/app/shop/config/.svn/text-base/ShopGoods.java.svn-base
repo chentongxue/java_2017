@@ -1,0 +1,134 @@
+package sacred.alliance.magic.app.shop.config;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import lombok.Data;
+import sacred.alliance.magic.base.BindingType;
+import sacred.alliance.magic.base.Result;
+
+public @Data class ShopGoods extends DateTimeBeanSupport{
+	
+	private int goodsId;//物品id
+	private byte index;//排序索引（显示优先级0-9,0为最高，如果优先级相同，则按表格中的填写顺序排列）
+	private int goldPrice;//金条价格
+	private int disGoldPrice;//折扣金条价格
+	private int bindPrice;//绑金价格
+	private int disBindPrice;//折扣绑金价格
+	private int defaultBuyNum = 1 ; //默认购买数
+	private boolean hot;//是否热卖
+	private boolean derive;//是否强化
+	private boolean assist;//是否养成
+	private boolean fashion;//是否时装
+	private byte goldBindType = BindingType.template.getType();//金条购买时，绑定类型
+	
+	private boolean bindMoney;//是否是绑金购买的商品
+	private List<ShopShowType> showTypeList = new ArrayList<ShopShowType>();//商品所属分类（显示在多个页签中）
+	
+	
+	public Result checkAndInit(){
+		Result result = new Result();
+		String info = "goodsId=" + this.goodsId + ".";
+		if(this.defaultBuyNum <=0){
+			this.defaultBuyNum = 1 ;
+		}
+		try {
+			Result timeResult = this.initDateTimeBean();
+			if(!timeResult.isSuccess()){
+				return result.setInfo(info + timeResult.getInfo());
+			}
+			//所有价格都为零
+			if(0 == this.goldPrice && 0 == this.disGoldPrice && 0 == this.bindPrice && 0 == this.disBindPrice){
+				return result.setInfo(info + "Please config the goldPrice or bindPrice.");
+			}
+			//折扣价格不能大于原价，价格不能是负数
+			if(this.disGoldPrice > this.goldPrice || this.disGoldPrice < 0
+					|| this.disBindPrice > this.bindPrice || this.disBindPrice < 0){
+				return result.setInfo(info + "The price must greater than the disPrice.");
+			}
+			//只能绑金购买的商品，可以有折扣，但不能在其他分类中
+			if(this.goldPrice <= 0){
+				if(this.hot || this.derive || this.assist || this.fashion){
+					return result.setInfo(info + "This is bindMoney goods, can not in other tabs.");
+				}
+			}
+			//判断是否是绑金购买的商品
+			if(this.bindPrice > 0){
+				this.bindMoney = true;
+			}
+			this.buildShowType();
+			return result.success();
+		} catch (Exception e) {
+			return result.setInfo(info + "catch exception: " + e.toString());
+		}
+	}
+	
+	/** 构建商品的显示页签 */
+	private void buildShowType(){
+		if(this.hot){
+			this.showTypeList.add(ShopShowType.Hot);
+		}
+		if(this.derive){
+			this.showTypeList.add(ShopShowType.Derive);
+		}
+		if(this.assist){
+			this.showTypeList.add(ShopShowType.Assist);
+		}
+		if(this.fashion){
+			this.showTypeList.add(ShopShowType.Fashion);
+		}
+		if(this.bindMoney){
+			this.showTypeList.add(ShopShowType.BindMoney);
+		}
+	}
+	
+	/**
+	 * 商品是否可出售
+	 * @return
+	 */
+	public boolean canSell(){
+		return this.inTime() ;
+	}
+	
+	/** 
+	 * 获取商品的状态
+	 * @param moneyType
+	 * @return
+	 */
+	public ShopShowStatus getStatus(ShopMoneyType moneyType){
+		if(this.hot){
+			return ShopShowStatus.Hot;
+		}
+		if(ShopMoneyType.GoldMoney == moneyType && this.disGoldPrice < this.goldPrice){
+			return ShopShowStatus.Discount;
+		}
+		if(ShopMoneyType.BindMoney == moneyType && this.disBindPrice < this.bindPrice){
+			return ShopShowStatus.Discount;
+		}
+		return ShopShowStatus.Common;
+	}
+	
+	/** 
+	 * 获取售卖的价格
+	 * 调用的地方要判断价格是否为0
+	 * 只能金条购买的商品，其绑金价格是0；反之亦然。
+	 * @param moneyType 货币类型
+	 * @return
+	 */
+	public int getSellPrice(ShopMoneyType moneyType){
+		switch(moneyType){
+		case BindMoney:
+			return this.disBindPrice;
+		case GoldMoney:
+			return this.disGoldPrice;
+		}
+		return 0;
+	}
+	
+	public ShopMoneyType getPriceType(){
+		if(goldPrice > 0){
+			return ShopMoneyType.GoldMoney;
+		}
+		return ShopMoneyType.BindMoney;
+	}
+}

@@ -1,0 +1,107 @@
+package sacred.alliance.magic.action;
+
+import java.util.List;
+
+import sacred.alliance.magic.app.auction.AuctionApp;
+import sacred.alliance.magic.app.campbalance.CampBalanceApp;
+import sacred.alliance.magic.app.exchange.ExchangeHelper;
+import sacred.alliance.magic.app.npc.store.NpcStoreAppImpl;
+import sacred.alliance.magic.constant.Status;
+import sacred.alliance.magic.core.Message;
+import sacred.alliance.magic.core.action.ActionContext;
+import sacred.alliance.magic.vo.MapInstance;
+import sacred.alliance.magic.vo.NpcInstance;
+import sacred.alliance.magic.vo.RoleInstance;
+
+import com.game.draco.GameContext;
+import com.game.draco.app.quest.QuestHelper;
+import com.game.draco.app.quest.poker.QuestPokerApp;
+import com.game.draco.message.item.NpcFunctionItem;
+import com.game.draco.message.request.C0607_NpcFunctionReqMessage;
+import com.game.draco.message.request.C0858_AuctionMenuReqMessage;
+import com.game.draco.message.request.C1404_ExchangeNpcItemDetailReqMessage;
+import com.game.draco.message.request.C1530_CampBalanceReqMessage;
+import com.game.draco.message.request.C1601_NpcStoreListReqMessage;
+import com.game.draco.message.response.C0002_ErrorRespMessage;
+import com.game.draco.message.response.C0607_NpcFunctionRespMessage;
+
+public class NpcFunctionAction extends BaseAction<C0607_NpcFunctionReqMessage>{
+	
+	@Override
+	public Message execute(ActionContext context, C0607_NpcFunctionReqMessage reqMsg) {
+		RoleInstance role = this.getCurrentRole(context);
+		if(null == role){
+			return null ;
+		}
+		MapInstance mapInstance = role.getMapInstance();
+		if(mapInstance == null){
+			return null;
+		}
+		//获得NPC
+		String npcInstanceId = reqMsg.getParam();
+		NpcInstance npcInstance = mapInstance.getNpcInstance(npcInstanceId);
+		if(npcInstance == null){
+			C0002_ErrorRespMessage erm = new C0002_ErrorRespMessage();
+			erm.setReqCmdId(reqMsg.getCommandId());
+			erm.setInfo(Status.Npc_Not_Exist.getTips());
+			return erm;
+		}
+		if(1 == npcInstance.getNpc().getShieldFunc()){
+			//NPC开启屏蔽功能
+			return null ;
+		}
+		C0607_NpcFunctionRespMessage respMsg = new  C0607_NpcFunctionRespMessage();
+		//闲话
+		respMsg.setInfo(npcInstance.getNpc().getGossip());
+		List<NpcFunctionItem> items = GameContext.getNpcApp().getNpcFunction(role, npcInstance);
+		if(null != items){
+			//只有一个功能项并且是任务，直接弹出任务面板
+			try {
+				if(1 == items.size()){
+					NpcFunctionItem item = items.get(0);
+					short cmdId = item.getCommandId();
+					String param = item.getParam();
+					//任务详情面板
+					if(QuestHelper.QuestBeforeOperateReqCmdId == cmdId){
+						return QuestHelper.questBeforeOperateRespMessageBuilder(role, param);
+					}
+					//扑克任务面板
+					if(QuestPokerApp.RmQuestPanelReqCmdId == cmdId){
+						return GameContext.getQuestPokerApp().getQuestPokerPanelMessage(role);
+					}
+					//NPC商店
+					if(NpcStoreAppImpl.NPC_STORE_REQ_COMMAND == cmdId){
+						C1601_NpcStoreListReqMessage message = new C1601_NpcStoreListReqMessage();
+						message.setParam(param);
+						role.getBehavior().addCumulateEvent(message);
+						return null;
+					}
+					
+					//拍卖行菜单
+					if(AuctionApp.AuctionMenuCmdId == cmdId){
+						role.getBehavior().addCumulateEvent(new C0858_AuctionMenuReqMessage());
+						return null;
+					}
+					//NPC兑换 1404
+					if(ExchangeHelper.EXCHANGE_NPC_ITEM_CMD == cmdId){
+						C1404_ExchangeNpcItemDetailReqMessage message = new C1404_ExchangeNpcItemDetailReqMessage();
+						message.setParam(param);
+						role.getBehavior().addCumulateEvent(message);
+						return null;
+					}
+					//阵营转换
+					if(CampBalanceApp.CAMP_BALANCE_CMDID == cmdId){
+						role.getBehavior().addCumulateEvent(new C1530_CampBalanceReqMessage());
+						return null;
+					}
+				}
+			} catch (Exception e) {
+				this.logger.error("NpcFunctionAction auto open for only one item error: ", e);
+			}
+		}
+		respMsg.setItems(items);
+		respMsg.setNpcRoleId(npcInstance.getIntRoleId());
+		return respMsg;
+	}
+	
+}

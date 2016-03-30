@@ -1,0 +1,613 @@
+package com.game.draco.app.vip;
+
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import sacred.alliance.magic.app.goods.GoodsOperateBean;
+import sacred.alliance.magic.app.goods.behavior.result.AddGoodsBeanResult;
+import sacred.alliance.magic.app.hint.HintId;
+import sacred.alliance.magic.app.mail.MailSendRoleType;
+import sacred.alliance.magic.base.BindingType;
+import sacred.alliance.magic.base.OutputConsumeType;
+import sacred.alliance.magic.base.XlsSheetNameType;
+import sacred.alliance.magic.constant.Cat;
+import sacred.alliance.magic.constant.TextId;
+import sacred.alliance.magic.core.Message;
+import sacred.alliance.magic.util.DateUtil;
+import sacred.alliance.magic.util.KeySupport;
+import sacred.alliance.magic.util.Log4jManager;
+import sacred.alliance.magic.util.Util;
+import sacred.alliance.magic.util.XlsPojoUtil;
+import sacred.alliance.magic.vo.RoleInstance;
+
+import com.game.draco.GameContext;
+import com.game.draco.app.vip.config.VipConfig;
+import com.game.draco.app.vip.config.VipLevelUpConfig;
+import com.game.draco.app.vip.config.VipPrivilegeConfig;
+import com.game.draco.app.vip.domain.RoleVip;
+import com.game.draco.app.vip.domain.VipConstant;
+import com.game.draco.app.vip.util.IntBitUtil;
+import com.game.draco.message.item.GoodsLiteItem;
+import com.game.draco.message.item.VipLevelUpAwardItem;
+import com.game.draco.message.item.VipPrivilegeItem;
+import com.game.draco.message.response.C2510_VipDisplayRespMessage;
+import com.game.draco.message.response.C2511_VipGalleryShiftRespMessage;
+import com.game.draco.message.response.C2512_VipDailyAwardReceiveRespMessage;
+import com.game.draco.message.response.C2513_VipLevelUpAwardReceiveRespMessage;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+
+/**
+ * new vip
+ */
+public class VipAppImpl implements VipApp {
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	// vip levelup config
+	private VipConfig vipConfig;
+	private Map<String, VipLevelUpConfig> levelUpConfigMap = Maps.newHashMap();
+	private Map<String, VipPrivilegeConfig> privilegeConfigMap = Maps
+			.newHashMap();
+
+	private void loadAllConfig() {
+		loadVipLevelUpConfig();
+		loadVipPrivilegeConfig();
+	}
+
+	private void loadVipConfig() {
+		String fileName = XlsSheetNameType.VipConfig.getXlsName();
+		String sheetName = XlsSheetNameType.VipConfig.getSheetName();
+		String sourceFile = GameContext.getPathConfig().getXlsPath() + fileName;
+		vipConfig = XlsPojoUtil.getEntity(sourceFile, sheetName,
+				VipConfig.class);
+		if (vipConfig == null) {
+			Log4jManager.CHECK.error("not config the vipConfig,file="
+					+ sourceFile + " sheet=" + sheetName);
+			Log4jManager.checkFail();
+		}
+	}
+
+	private void loadVipLevelUpConfig() {
+		levelUpConfigMap = loadConfigMap(XlsSheetNameType.VipLevelUpConfig,
+				VipLevelUpConfig.class, false);
+	}
+
+	private void loadVipPrivilegeConfig() {
+		privilegeConfigMap = loadConfigMap(XlsSheetNameType.VipPrivilegeConfig,
+				VipPrivilegeConfig.class, false);
+	}
+
+	@Override
+	public void login(RoleInstance role) {
+		try {
+			RoleVip roleVip = GameContext.getBaseDAO().selectEntity(
+					RoleVip.class, RoleVip.ROLE_ID, role.getRoleId());
+			roleVip = ensureRoleVipNotNull(role, roleVip);
+		} catch (Exception e) {
+			logger.error("login game, query vip failed", e);
+		}
+	}
+
+	/**
+	 * save vip information for vip role
+	 */
+	@Override
+	public void offline(RoleInstance role) {
+		RoleVip roleVip = null;
+		try {
+			roleVip = role.getRoleVip();
+			// no database Operation for non-vip
+			if (!isRoleVip(role)) {
+				return;
+			}
+			GameContext.getBaseDAO().saveOrUpdate(roleVip);
+		} catch (Exception e) {
+			if (null != roleVip) {
+				Log4jManager.OFFLINE_VIP_DB_LOG.info(roleVip.toString());
+			}
+			Log4jManager.OFFLINE_ERROR_LOG.error(
+					"VipApp.offline error, roleId=" + role.getRoleId()
+							+ ",userId=" + role.getUserId(), e);
+		}
+
+	}
+
+	@Override
+	public void setArgs(Object arg0) {
+
+	}
+
+	@Override
+	public void start() {
+		loadAllConfig();
+	}
+
+	@Override
+	public void stop() {
+
+	}
+
+	@Override
+	public Set<HintId> getHintIdSet(RoleInstance role) {
+		Set<HintId> set = new HashSet<HintId>();
+		// if(this.haveVipReward(role)){
+		// set.add(HintId.VIP_Reward);
+		// }
+		return set;
+	}
+
+	@Override
+	public void hintChange(RoleInstance role, HintId hintId) {
+		try {
+			// GameContext.getHintApp().hintChange(role, hintId,
+			// this.haveVipReward(role));
+		} catch (Exception e) {
+			this.logger.error("RoleVipApp.hintChange error: ", e);
+		}
+	}
+
+	private <K, V extends KeySupport<K>> Map<K, V> loadConfigMap(
+			XlsSheetNameType xls, Class<V> clazz, boolean linked) {
+		String fileName = xls.getXlsName();
+		String sheetName = xls.getSheetName();
+		String sourceFile = GameContext.getPathConfig().getXlsPath() + fileName;
+		Map<K, V> map = XlsPojoUtil.sheetToGenericMap(sourceFile, sheetName,
+				clazz, linked);
+		if (Util.isEmpty(map)) {
+			Log4jManager.CHECK.error("not config the " + clazz.getSimpleName()
+					+ " ,file=" + sourceFile + " sheet=" + sheetName);
+			Log4jManager.checkFail();
+		}
+		return map;
+	}
+
+	@Override
+	public void addDiamands(RoleInstance role, int daimansAddValue) {
+		int addVipExpValue = (int) VipConstant.DIMANGDS_VIP_EXP_EXCAHNGE_RATE
+				* daimansAddValue;
+		addVipLevelExp(role, addVipExpValue);
+	}
+
+	@Override
+	public void addVipLevelExp(RoleInstance role, int expAddValue) {
+		RoleVip roleVip = getRoleVipNotNull(role);
+		int vipExpNeeded = getVipExpNeeded4VipLevelUp(role);
+		int sumVipExp = expAddValue + roleVip.getVipExp();
+		if (expAddValue >= vipExpNeeded) {
+			// levelUp operate
+			byte newVipLevel = getVipLevelByVipExp(sumVipExp);
+			// notify player levelup
+		}
+	}
+
+	private byte getVipLevelByVipExp(int vipExp) {
+		byte reVipLev = 0;
+		for (Map.Entry<String, VipLevelUpConfig> entry : levelUpConfigMap
+				.entrySet()) {
+			VipLevelUpConfig conf = entry.getValue();
+			if (conf.matchVipLevelConfig(vipExp)) {
+				reVipLev = conf.getVipLevel();
+				break;
+			}
+		}
+		return reVipLev;
+	}
+
+	/**
+	 * ensure vipRole returned not null
+	 * 
+	 * @param role
+	 */
+	private RoleVip getRoleVipNotNull(RoleInstance role) {
+		RoleVip roleVip = role.getRoleVip();
+		roleVip = ensureRoleVipNotNull(role, roleVip);
+		return roleVip;
+	}
+
+	private byte getDailyAwardReceivedFlag(RoleInstance role) {
+		RoleVip roleVip = getRoleVipNotNull(role);
+		Date d = roleVip.getLastReceiveAwardTime();
+		if(DateUtil.sameDay(d,new Date())){
+			return 0;
+		}
+		return 1;
+	}
+	private byte getRoleVipLevel(RoleInstance role) {
+		return getRoleVipNotNull(role).getVipLevel();
+	}
+
+	private int getRoleVipExp(RoleInstance role) {
+		return getRoleVipNotNull(role).getVipExp();
+	}
+
+	private int getVipExpNeeded4VipLevelUp(RoleInstance role) {
+		RoleVip roleVip = getRoleVipNotNull(role);
+		int currentRoleVipLevel = roleVip.getVipLevel();
+
+		return getVipExpNeeded4NewVipLevel(role, currentRoleVipLevel + 1);
+	}
+
+	private int getDiamandsNeeded4VipLevelUp(RoleInstance role) {
+		RoleVip roleVip = getRoleVipNotNull(role);
+		int currentRoleVipLevel = roleVip.getVipLevel();
+
+		int expNeeded = getVipExpNeeded4NewVipLevel(role,
+				currentRoleVipLevel + 1);
+		return (int) (expNeeded / VipConstant.DIMANGDS_VIP_EXP_EXCAHNGE_RATE);
+	}
+
+	// return a map ordered
+	@Deprecated
+	private Map<String, Integer> getRoleLevelUpAwardMap(RoleInstance role) {
+		Map<String, Integer> map = Maps.newLinkedHashMap();
+		RoleVip roleVip = getRoleVipNotNull(role);
+		// int vplv = roleVip.getVipLevel();
+		int val = roleVip.getVipLevelUpAward();
+		byte b[] = IntBitUtil.intToBits(val);
+		for (byte i = 0; i < b.length; i++) {
+			String key = (i + 1) + "";
+			VipLevelUpConfig cnf = levelUpConfigMap.get(key);
+			if (b[i] == 1) {
+				map.put((i + 1) + "", cnf.getVipLevelUpAwardId());
+			}
+		}
+		return map;
+	}
+
+	/**
+	 * to show the first award
+	 * 
+	 * @param role
+	 * @return vipLevel 1—15: available award exist to rcv, 0: no award to disp
+	 */
+	private byte getRoleLevelUpAwardFirst(RoleInstance role) {
+		RoleVip roleVip = getRoleVipNotNull(role);
+		int val = roleVip.getVipLevelUpAward();
+		byte b[] = IntBitUtil.intToBits(val);
+		for (int i = 0; i < b.length; i++) {
+			if (b[i] == 1) {
+				return (byte) (i + 1);
+			}
+		}
+		return 0;
+	}
+
+	/**
+	 * to show the first award
+	 * 
+	 * @param role
+	 * @return vipLevel 1—15: available award exist to rcv, 0: no award to disp
+	 */
+	private boolean isLevelUpAwardAvailable(RoleInstance role, byte lv) {
+		boolean av = false;
+		RoleVip roleVip = getRoleVipNotNull(role);
+		int val = roleVip.getVipLevelUpAward();
+		byte b[] = IntBitUtil.intToBits(val);
+		if (b[lv + 1] == 1) {
+			av = true;
+		}
+		return av;
+	}
+
+	/**
+	 * when player flip the level-up gallery, we gain the level, return the item
+	 * and set its availability
+	 * 
+	 * @param role
+	 * @param vipLevel
+	 */
+	private VipLevelUpAwardItem getRoleLevelUpAwardItem4Display(
+			RoleInstance role, byte vipLevel) {
+		byte k = vipLevel;
+		byte rcvAvailable = 0;
+		String key = k + "";
+
+		if (isLevelUpAwardAvailable(role, k)) {
+			rcvAvailable = 1;
+		}
+		VipLevelUpConfig conf = levelUpConfigMap.get(key);
+		VipLevelUpAwardItem vipLvUpItem = buildVipLevelUpAwardItem(conf,
+				rcvAvailable);
+
+		return vipLvUpItem;
+	}
+
+	/**
+	 * this method contains the game-algorithm about how to show the level-up
+	 * award
+	 * <p>
+	 * nonVip :show level-1 award
+	 * <p>
+	 * vip :|-- all awards gained ,show specific vip-level award
+	 * <p>
+	 * |-- exist awards available to receive,show the first award
+	 * 
+	 * @param vipLevel
+	 * @return
+	 * @date 2014-4-25 下午06:23:59
+	 */
+	@Deprecated
+	private VipLevelUpAwardItem getRoleLevelUpAwardItem4DefaultDisplay(
+			RoleInstance role) {
+		byte k = 1;
+		if (isRoleVip(role)) {
+			byte first = getRoleLevelUpAwardFirst(role);
+			if (first == 0) {
+				k = getRoleVipLevel(role);
+			} else {
+				k = first;
+			}
+		}
+
+		return getRoleLevelUpAwardItem4Display(role, k);
+	}
+	private List<VipLevelUpAwardItem> getRoleLevelUpAwardItemList4Display(
+			RoleInstance role) {
+		List<VipLevelUpAwardItem> list = Lists.newArrayList(); 
+		for (int i = 1; i < VipConstant.MAX_VIP_LEVEL; i++) {
+			VipLevelUpAwardItem it = getRoleLevelUpAwardItem4Display(role, (byte)i);
+			list.add(it);
+		}
+		return list;
+	}
+
+	private VipLevelUpAwardItem buildVipLevelUpAwardItem(VipLevelUpConfig conf,
+			byte rcvAvailable) {
+		VipLevelUpAwardItem vipLvUpItem = new VipLevelUpAwardItem();
+		vipLvUpItem.setRcvAvailable(rcvAvailable);
+		vipLvUpItem.setVipLevelUpAwardBind(conf.getVipDailyAwardBind());
+		vipLvUpItem.setVipLevelUpAwardId(conf.getVipLevelUpAwardId());
+		vipLvUpItem.setVipLevelUpAwardNum(conf.getVipDailyAwardNum());
+		vipLvUpItem.setVipLevelUpAwardInfo(conf.getVipLevelUpAwardInfo());
+		vipLvUpItem.setVipLevelUpAwardImageId(conf.getVipLevelUpAwardImageId());
+		return vipLvUpItem;
+	}
+
+	@Deprecated
+	private VipLevelUpAwardItem buildVipLevelUpAwardItem(int vipLevelUpAwardId,
+			short vipLevelUpAwardNum, int vipLevelUpAwardBind,
+			byte rcvAvailable, String vipLevelUpAwardInfo, int vipLevelUpAwardImageId) {
+		VipLevelUpAwardItem vipLvUpItem = new VipLevelUpAwardItem();
+		vipLvUpItem.setRcvAvailable(rcvAvailable);
+		vipLvUpItem.setVipLevelUpAwardBind(vipLevelUpAwardBind);
+		vipLvUpItem.setVipLevelUpAwardId(vipLevelUpAwardId);
+		vipLvUpItem.setVipLevelUpAwardNum(vipLevelUpAwardNum);
+		vipLvUpItem.setVipLevelUpAwardInfo(vipLevelUpAwardInfo);
+		vipLvUpItem.setVipLevelUpAwardImageId(vipLevelUpAwardImageId);
+		return vipLvUpItem;
+	}
+
+	private int getVipExpNeeded4NewVipLevel(RoleInstance role,
+			int wantedVipLevel) {
+		RoleVip roleVip = getRoleVipNotNull(role);
+		int currentRoleVipExp = roleVip.getVipExp();
+
+		String key = wantedVipLevel + "";
+		VipLevelUpConfig vipLevelUpConfig = levelUpConfigMap.get(key);
+		return vipLevelUpConfig.getVipExpMin() - currentRoleVipExp;
+	}
+
+	private RoleVip ensureRoleVipNotNull(RoleInstance role, RoleVip roleVip) {
+		if (roleVip == null) {
+			roleVip = new RoleVip();
+			roleVip.setRoleId(role.getIntRoleId());
+		}
+		role.setRoleVip(roleVip);
+		return roleVip;
+	}
+
+	private boolean isRoleVip(RoleInstance role) {
+		RoleVip roleVip = role.getRoleVip();
+		if (roleVip == null || roleVip.getVipLevel() <= 0) {
+			return true;
+		}
+		return false;
+	}
+
+//	public int bytesToInt(byte[] bytes) {
+//		int value = 0;
+//		for (int i = 0; i < bytes.length; i++) {
+//			value += bytes[i] << (15 - i);
+//		}
+//		return value;
+//	}
+
+	private List<VipPrivilegeItem> buildPrviligeItemList(byte vipLevel) {
+		List<VipPrivilegeItem> prvItemList = Lists.newArrayList();
+		String key = vipLevel + Cat.underline;
+		for (Map.Entry<String, VipPrivilegeConfig> entry : privilegeConfigMap
+				.entrySet()) {
+			String awardKey = entry.getKey();
+			if (awardKey.startsWith(key)) {
+				VipPrivilegeConfig conf = entry.getValue();
+				VipPrivilegeItem it = new VipPrivilegeItem();
+				it.setVipPriIntroduction(conf.getVipPriIntroduction());
+				it.setVipPriPram(conf.getVipPriPram());
+				it.setVipPriType(conf.getVipPriType());
+				prvItemList.add(it);
+			}
+		}
+		return prvItemList;
+	}
+
+	private GoodsLiteItem buildDailyAwardItem(byte vipLevel) {
+		GoodsLiteItem dailyAwardItem = new GoodsLiteItem();
+		VipLevelUpConfig conf = getVipLevelUpConfig(vipLevel);
+		dailyAwardItem.setBindType(conf.getVipDailyAwardBind());
+		dailyAwardItem.setGoodsId(conf.getVipDailyAwardId());
+		dailyAwardItem.setNum(conf.getVipDailyAwardNum());
+		return dailyAwardItem;
+	}
+	private GoodsLiteItem buildVipLevelUpAwardItem(byte vipLevel) {
+		GoodsLiteItem awardItem = new GoodsLiteItem();
+		VipLevelUpConfig conf = getVipLevelUpConfig(vipLevel);
+		awardItem.setBindType(conf.getVipLevelUpAwardBind());
+		awardItem.setGoodsId(conf.getVipLevelUpAwardId());
+		awardItem.setNum(conf.getVipLevelUpAwardNum());
+		return awardItem;
+	}
+
+	private VipLevelUpConfig getVipLevelUpConfig(byte vipLevel) {
+		String key = vipLevel + "";
+		VipLevelUpConfig conf = levelUpConfigMap.get(key);
+		return conf;
+	}
+	public boolean isFullVipLevel(RoleInstance role){
+		byte vipLevel = getRoleVipLevel(role);
+		return vipLevel >= VipConstant.MAX_VIP_LEVEL;
+	}
+	// check daily award available
+	@Override
+	public Message openVipPanel(RoleInstance role) {
+		// 4 daily award
+		boolean vipFlag = isRoleVip(role);
+		// configure the return msg
+		C2510_VipDisplayRespMessage msg = new C2510_VipDisplayRespMessage();
+
+		byte vipLevel = getRoleVipLevel(role);
+
+		byte dailyAwardReceived = getDailyAwardReceivedFlag(role);
+		
+		String headerStr = "";
+		if(isFullVipLevel(role)){
+			headerStr = vipConfig.getMaxLevelHeaderInfo();
+		} 
+		else{
+			int diamansNeeded4LevelUp = getDiamandsNeeded4VipLevelUp(role);
+			headerStr = vipConfig.getLevelUpHeaderInfo();//
+			headerStr = MessageFormat.format(headerStr, diamansNeeded4LevelUp);
+		}
+		
+		int currentVipExp = getRoleVipExp(role);
+		int nextLevelExpNeeded = getVipExpNeeded4VipLevelUp(role);
+
+//		VipLevelUpAwardItem vipLvUpItem = getRoleLevelUpAwardItem4DefaultDisplay(role);
+		List<VipLevelUpAwardItem> vipLvUpItemList = getRoleLevelUpAwardItemList4Display(role);
+
+		List<VipPrivilegeItem> prvItemList = buildPrviligeItemList(vipLevel);
+
+		GoodsLiteItem dailyAwardItem = buildDailyAwardItem(vipLevel);
+
+		msg.setVipLevel(vipLevel);
+        msg.setDailyAwardReceived(dailyAwardReceived);
+		msg.setHeaderStr(headerStr);
+		msg.setCurrentVipExp(currentVipExp);
+		msg.setNextLevelExpNeeded(nextLevelExpNeeded);
+		msg.setVipLvUpItemList(vipLvUpItemList);
+		msg.setPrvItemList(prvItemList);
+		msg.setDailyAwardItem(dailyAwardItem);
+		return msg;
+	}
+	/**
+	 * @see com.game.draco.app.vip.VipApp#vipGalleryShift(sacred.alliance.magic.vo.RoleInstance, byte)
+	 */
+	@Override
+	public Message vipGalleryShift(RoleInstance role, byte vipLevel) {
+		C2511_VipGalleryShiftRespMessage msg = new C2511_VipGalleryShiftRespMessage();
+		
+//		VipLevelUpAwardItem vipLvUpItem = getRoleLevelUpAwardItem4Display(role, vipLevel);
+		List<VipPrivilegeItem> prvItemList = buildPrviligeItemList(vipLevel);
+		
+		msg.setVipLevel(vipLevel);
+		
+//		msg.setVipLvUpItem(vipLvUpItem);
+		msg.setPrvItemList(prvItemList);
+		return msg;
+	}
+	/**
+	 * vipLevelUpReward 
+	 */
+	public Date getLastReceiveAwardTime(RoleInstance role){
+		RoleVip roleVip = getRoleVipNotNull(role);
+		Date lastReceiveAwardTime = roleVip.getLastReceiveAwardTime();
+		return lastReceiveAwardTime;
+	}
+	@Override
+	public Message vipDailyAwardReceive(RoleInstance role) {
+		C2512_VipDailyAwardReceiveRespMessage msg = new C2512_VipDailyAwardReceiveRespMessage();
+		
+		byte type = 0;      //1:success 0:failed
+		String info = "";   
+		Date dt = getLastReceiveAwardTime(role);
+		if(DateUtil.sameDay(new Date(),dt)){
+			info = getText(TextId.VIP_Daily_Award_Has_Received);
+			msg.setType(type);
+			msg.setInfo(info);
+			return msg;
+		}
+		byte roleVipLevel = getRoleVipLevel(role);
+		GoodsLiteItem dailyAwardItem = buildDailyAwardItem(roleVipLevel);
+		sendVipAward(role, dailyAwardItem);
+			
+		msg.setInfo(info);
+		return msg;
+	}
+	@Override
+	public Message vipLevelUpAwardReceive(RoleInstance role, byte vipLevel) {
+		C2513_VipLevelUpAwardReceiveRespMessage msg = new C2513_VipLevelUpAwardReceiveRespMessage();
+		
+		byte type = 0;      //1:success 0:failed
+		String info = "";   
+//		if(vipLevelUpAawrdFlag == 1){
+//			if(!isLevelUpAwardAvailable(role,vipLevel)){
+//				info = getText(TextId.VIP_LevelUp_Award_Has_Received);
+//				msg.setType(type);
+//				msg.setInfo(info);
+//				return msg;
+//			}else{
+//				GoodsLiteItem awardItem = buildVipLevelUpAwardItem(vipLevel);
+//				sendVipAward(role, awardItem);
+//			}
+//			
+//		}
+		
+//		List<VipLevelUpAwardItem> vipLvUpItemList = getRoleLevelUpAwardItemList4Display(role);
+		type = 0;
+		msg.setInfo(info);
+		return null;
+	}
+
+	private boolean sendVipAward(RoleInstance role, GoodsLiteItem goodsItem) {
+		List<GoodsOperateBean> addList = new ArrayList<GoodsOperateBean>();
+		GoodsOperateBean bean = new GoodsOperateBean();
+		bean.setGoodsId(goodsItem.getGoodsId());
+		bean.setGoodsNum(goodsItem.getNum());
+		bean.setBindType(BindingType.get(goodsItem.getBindType()));
+		addList.add(bean);
+		// 
+		AddGoodsBeanResult goodsResult = GameContext.getUserGoodsApp().addSomeGoodsBeanForBag(role, addList,OutputConsumeType.luckybox_output);
+		//if bag is full then send mail
+		List<GoodsOperateBean> putFailureList = goodsResult.getPutFailureList();
+		try {
+			if(!Util.isEmpty(putFailureList)){
+				String context = getText(TextId.VIP_Mail_Context);
+				GameContext.getMailApp().sendMail(role.getRoleId(),
+							MailSendRoleType.VIP.getName(), 
+							context,
+							MailSendRoleType.VIP.getName(), 
+							OutputConsumeType.VIP_mail_output
+							.getType(),
+							putFailureList);
+			}
+		} catch (Exception e) {
+			logger.error("", e);
+			return false;
+		}
+		return true;
+	}
+	private String getText(String textId){
+		return GameContext.getI18n().getText(textId);
+	}
+	
+	@Override
+	public byte getVipLevel(String roleId) {
+		return 0 ;
+	}
+}

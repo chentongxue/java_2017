@@ -1,0 +1,141 @@
+package sacred.alliance.magic.app.count;
+
+import sacred.alliance.magic.app.arena.ArenaType;
+import sacred.alliance.magic.base.OutputConsumeType;
+import sacred.alliance.magic.core.Service;
+import sacred.alliance.magic.domain.RoleCount;
+import sacred.alliance.magic.vo.RoleInstance;
+
+public interface CountApp extends Service{
+	
+	/**
+	 * 增加完成天命轮回任务次数 
+	 * @param role
+	 */
+	public void incrDialQuestSubmitCount(RoleInstance role);
+	
+	/**
+	 * 增加完成随机任务次数
+	 * @param role
+	 * @param questType
+	 */
+	public void incrRmQuestSubmitCount(RoleInstance role);
+	
+	/**
+	 * 记录进入副本次数
+	 * @param role
+	 * @param copySignType
+	 */
+	public void incrEnterCopyCount(RoleInstance role,byte copySignType);
+	
+	
+	/**
+	 * 更新用户通天塔最高层数及其最高层分数
+	 * @param order 层数
+	 * @param score 该层分数
+	 */
+	public void updateTowerMapPass(RoleInstance role, int order, int score);
+	
+	
+	public void updateSuoYaoTa(RoleInstance role, int order, int time) ;
+	
+	/**
+	 * 更新用户通过的关卡数，打通关卡（最后一张地图）+1
+	 */
+	public void updateTowerZonePass(RoleInstance role);
+	
+	/**
+	 * 更新用户参加上古法阵地阶次数
+	 * @param role
+	 * @param id 法阵ID
+	 * @param num 抽奖次数
+	 */
+	public void updateTaobao(RoleInstance role, short id, int num);
+	
+	/**
+	 * 更新用户使用藏宝图相应品质次数
+	 * qualityType, 2:绿(普通), 3:蓝(神秘), 4:紫(远古)
+	 */
+	public void updateTreasureMap(RoleInstance role, byte qualityType);
+	
+	/**
+	 * 更新用户天命轮回信息
+	 * @param index 3:皇帝秘库、4:神秘宝藏、5:巫族遗物
+	 */
+	public void updateSamsara(RoleInstance role, byte index);
+	
+
+	/**
+	 * 上线加载角色计数
+	 * */
+	public void loadRoleCount(RoleInstance role);
+	
+	/**
+	 * 角色计数入库
+	 * */
+	public void saveRoleCount(RoleInstance role);
+	
+	public void saveRoleCount(RoleCount count);
+	/**
+	 * 处理用户充值行为 
+	 * payValue:充值金额
+	 */
+	public void updateUserPay(String userId,RoleInstance chargeRole, int payValue);
+	/**
+	 * 处理用户消费行为
+	 * buyValue:消费金额
+	 */
+	public void updateUserBuy(RoleInstance role,int buyValue,OutputConsumeType outputConsumeType);
+	
+	
+	public void incrArenaFail(RoleInstance role,ArenaType arenaType,int score);
+	
+	public void incrArenaWin(RoleInstance role,ArenaType arenaType,int score);
+	
+	//public void incrArenaWin1vn(RoleInstance role);
+	
+	public void incrArenaJoin(RoleInstance role,ArenaType arenaType);
+
+	/**
+	 * 增加每日免费传送次数
+	 * @param role
+	 */
+	public void incrDayFreeTransport(RoleInstance role) ;
+	
+	/**
+	 * 增加每日免费原地复活次数
+	 * @param role
+	 */
+	public void incrDayFreeReborn(RoleInstance role) ;
+
+	public void offlineLog(RoleInstance role);
+	
+	/**
+	 * 收到好友送花
+	 * @param receiver
+	 * @param count
+	 */
+	public void receiveFlower(RoleInstance receiver, int count);
+	
+	/**
+	 * 
+	 * @param role 角色
+	 * @param points 积分数
+	 * @param whichRound 第几轮
+	 * @return 是否添加成功
+	 * @author gaibaoning@moogame.cn
+	 * @date 2014-4-2 下午06:16:46 
+	 */
+	public boolean addCompassRewardPoints(RoleInstance role,int points,int whichRound);
+	/**
+	 * 炼金每日清零，连续炼金次数清零，未获得暴击的连续次数清零
+	 * @param role
+	 * @param alchemyNoBreakOutCount
+	 * @param alchemyCount
+	 * @return 是否设置成功
+	 * @author gaibaoning@moogame.cn
+	 * @date 2014-4-4 下午01:03:42 
+	 */
+	public boolean setAlchemyCount(RoleInstance role,byte alchemyNoBreakOutCount,byte alchemyCount);
+	
+}

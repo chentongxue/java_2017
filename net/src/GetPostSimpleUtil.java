@@ -30,7 +30,7 @@ public class GetPostSimpleUtil {
      * @throws Exception
      */
      public static String sendGet(String path){
-          
+        System.out.println("gt mothod invoke:"+path);
 		try {
 			URL url = new URL(path);
 			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
